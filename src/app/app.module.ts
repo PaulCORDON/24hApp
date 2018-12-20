@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DefisPage } from '../pages/defis/defis';
 import { ConcoursPage } from '../pages/concours/concours';
 import { HistoriquePage } from '../pages/historique/historique';
+import { Infos24hProvider } from '../providers/infos24h/infos24h';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HistoriquePage } from '../pages/historique/historique';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Infos24hProvider
   ]
 })
 export class AppModule {}

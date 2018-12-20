@@ -14,23 +14,6 @@
 
 
 <ion-content padding>
-  <!--<ion-row>
-    <ion-col col-4>
-      <ion-label>Édition</ion-label>
-    </ion-col>
-    <ion-col col-8>
-      <ion-select [(ngModel)]="annee">
-        <ion-option value="2018">2018</ion-option>
-        <ion-option value="2017">2017</ion-option>
-        <ion-option value="2016">2016</ion-option>
-        <ion-option value="2015">2015</ion-option>
-        <ion-option value="2014">2015</ion-option>
-        <ion-option value="2013">2014</ion-option>
-        <ion-option value="2012">2013</ion-option>
-      </ion-select>
-    </ion-col>
-  </ion-row>  -->
-
   <ion-list>
     <ion-item>
       <ion-label>Édition</ion-label>
@@ -51,13 +34,33 @@
       <ion-segment-button value="sujets">
         <ion-icon name="list-box"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="vainqueurs">
-        <ion-icon name="trophy"></ion-icon>
+      <ion-segment-button value="affiche">
+          <ion-icon name="image"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="information">
         <ion-icon name="information-circle"></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </div>
+  <div [ngSwitch]="currentTab">
+      <div *ngSwitchCase="'sujets'">
+        <div *ngFor="let a of infos24h">
+        <div *ngIf="a.annee == annee">
+          {{a.Lieu}}
+        </div>
+      </div>
+      </div>
+    
+      <div *ngSwitchCase="'affiche'">
+        Affiche
+
+      </div>
+      
+      <div *ngSwitchCase="'information'">
+          information
+          
+      </div>
+      
+    </div>
 
 </ion-content>
