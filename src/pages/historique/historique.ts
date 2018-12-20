@@ -14,12 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'historique.html',
 })
 export class HistoriquePage {
-
+  currentTab : String;
+  annee : String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistoriquePage');
+    this.currentTab="sujets";
+    this.annee="2018"
   }
 
 }
