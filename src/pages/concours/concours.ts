@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ConcoursPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-concours',
@@ -15,11 +8,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConcoursPage {
 
+  public nom:string;
+  public prenom:string;
+  public tel:string;
+  public mail:string;
+
+  public cg:boolean = false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConcoursPage');
+  }
+
+  envoyer(){
+    console.log(this.nom + " " + this.prenom + " " + this.cg);
   }
 
 }
