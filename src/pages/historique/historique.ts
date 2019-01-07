@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'historique.html',
 })
 export class HistoriquePage {
+  splash = true;
   currentTab : String;
   annee : String;
   infos24h : any = 
@@ -26,6 +27,10 @@ export class HistoriquePage {
     console.log('ionViewDidLoad HistoriquePage');
     this.currentTab="sujets";
     this.annee="2018"
+
+    setTimeout(() => {
+      this.splash = false;
+    }, 4000);
   }
 
 }
