@@ -19,21 +19,22 @@
   <ion-row>
     <ion-list>
       <ion-item>
-        <ion-label floating>Nom</ion-label>
+        <ion-label inline>Nom *</ion-label>
         <ion-input [(ngModel)]="nom" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Prenom</ion-label>
+        <ion-label inline>Prenom *</ion-label>
         <ion-input [(ngModel)]="prenom" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Telephone</ion-label>
+        <ion-label inline>Telephone *</ion-label>
         <ion-input [(ngModel)]="tel" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Mail (facultatif)</ion-label>
+        <ion-label inline>Mail</ion-label>
         <ion-input [(ngModel)]="mail" type="text"></ion-input>
       </ion-item>
+      <ion-item><div class="conditions">* champs obligatoires</div></ion-item>
     </ion-list>
   </ion-row>
 
