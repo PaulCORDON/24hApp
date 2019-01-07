@@ -12,6 +12,8 @@ import { DefisPage } from '../pages/defis/defis';
 import { ConcoursPage } from '../pages/concours/concours';
 import { HistoriquePage } from '../pages/historique/historique';
 import { Infos24hProvider } from '../providers/infos24h/infos24h';
+import { SQLite } from '@ionic-native/sqlite';
+import { SQLiteService } from '../SQLite/SQLiteService';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { Infos24hProvider } from '../providers/infos24h/infos24h';
   ],
   providers: [
     StatusBar,
+    SQLite,
+    SQLiteService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Infos24hProvider
