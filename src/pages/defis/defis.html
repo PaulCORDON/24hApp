@@ -15,10 +15,9 @@
 
 <ion-content padding>
 
-      <ion-label class="titre-defi">Le code et la programmation</ion-label>
+    <ion-label class="titre-defi">Le code et la programmation</ion-label>
 
-
-    <ion-card class="debloque">
+    <ion-card class="debloque" (click)="cliqueDefi(101)">
         <ion-grid>
             <ion-row align-items-center> 
               <ion-col class="trophee">
@@ -31,7 +30,7 @@
         </ion-grid>
     </ion-card>
 
-    <ion-card class="bloque">
+    <ion-card class="bloque" (click)="cliqueDefi(102)">
         <ion-grid>
             <ion-row align-items-center> 
               <ion-col class="trophee">
@@ -44,7 +43,7 @@
         </ion-grid>
     </ion-card>
 
-    <ion-card class="bloque">
+    <ion-card class="bloque" (click)="cliqueDefi(103)">
         <ion-grid>
             <ion-row align-items-center> 
               <ion-col class="trophee">

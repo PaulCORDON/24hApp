@@ -22,4 +22,8 @@ export class DefisPage {
     console.log('ionViewDidLoad DefisPage');
   }
 
+  cliqueDefi(){
+    
+  }
+
 }
