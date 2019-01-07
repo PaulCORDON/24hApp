@@ -17,44 +17,38 @@
   </ion-row>
 
   <ion-row>
-    <ion-item>
-      <ion-label fixed>Nom</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label inline>Nom *</ion-label>
+        <ion-input [(ngModel)]="nom" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label inline>Prenom *</ion-label>
+        <ion-input [(ngModel)]="prenom" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label inline>Telephone *</ion-label>
+        <ion-input [(ngModel)]="tel" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label inline>Mail</ion-label>
+        <ion-input [(ngModel)]="mail" type="text"></ion-input>
+      </ion-item>
+      <ion-item><div class="conditions">* champs obligatoires</div></ion-item>
+    </ion-list>
   </ion-row>
 
-  <ion-row>
-    <ion-item>
-      <ion-label fixed>Prenom</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
-  </ion-row>
-
-  <ion-row>
-    <ion-item>
-      <ion-label fixed>Telephone</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
-  </ion-row>
-  
-  <ion-row>
-    <ion-item>
-      <ion-label fixed>Mail (facultatif)</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
-  </ion-row>
-
-  <ion-row class="conditionsRow">
-    <ion-col col-1 class="checkConditions">
-      <ion-checkbox color="dark" checked="true"></ion-checkbox>
+  <ion-row class="conditionsRow" >
+    <ion-col col-1 align-self-center>
+      <ion-checkbox [(ngModel)]="cg" color="dark" checked="false"></ion-checkbox>
     </ion-col>
     <ion-col>
       <div class="conditions">J'ai lu et j'accepte les conditions générales de participation au concours et certifie sur l'honneur l'exactitude des informations communiquées</div>
     </ion-col>
   </ion-row>
   
-  <ion-row class="submitButton">
-    <button ion-button>Envoyer la candidature<ion-icon></ion-icon></button>
+  <ion-row justify-content-center>
+    <button ion-button (click)="envoyer()">Envoyer la candidature</button>
   </ion-row>
   
 </ion-content>

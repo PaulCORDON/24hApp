@@ -15,6 +15,8 @@ export class TabsPage {
   tab3Root = ConcoursPage;
 
   constructor() {
-
+    setTimeout(() => {
+      
+    }, 4000);
   }
 }
