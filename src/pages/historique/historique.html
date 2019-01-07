@@ -42,11 +42,11 @@
       </ion-segment-button>
     </ion-segment>
   </div>
-  <div [ngSwitch]="currentTab">
+  <div class=contentTabs [ngSwitch]="currentTab">
       <div *ngSwitchCase="'sujets'">
         <div *ngFor="let a of infos24h">
         <div *ngIf="a.annee == annee">
-          {{a.Lieu}}
+          l'édition à eut lieux à {{a.Lieu}}
         </div>
       </div>
       </div>
