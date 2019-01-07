@@ -22,7 +22,7 @@
 
 
 <ion-content padding>
-  <ion-list> 
+  <ion-list no-lines>
     <ion-item>
       <ion-label>Édition</ion-label>
       <ion-select [(ngModel)]="annee">
@@ -39,49 +39,52 @@
   </ion-list>
   <div>
     <ion-segment [(ngModel)]="currentTab">
-      <ion-segment-button value="sujets">
+      <ion-segment-button class="text-on-bottom" value="sujets">
         <ion-icon name="list-box"></ion-icon>
+        sujets
       </ion-segment-button>
       <ion-segment-button value="affiche">
-          <ion-icon name="image"></ion-icon>
+        <ion-icon name="image"></ion-icon>
+        affiche
       </ion-segment-button>
       <ion-segment-button value="information">
         <ion-icon name="information-circle"></ion-icon>
+        info
       </ion-segment-button>
     </ion-segment>
   </div>
   <div class=contentTabs [ngSwitch]="currentTab">
-      <div *ngSwitchCase="'sujets'">
-        <div *ngFor="let a of infos24h">
-          <div *ngIf="a.annee == annee">
-            <br>Nombre de sujets : {{a.nbSujet}}
-            <div *ngIf="a.nbSujet >= 1"> <br>Sujet 1 : {{a.titreSujet1}} <br>Auteur : {{a.demandeurSujet1}} </div>
-            <div *ngIf="a.nbSujet >= 2"> <br>Sujet 2 : {{a.titreSujet2}} <br>Auteur : {{a.demandeurSujet2}}</div>
-            <div *ngIf="a.nbSujet >= 3"> <br>Sujet 3 : {{a.titreSujet3}} <br>Auteur : {{a.demandeurSujet3}}</div>
-            <div *ngIf="a.nbSujet >= 4"> <br>Sujet 4 : {{a.titreSujet4}} <br>Auteur : {{a.demandeurSujet4}}</div>
-            <div *ngIf="a.nbSujet >= 5"> <br>Sujet 5 : {{a.titreSujet5}} <br>Auteur : {{a.demandeurSujet5}}</div>
-          </div>
+    <div *ngSwitchCase="'sujets'">
+      <div *ngFor="let a of infos24h">
+        <div *ngIf="a.annee == annee">
+          <br>Nombre de sujets : {{a.nbSujet}}
+          <div *ngIf="a.nbSujet >= 1"> <br>Sujet 1 : {{a.titreSujet1}} <br>Auteur : {{a.demandeurSujet1}} </div>
+          <div *ngIf="a.nbSujet >= 2"> <br>Sujet 2 : {{a.titreSujet2}} <br>Auteur : {{a.demandeurSujet2}}</div>
+          <div *ngIf="a.nbSujet >= 3"> <br>Sujet 3 : {{a.titreSujet3}} <br>Auteur : {{a.demandeurSujet3}}</div>
+          <div *ngIf="a.nbSujet >= 4"> <br>Sujet 4 : {{a.titreSujet4}} <br>Auteur : {{a.demandeurSujet4}}</div>
+          <div *ngIf="a.nbSujet >= 5"> <br>Sujet 5 : {{a.titreSujet5}} <br>Auteur : {{a.demandeurSujet5}}</div>
         </div>
       </div>
-    
-      <div *ngSwitchCase="'affiche'">
-        <ion-img src="assets/imgs/2016.jpg"></ion-img>
-
-      </div>
-      
-      <div *ngSwitchCase="'information'">
-        <div *ngFor="let a of infos24h">
-          <div *ngIf="a.annee == annee">
-            Date : {{a.dates}}
-            <br>Lieu : {{a.Lieu}}
-            <br>Nombre de participants : {{a.nbParticipants}}
-            <div *ngIf="0 != ''.localeCompare(a.Anectode1)"> <br>Anecdote 1 : {{a.Anectode1}}</div>
-            <div *ngIf="0 != ''.localeCompare(a.Anectode2)"> <br>Anecdote 2 : {{a.Anectode2}}</div>
-            <div *ngIf="0 != ''.localeCompare(a.Anectode3)"> <br>Anecdote 3 : {{a.Anectode3}}</div>
-          </div>
-        </div>          
-      </div>
-      
     </div>
+
+    <div *ngSwitchCase="'affiche'">
+      <img *ngIf="annee != 2012" src="assets/imgs/{{annee}}.jpg">
+      <div *ngIf="annee == 2012">Aucune affiche n'a été créé pour la première édition</div>
+    </div>
+
+    <div *ngSwitchCase="'information'">
+      <div *ngFor="let a of infos24h">
+        <div *ngIf="a.annee == annee">
+          Date : {{a.dates}}
+          <br>Lieu : {{a.Lieu}}
+          <br>Nombre de participants : {{a.nbParticipants}}
+          <div *ngIf="0 != ''.localeCompare(a.Anectode1)"> <br>Anecdote 1 : {{a.Anectode1}}</div>
+          <div *ngIf="0 != ''.localeCompare(a.Anectode2)"> <br>Anecdote 2 : {{a.Anectode2}}</div>
+          <div *ngIf="0 != ''.localeCompare(a.Anectode3)"> <br>Anecdote 3 : {{a.Anectode3}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </ion-content>
