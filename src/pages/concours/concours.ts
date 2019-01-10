@@ -17,12 +17,23 @@ export class ConcoursPage {
   public cg:boolean = false;
 
   public nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
-
+  
+  public timer="";
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConcoursPage');
+  ionViewWillLeave(){
+    console.log("concours EXIT");
+    GlobalVarsProvider.events.unsubscribe('timeChanged');
+  }
+
+  ionViewWillEnter() {
+    GlobalVarsProvider.events.subscribe('timeChanged',()=>{
+      this.timer = GlobalVarsProvider.instance.getTimer();
+      console.log("dans concours " + this.timer)
+    });
   }
 
   envoyer(){
