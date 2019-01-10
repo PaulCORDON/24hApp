@@ -5,11 +5,11 @@ import { TabsPage } from '../../pages/tabs/tabs';
 @Injectable()
 export class GlobalVarsProvider {
 
-  public static instance:GlobalVarsProvider = new GlobalVarsProvider(new Events());
+  public static instance:GlobalVarsProvider = new GlobalVarsProvider();
   
   private nombreTicket:number = 0;
 
-  private constructor(public events:Events) {
+  private constructor() {
     
   }
 
