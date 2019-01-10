@@ -14,6 +14,7 @@ import { HistoriquePage } from '../pages/historique/historique';
 import { Infos24hProvider } from '../providers/infos24h/infos24h';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteService } from '../SQLite/SQLiteService';
+import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SQLiteService } from '../SQLite/SQLiteService';
     SQLiteService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Infos24hProvider
+    Infos24hProvider,
+    GlobalVarsProvider
   ]
 })
 export class AppModule {}
