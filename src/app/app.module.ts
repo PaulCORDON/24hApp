@@ -16,6 +16,21 @@ import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteService } from '../SQLite/SQLiteService';
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+
+
+var config = {
+  apiKey: "AIzaSyAUX6GiF2zOiHCseXho3qUWUHNb5V3aj7k",
+  authDomain: "app24hcode.firebaseapp.com",
+  databaseURL: "https://app24hcode.firebaseio.com",
+  projectId: "app24hcode",
+  storageBucket: "app24hcode.appspot.com",
+  messagingSenderId: "957300827901"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +42,10 @@ import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,8 +61,9 @@ import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
     SQLite,
     SQLiteService,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Infos24hProvider
-    ]
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Infos24hProvider,
+    FirebaseProvider
+  ]
 })
-export class AppModule {}
+export class AppModule { }
