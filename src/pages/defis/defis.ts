@@ -16,24 +16,33 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 })
 export class DefisPage {
 
-  sqliteservice: SQLiteService;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public data : SQLiteService) {
+    data.selectData(200, "theme", "*").then((data)=>
+    {
+      console.log("Nom", data);
+      this.nom = data.nom;
+    });
+
   listeDefis: any =
     [{ "id":"101","titre": "Test 1", "etat": "debloque","theme":"100"},{"id":"102","titre":"Wesh lol","etat":"bloque","theme":"200"}];
   listeThemes: any=
     [{ "id":"100","titre": "Le code / La programmation"},{"id":"200","titre":"Les femmes dans l'informatique"}];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DefisPage');
-   
-  }
+  nom:any;
 
   cliqueDefi(id: number){
     
     this.navCtrl.push('');
   }
+
+
+
+ionViewDidLoad() {
+  console.log('ionViewDidLoad DefisPage');
+  
+}
+
+cliqueDefi() {
+
+}
 
 }
