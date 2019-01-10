@@ -15,9 +15,31 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.tabs{
-    opacity: 0.8;
-    //background-color: color($colors, primary);
-    //background-color: navy;
-    color:#0BA3CC;
+
+.tabs {
+
+.tabbar {
+    background-color: #0BA3CC;
+    //opacity: 0.1;
+}
+
+    //quand l'onglet est sélectionné
+    a.tab-button[aria-selected=true]{
+        //opacity: 1;
+		color: color($colors,light);
+		.tab-button-icon {
+            //opacity: 1;
+			color: color($colors,light);
+		}
+    }
+    //quand l'onglet n'est pas sélectionné
+    a.tab-button[aria-selected=false]{
+       // opacity: 1;
+		//color: color($colors,danger);
+		.tab-button-icon {
+            //opacity: 1;
+			//color: color($colors,danger);
+		}
+	}
+
 }

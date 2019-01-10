@@ -14,6 +14,7 @@ import { HistoriquePage } from '../pages/historique/historique';
 import { Infos24hProvider } from '../providers/infos24h/infos24h';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteService } from '../SQLite/SQLiteService';
+import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
@@ -36,7 +37,8 @@ var config = {
     DefisPage,
     ConcoursPage,
     HistoriquePage,
-    TabsPage
+    TabsPage,
+    SplashscreenPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ var config = {
     DefisPage,
     ConcoursPage,
     HistoriquePage,
-    TabsPage
+    TabsPage,
+    SplashscreenPage
   ],
   providers: [
     StatusBar,
