@@ -14,6 +14,7 @@ import { HistoriquePage } from '../pages/historique/historique';
 import { Infos24hProvider } from '../providers/infos24h/infos24h';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteService } from '../SQLite/SQLiteService';
+import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SQLiteService } from '../SQLite/SQLiteService';
     DefisPage,
     ConcoursPage,
     HistoriquePage,
-    TabsPage
+    TabsPage,
+    SplashscreenPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { SQLiteService } from '../SQLite/SQLiteService';
     DefisPage,
     ConcoursPage,
     HistoriquePage,
-    TabsPage
+    TabsPage,
+    SplashscreenPage
   ],
   providers: [
     StatusBar,

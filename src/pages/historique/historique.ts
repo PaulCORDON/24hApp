@@ -17,8 +17,7 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'historique.html',
 })
 export class HistoriquePage {
-  splash = true;
-  tabs:TabsPage;
+
   currentTab: String;
   annee: String;
   infos24h: any =
@@ -34,12 +33,6 @@ export class HistoriquePage {
     console.log('ionViewDidLoad HistoriquePage');
     this.currentTab = "sujets";
     this.annee = "2018";
-
-    //this.tabs.hide();
-
-    setTimeout(() => {
-      this.splash = false;
-    }, 4000);
   }
 
 
