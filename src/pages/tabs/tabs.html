@@ -1,6 +1,8 @@
+<ion-tabs class="tabs">
 
-<ion-tabs class="tabs" id="tabs" tabsHideOnSubPages="true">
-  <ion-tab [root]="tab1Root" tabTitle="Historique" tabIcon="book"></ion-tab>
+  <ion-tab color="secondary" [root]="tab1Root" tabTitle="Historique" tabIcon="book"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Défis" tabIcon="game-controller-b"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Concours" tabIcon="contacts"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Concours" tabBadge="{{this.nombreTicket}}" badge tabBadgeStyle="secondary"
+    tabIcon="contacts"></ion-tab>
+
 </ion-tabs>
