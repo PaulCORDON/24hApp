@@ -16,12 +16,13 @@ export class ConcoursPage {
 
   public cg:boolean = false;
 
+  public nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConcoursPage');
-    console.log(GlobalVarsProvider.instance.getNombreTicket());
   }
 
   envoyer(){
