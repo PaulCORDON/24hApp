@@ -45,6 +45,6 @@ import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Infos24hProvider
-  ]
+    ]
 })
 export class AppModule {}
