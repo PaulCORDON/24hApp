@@ -15,6 +15,7 @@ import { Infos24hProvider } from '../providers/infos24h/infos24h';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteService } from '../SQLite/SQLiteService';
 import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
+import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
     DefisPage,
     ConcoursPage,
     HistoriquePage,
-    TabsPage
+    TabsPage,
+    SplashscreenPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
     DefisPage,
     ConcoursPage,
     HistoriquePage,
-    TabsPage
+    TabsPage,
+    SplashscreenPage
   ],
   providers: [
     StatusBar,

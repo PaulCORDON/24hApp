@@ -6,12 +6,13 @@ import { SQLite, SQLiteObject } from "@ionic-native/sqlite";
 import {SQLiteService} from "../SQLite/SQLiteService"
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = SplashscreenPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService) {
     platform.ready().then(() => {
