@@ -74,7 +74,18 @@
     -->
     <div *ngFor="let theme of listeThemes">
 
-        <ion-label class="titre-defi">{{theme.titre}}</ion-label>
+            <ion-grid>
+                    <ion-row>    
+        
+                        <ion-col>
+                            <ion-label class="titre-defi">{{theme.titre}}</ion-label>
+                        </ion-col>
+                        <ion-col>
+                            <ion-label>0/3</ion-label>
+                        </ion-col>            
+                        
+                    </ion-row>
+                </ion-grid>
 
                 <div *ngFor="let defi of listeDefis">
 
@@ -87,7 +98,7 @@
                                                 <ion-icon class="bloque" name="md-trophy"></ion-icon>
                                             </ion-col>
                                             <ion-col>
-                                                {{defi.titre}}
+                                                ???
                                             </ion-col>
                                         </ion-row>
                                     </ion-grid>
@@ -99,7 +110,7 @@
                                         <ion-grid>
                                             <ion-row align-items-center> 
                                                 <ion-col class="trophee">
-                                                    <ion-icon class="debloque" name="md-trophy"></ion-icon>
+                                                    <ion-icon class="debloque shake" name="md-trophy"></ion-icon>
                                                 </ion-col>
                                                 <ion-col>
                                                     {{defi.titre}}
