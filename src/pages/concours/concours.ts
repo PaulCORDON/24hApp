@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 
 @IonicPage()
 @Component({
@@ -20,6 +21,7 @@ export class ConcoursPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConcoursPage');
+    console.log(GlobalVarsProvider.instance.getNombreTicket());
   }
 
   envoyer(){
