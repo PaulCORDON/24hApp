@@ -19,13 +19,16 @@
 .tabs {
 
 .tabbar {
-    background-color: #0BA3CC;
+    background: linear-gradient(to bottom, #E7600E 0%, #0BA3CC 30%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
+
+   // background-color: #0BA3CC;
     //opacity: 0.1;
 }
 
     //quand l'onglet est sélectionné
     a.tab-button[aria-selected=true]{
         //opacity: 1;
+        margin-top: 13px;
 		color: color($colors,light);
 		.tab-button-icon {
             //opacity: 1;
@@ -35,12 +38,39 @@
     //quand l'onglet n'est pas sélectionné
     a.tab-button[aria-selected=false]{
        // opacity: 1;
-		//color: color($colors,danger);
+        //color: color($colors,danger);
+        margin-top: 13px;
 		.tab-button-icon {
             //opacity: 1;
 			//color: color($colors,danger);
 		}
-	}
+    }
+    
+    .content{
+        background-color:white;
+        margin-top: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .contentTitle{
+        background-color:white;
+        margin-top: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size:1.3em;
+        line-height:30px
+    }
+            
+    .barre{
+        background-color: #E7600E;
+        content: '';
+        display: block;
+        margin: 10px auto;
+        width: 60px;
+        height: 4px;
+        margin-block-end: 0;
+    }
 
 }
 

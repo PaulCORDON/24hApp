@@ -3,7 +3,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="margin-top: 20px">
 
   <ion-row>
     <div class="titre">Modalités de participation au concours</div>
@@ -12,23 +12,25 @@
     <div class="modalites">blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla </div>
   </ion-row>
 
-  <ion-row>
+  <div class="barre"></div>
+
+  <ion-row style="margin-top:20px; margin-block-end: 0">
     <ion-list no-lines>
       <ion-item>
-        <ion-label inline>Nom * :</ion-label>
-        <ion-input [(ngModel)]="nom" type="text" placeholder="Votre nom"></ion-input>
+        <ion-label style="color: black" inline>Nom * :</ion-label>
+        <ion-input [(ngModel)]="nom" style="color: #0BA3CC" type="text" placeholder="Votre nom"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label inline>Prénom * :</ion-label>
-        <ion-input [(ngModel)]="prenom" type="text" placeholder="Votre prénom"></ion-input>
+        <ion-label style="color: black" inline>Prénom * :</ion-label>
+        <ion-input [(ngModel)]="prenom" style="color: #0BA3CC" type="text" placeholder="Votre prénom"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label inline>Téléphone * :</ion-label>
-        <ion-input [(ngModel)]="tel" type="text" placeholder="_ _-_ _-_ _-_ _-_ _"></ion-input>
+        <ion-label style="color: black" inline>Téléphone * :</ion-label>
+        <ion-input [(ngModel)]="tel" style="color: #0BA3CC" type="text" placeholder="_ _-_ _-_ _-_ _-_ _"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label inline>Mail :</ion-label>
-        <ion-input [(ngModel)]="mail" type="text" placeholder="votre_mail@exemple.fr"></ion-input>
+        <ion-label style="color: black" inline>Mail :</ion-label>
+        <ion-input [(ngModel)]="mail" style="color: #0BA3CC" type="text" placeholder="votre_mail@exemple.fr"></ion-input>
       </ion-item>
       <ion-item><div class="conditions">* champs obligatoires</div></ion-item>
     </ion-list>
@@ -36,7 +38,7 @@
 
   <ion-row class="conditionsRow" >
     <ion-col col-1 align-self-center>
-      <ion-checkbox [(ngModel)]="cg" color="dark" checked="false"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="cg" color="primary" checked="false"></ion-checkbox>
     </ion-col>
     <ion-col>
       <div class="conditions">J'ai lu et j'accepte les conditions générales de participation au concours et certifie sur l'honneur l'exactitude des informations communiquées</div>
@@ -44,8 +46,7 @@
   </ion-row>
   
   <ion-row justify-content-center>
-    <button ion-button (click)="envoyer()">Envoyer la candidature</button>
+    <button  ion-button (click)="envoyer()">Envoyer la candidature</button>
   </ion-row>
 
-  <div class="test"></div>
 </ion-content>

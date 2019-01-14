@@ -13,5 +13,5 @@ export class FirebaseProvider {
   constructor(public http: HttpClient) {
     console.log('Hello FirebaseProvider Provider');
   }
-
+//TODO faire des fonctions qui interagissent avec notre table
 }
