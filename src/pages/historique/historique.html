@@ -6,12 +6,12 @@
 -->
 <ion-header>
 
-  
+
 
 </ion-header>
 
 
-<ion-content no-padding style="background-color:#D3D3D3">
+<ion-content no-padding style="background-color:#D3D3D3; margin-top: 20px">
   <ion-list no-lines no-margin no-padding>
     <ion-item color="primary">
       <ion-label color="light" style="text-align: right">Édition</ion-label>
@@ -31,33 +31,42 @@
     <ion-segment [(ngModel)]="currentTab" color="light">
       <ion-segment-button class="text-on-bottom" value="sujets">
         <ion-icon name="list-box"></ion-icon>
-      sujets
+        &nbsp;&nbsp;sujets
+        <!--ici le &nbsp; sert à ajouter un espace-->
       </ion-segment-button>
       <ion-segment-button value="affiche">
-        <ion-icon name="image" ></ion-icon>
-        affiche
+        <ion-icon name="image"></ion-icon>
+        &nbsp;&nbsp;affiche
       </ion-segment-button>
       <ion-segment-button value="information">
         <ion-icon name="information-circle"></ion-icon>
-        info
+        &nbsp;&nbsp;info
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-  <div class=contentTabs [ngSwitch]="currentTab" padding style="background-color:white">
+  <div [ngSwitch]="currentTab">
     <div *ngSwitchCase="'sujets'">
       <div *ngFor="let a of infos24h">
         <div *ngIf="a.annee == annee">
-          <br>Nombre de sujets : {{a.nbSujet}}
-          <div *ngIf="a.nbSujet >= 1"> <br>Sujet 1 : {{a.titreSujet1}} <br>Auteur : {{a.demandeurSujet1}} </div>
-          <div *ngIf="a.nbSujet >= 2"> <br>Sujet 2 : {{a.titreSujet2}} <br>Auteur : {{a.demandeurSujet2}}</div>
-          <div *ngIf="a.nbSujet >= 3"> <br>Sujet 3 : {{a.titreSujet3}} <br>Auteur : {{a.demandeurSujet3}}</div>
-          <div *ngIf="a.nbSujet >= 4"> <br>Sujet 4 : {{a.titreSujet4}} <br>Auteur : {{a.demandeurSujet4}}</div>
-          <div *ngIf="a.nbSujet >= 5"> <br>Sujet 5 : {{a.titreSujet5}} <br>Auteur : {{a.demandeurSujet5}}</div>
+          <div class="contentTitle" text-center padding>
+            <ion-icon name="create"></ion-icon>&nbsp;{{a.nbSujet}} sujets proposés
+            <div class="barre"></div>
+          </div>
+          <div *ngIf="a.nbSujet >= 1" class="content" padding> Sujet 1 : {{a.titreSujet1}} <br>Auteur :
+            {{a.demandeurSujet1}} </div>
+          <div *ngIf="a.nbSujet >= 2" class="content" padding> Sujet 2 : {{a.titreSujet2}} <br>Auteur :
+            {{a.demandeurSujet2}}</div>
+          <div *ngIf="a.nbSujet >= 3" class="content" padding> Sujet 3 : {{a.titreSujet3}} <br>Auteur :
+            {{a.demandeurSujet3}}</div>
+          <div *ngIf="a.nbSujet >= 4" class="content" padding> Sujet 4 : {{a.titreSujet4}} <br>Auteur :
+            {{a.demandeurSujet4}}</div>
+          <div *ngIf="a.nbSujet >= 5" class="content" padding> Sujet 5 : {{a.titreSujet5}} <br>Auteur :
+            {{a.demandeurSujet5}}</div>
         </div>
       </div>
     </div>
 
-    <div *ngSwitchCase="'affiche'">
+    <div *ngSwitchCase="'affiche'" class="content">
       <img *ngIf="annee != 2012" src="assets/imgs/{{annee}}.jpg">
       <div *ngIf="annee == 2012">Aucune affiche n'a été créé pour la première édition</div>
     </div>
@@ -65,12 +74,17 @@
     <div *ngSwitchCase="'information'">
       <div *ngFor="let a of infos24h">
         <div *ngIf="a.annee == annee">
-          Date : {{a.dates}}
-          <br>Lieu : {{a.Lieu}}
-          <br>Nombre de participants : {{a.nbParticipants}}
-          <div *ngIf="0 != ''.localeCompare(a.Anectode1)"> <br>Anecdote 1 : {{a.Anectode1}}</div>
-          <div *ngIf="0 != ''.localeCompare(a.Anectode2)"> <br>Anecdote 2 : {{a.Anectode2}}</div>
-          <div *ngIf="0 != ''.localeCompare(a.Anectode3)"> <br>Anecdote 3 : {{a.Anectode3}}</div>
+          <div text-center padding class="contentTitle">
+            <ion-icon name="calendar"></ion-icon>&nbsp;{{a.dates}}
+            <br>
+            <ion-icon name="pin"></ion-icon>&nbsp;Lieu : {{a.Lieu}}
+            <br>
+            <ion-icon name="people"></ion-icon>&nbsp;{{a.nbParticipants}}&nbsp;participants
+            <div class="barre"></div>
+          </div>
+          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode1)"> Anecdote 1 : {{a.Anectode1}}</div>
+          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode2)"> <br>Anecdote 2 : {{a.Anectode2}}</div>
+          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode3)"> <br>Anecdote 3 : {{a.Anectode3}}</div>
         </div>
       </div>
     </div>
