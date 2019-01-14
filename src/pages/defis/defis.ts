@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SQLiteService } from '../../SQLite/SQLiteService';
 
@@ -22,25 +22,28 @@ export class DefisPage {
     [{ "id":"100","titre": "Le code / La programmation"},{"id":"200","titre":"Les femmes dans l'informatique"}];
   nom:any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public data : SQLiteService) {
-    data.selectData(200, "theme", "*").then((data)=>
-    {
-      console.log("Nom", data);
-      this.nom = data.nom;
-    });
-  }
-  
 
-  cliqueDefi(id: number){
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService, zone: NgZone) {
+
+    sqlLite.selectData(200, "theme", "*").then((data) => {
+      console.log("Nom", data.nom);
+        this.listTheme.push(data);
+        console.log(this.listTheme);
+    });
+
+
+  }
+
+
+  cliqueDefi(id: number) {
+
     this.navCtrl.push('');
   }
 
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad DefisPage');
 
-ionViewDidLoad() {
-  console.log('ionViewDidLoad DefisPage');
-  
-}
+  }
 
 }
