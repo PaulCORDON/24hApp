@@ -7,7 +7,7 @@ page-defis {
 
     ion-icon.debloque {
         font-size: 50px; //Preferred size here
-        color: rgb(255, 233, 106);
+        color: rgb(253, 240, 167);
     }
 
     ion-icon.fini {
@@ -50,5 +50,62 @@ page-defis {
         padding:5;
         margin-right:10px;
     }
+
+    @-webkit-keyframes shake {
+        from,
+        to {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+      
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          -webkit-transform: translate3d(-5px, 0, 0);
+          transform: translate3d(-5px, 0, 0);
+        }
+      
+        20%,
+        40%,
+        60%,
+        80% {
+          -webkit-transform: translate3d(5px, 0, 0);
+          transform: translate3d(5px, 0, 0);
+        }
+      }
+      
+      @keyframes shake {
+        from,
+        to {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+      
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          -webkit-transform: translate3d(-5px, 0, 0);
+          transform: translate3d(-5px, 0, 0);
+        }
+      
+        20%,
+        40%,
+        60%,
+        80% {
+          -webkit-transform: translate3d(5px, 0, 0);
+          transform: translate3d(5px, 0, 0);
+        }
+      }
+      
+      .shake {
+        -webkit-animation-name: shake;
+        animation-name: shake;
+        -webkit-animation-duration: 1s;
+
+      }
 
 }

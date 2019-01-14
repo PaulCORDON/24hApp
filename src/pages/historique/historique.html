@@ -6,18 +6,16 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Historique</ion-title>
-  </ion-navbar>
+  
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list no-lines>
-    <ion-item>
-      <ion-label>Édition</ion-label>
-      <ion-select [(ngModel)]="annee">
+<ion-content no-padding style="background-color:#D3D3D3">
+  <ion-list no-lines no-margin no-padding>
+    <ion-item color="primary">
+      <ion-label color="light" style="text-align: right">Édition</ion-label>
+      <ion-select [(ngModel)]="annee" no-padding>
         <ion-option value="2018">2018</ion-option>
         <ion-option value="2017">2017</ion-option>
         <ion-option value="2016">2016</ion-option>
@@ -29,14 +27,14 @@
     </ion-item>
 
   </ion-list>
-  <div>
-    <ion-segment [(ngModel)]="currentTab">
+  <ion-toolbar style="margin:0" color="primary" no-margin no-padding>
+    <ion-segment [(ngModel)]="currentTab" color="light">
       <ion-segment-button class="text-on-bottom" value="sujets">
         <ion-icon name="list-box"></ion-icon>
-        sujets
+      sujets
       </ion-segment-button>
       <ion-segment-button value="affiche">
-        <ion-icon name="image"></ion-icon>
+        <ion-icon name="image" ></ion-icon>
         affiche
       </ion-segment-button>
       <ion-segment-button value="information">
@@ -44,8 +42,8 @@
         info
       </ion-segment-button>
     </ion-segment>
-  </div>
-  <div class=contentTabs [ngSwitch]="currentTab">
+  </ion-toolbar>
+  <div class=contentTabs [ngSwitch]="currentTab" padding style="background-color:white">
     <div *ngSwitchCase="'sujets'">
       <div *ngFor="let a of infos24h">
         <div *ngIf="a.annee == annee">

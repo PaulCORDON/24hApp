@@ -7,6 +7,7 @@ import {SQLiteService} from "../SQLite/SQLiteService"
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
+import { TimerComponent } from '../components/timer/timer';
 
 @Component({
   templateUrl: 'app.html'
