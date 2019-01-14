@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <div *ngSwitchCase="'affiche'" class="content">
+    <div *ngSwitchCase="'affiche'" class="content" style="margin-top:0px; padding-block-start: 0px">
       <img *ngIf="annee != 2012" src="assets/imgs/{{annee}}.jpg">
       <div *ngIf="annee == 2012">Aucune affiche n'a été créé pour la première édition</div>
     </div>
