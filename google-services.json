@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "957300827901",
+    "firebase_url": "https://app24hcode.firebaseio.com",
+    "project_id": "app24hcode",
+    "storage_bucket": "app24hcode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957300827901:android:0453e27f9c92d643",
+        "android_client_info": {
+          "package_name": "com.ensim.projet5A"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957300827901-ooj83db5s4n13e16aft3qkgdbcsn2kpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLzfPM9U7aHzlqhRJHZ-yiTR6hhjDj9c8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
