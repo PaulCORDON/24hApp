@@ -34,7 +34,7 @@ export class DefisPage {
   
   cliqueDefi(id: number) {
 
-    this.navCtrl.push('');
+    this.navCtrl.push('QuestionPage',{idDefi:id,idQuestion:1});
   }
 
   ionViewDidLoad() {
