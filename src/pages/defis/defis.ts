@@ -30,28 +30,15 @@ export class DefisPage {
         this.listTheme = data.nom
         console.log(this.listTheme);
     });
-
-
   }
   
-
-
   cliqueDefi(id: number) {
 
     this.navCtrl.push('');
   }
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad DefisPage');
 
   }
-
-
-
-ionViewDidLoad() {
-  console.log('ionViewDidLoad DefisPage');
-  
-}
-
 }

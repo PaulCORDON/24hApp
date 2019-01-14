@@ -47,7 +47,7 @@ import { ComponentsModule } from '../components/components.module';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
     ComponentsModule
   ],
   bootstrap: [IonicApp],

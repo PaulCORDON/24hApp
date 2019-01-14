@@ -14,6 +14,7 @@ import { TimerComponent } from '../components/timer/timer';
 })
 export class MyApp {
   rootPage:any = SplashscreenPage;
+  showTimer = false;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService) {
     platform.ready().then(() => {
@@ -22,6 +23,9 @@ export class MyApp {
       sqliteService.createDataBaseFile();
       statusBar.styleDefault();
       splashScreen.hide();
+      setTimeout(()=>{
+        this.showTimer = true;
+      },4000)
     });
   }
 }
