@@ -27,7 +27,7 @@ export class DefisPage {
 
     sqlLite.selectData(200, "theme", "*").then((data) => {
       console.log("Nom", data.nom);
-        this.listTheme = data.nom
+        this.listTheme = data.nom;
         console.log(this.listTheme);
     });
   }
