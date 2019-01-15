@@ -20,6 +20,7 @@ export class QuestionPage {
   bonneReponse:any;
   listProposition:any;
   numQuestion:number;
+  nbQuestion:number
 
   flash = [
     { opacity:1},
@@ -35,11 +36,11 @@ export class QuestionPage {
     this.idDefi = navParams.get("idDefi");
     this.question = navParams.get("question");
     this.numQuestion = navParams.get("numQuestion");
-    console.log("Question Recup", this.question);
-    console.log("ID Defi recup", this.idDefi);
+    this.nbQuestion = navParams.get("nbQuestion");
+    console.log("Question --- Question Recup", this.question);
+    console.log("Question --- ID Defi recup", this.idDefi);
     
     this.getReponses();
-    this.bonneReponse = 2;
     
   }
 
@@ -58,11 +59,11 @@ export class QuestionPage {
 
   cliqueReponse(isReponse:number, id:any){
 
-    console.log("num Reponse", isReponse);
+    console.log("QUESTION --- num Reponse", isReponse);
     if(isReponse == 1){
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#3E9623";
-      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.question, numQuestion : this.numQuestion+1});
+      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.question, numQuestion : this.numQuestion+1, nbQuestion : this.nbQuestion});
 
     
     }
