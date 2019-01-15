@@ -18,7 +18,7 @@ export class SQLiteService {
     constructor(private sqlite: SQLite, private toastCtrl: ToastController) {
 
     }
-
+/*
     createDataBaseFile(): void {
         this.sqlite.create({
             name: 'data.db',
@@ -107,8 +107,7 @@ export class SQLiteService {
 
 
     }
-
-
+                
     //Pour modifier le contenu de la base de données
     /*setData(trucAchanger: string, endroitOuChanger: string, table: string) {
 
