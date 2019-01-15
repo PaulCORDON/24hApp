@@ -19,10 +19,10 @@ export class QuestionPage {
   idQuestion:number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
-    this.idDefi = navParams.get("idDefi");
+    /*this.idDefi = navParams.get("idDefi");
     this.idQuestion = navParams.get("idQuestion");
 
-    sqlLite.selectData(this.idDefi,"question","*");
+    sqlLite.selectData(this.idDefi,"question","*");*/
 
     
   }
