@@ -12,7 +12,7 @@ export class TimerComponent {
     GlobalVarsProvider.events.subscribe('timeChanged',()=>{
       this.zone.run(()=>{
         this.time = GlobalVarsProvider.instance.getTimer();
-        console.log("timer component" + this.time)
+       // console.log("timer component" + this.time)
       });
     });
    }
