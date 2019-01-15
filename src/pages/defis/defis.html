@@ -10,8 +10,8 @@
 
 
 <ion-content padding>
-    
-        <!--<ion-grid>
+
+    <!--<ion-grid>
             <ion-row>    
 
                 <ion-col>
@@ -72,83 +72,83 @@
 
          
     -->
-    <div *ngFor="let theme of listeThemes">
+    <div *ngFor="let theme of listTheme">
 
-            <ion-grid>
-                    <ion-row>    
-        
-                        <ion-col>
-                            <ion-label class="titre-defi">{{listTheme}}</ion-label>
-                        </ion-col>
-                        <ion-col>
-                            <ion-label>0/0</ion-label>
-                        </ion-col>            
-                        
-                    </ion-row>
-                </ion-grid>
+        <ion-grid>
+            <ion-row>
 
-                <div *ngFor="let defi of listeDefis">
+                <ion-col>
+                    <ion-label class="titre-defi">{{theme.nom}}</ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-label>{{theme.nbTicketActuel}}/{{theme.nbTicketMax}}</ion-label>
+                </ion-col>
 
-                        <div *ngIf="theme.id == defi.theme">
-                        <div *ngIf='defi.etat == "bloque"'>
-                            <ion-card class="bloque" (click)="cliqueDefi(defi.id)">
-                                    <ion-grid>
-                                        <ion-row align-items-center> 
-                                            <ion-col class="trophee">
-                                                <ion-icon class="bloque" name="md-trophy"></ion-icon>
-                                            </ion-col>
-                                            <ion-col>
-                                                ???
-                                            </ion-col>
-                                        </ion-row>
-                                    </ion-grid>
-                            </ion-card>
-                        </div>
-                
-                        <div *ngIf='defi.etat == "debloque"'>
-                                <ion-card class="debloque" (click)="cliqueDefi(defi.id)">
-                                        <ion-grid>
-                                            <ion-row align-items-center> 
-                                                <ion-col class="trophee">
-                                                    <ion-icon class="debloque shake" name="md-trophy"></ion-icon>
-                                                </ion-col>
-                                                <ion-col>
-                                                    /
-                                                </ion-col>
-                                            </ion-row>
-                                        </ion-grid>
-                                </ion-card>
-                        </div>
-                
-                        <div *ngIf='defi.etat == "fini"'>
-                                <ion-card class="fini" (click)="cliqueDefi(defi.id)">
-                                        <ion-grid>
-                                            <ion-row align-items-center> 
-                                                <ion-col class="trophee">
-                                                    <ion-icon class="fini" name="md-trophy"></ion-icon>
-                                                </ion-col>
-                                                <ion-col>
-                                                    {{defi.titre}}
-                                                </ion-col>
-                                            </ion-row>
-                                        </ion-grid>
-                                </ion-card>
-                        </div>
+            </ion-row>
+        </ion-grid>
+
+        <div *ngFor="let defi of listDefi">
+
+            <div *ngIf="theme.id == defi.theme">
+                <div *ngIf='defi.etat == "bloque"'>
+                    <ion-card class="bloque" (click)="cliqueDefi(defi.id)">
+                        <ion-grid>
+                            <ion-row align-items-center>
+                                <ion-col class="trophee">
+                                    <ion-icon class="bloque" name="md-trophy"></ion-icon>
+                                </ion-col>
+                                <ion-col>
+                                    ???
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card>
                 </div>
+
+                <div *ngIf='defi.etat == "debloque"'>
+                    <ion-card class="debloque" (click)="cliqueDefi(defi.id)">
+                        <ion-grid>
+                            <ion-row align-items-center>
+                                <ion-col class="trophee">
+                                    <ion-icon class="debloque shake" name="md-trophy"></ion-icon>
+                                </ion-col>
+                                <ion-col>
+                                    /
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card>
                 </div>
-             
+
+                <div *ngIf='defi.etat == "fini"'>
+                    <ion-card class="fini" (click)="cliqueDefi(defi.id)">
+                        <ion-grid>
+                            <ion-row align-items-center>
+                                <ion-col class="trophee">
+                                    <ion-icon class="fini" name="md-trophy"></ion-icon>
+                                </ion-col>
+                                <ion-col>
+                                    {{defi.titre}}
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    
 
-       
-                       
-                   
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
 
 </ion-content>

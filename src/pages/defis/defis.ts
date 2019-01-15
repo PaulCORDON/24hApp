@@ -17,28 +17,45 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 export class DefisPage {
 
   listeDefis: any =
-    [{ "id":"101","titre": "Test 1", "etat": "debloque","theme":"100"},{"id":"102","titre":"Wesh lol","etat":"bloque","theme":"200"}];
-  listeThemes: any=
-    [{ "id":"100","titre": "Le code / La programmation"},{"id":"200","titre":"Les femmes dans l'informatique"}];
-  listTheme:any;
+    [{ "id": "101", "titre": "Test 1", "etat": "debloque", "theme": "100" }, { "id": "102", "titre": "Wesh lol", "etat": "bloque", "theme": "200" }];
+  listeThemes: any =
+    [{ "id": "100", "titre": "Le code / La programmation" }, { "id": "200", "titre": "Les femmes dans l'informatique" }];
+  listTheme: any;
+  listDefi: any;
+  nbTheme: any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService, zone: NgZone) {
-
-    sqlLite.selectData(200, "theme", "*").then((data) => {
-      console.log("Nom", data.nom);
-        this.listTheme = data.nom;
-        console.log(this.listTheme);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
+    this.getNbTheme();
+    sqlLite.selectData("", "theme", "*").then((themeData) => {
+      console.log("ThemeData.id = ", themeData);
+      this.listTheme = themeData;
+      sqlLite.selectData("", "defi", "*").then((defidata) => {
+        console.log("Défi Data", defidata)
+        this.listDefi = defidata;
+      })
+      console.log(this.listTheme);
     });
   }
-  
+
+  getNbTheme() {
+    this.sqlLite.selectData("", "theme", "count(*)").then((data) => {
+      console.log("Nombre de thèmes : ", data);
+      this.nbTheme = data;
+    });
+
+
+  }
+
+
   cliqueDefi(id: number) {
 
-    this.navCtrl.push('QuestionPage',{idDefi:id,idQuestion:1});
+    this.navCtrl.push('QuestionPage', { idDefi: id, idQuestion: 1 });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DefisPage');
 
   }
+
 }
