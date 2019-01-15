@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
+import { SQLite } from '@ionic-native/sqlite';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { Participation } from '../../model/Participation';
 import { partition } from 'rxjs/operators';
+import { SQLiteService } from '../../SQLite/SQLiteService';
 
 @IonicPage()
 @Component({
@@ -23,13 +25,18 @@ export class ConcoursPage {
   public nombreTicketDejaRemis:number;
   public ref;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebase : FirebaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebase : FirebaseProvider, public sqlLite: SQLiteService) {
     
   }
 
   ionViewWillEnter(){
     this.nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
-    //TODO récupérer la Ref du SQLlight
+
+    this.sqlLite.selectData("1", "reference", "*").then((ref) => {
+      console.log("reference : ", ref.reference)
+      this.ref = ref.reference;
+    })
+
     if(this.ref!=undefined) this.firebase.getParticipation(this.ref).then((res)=>{
       this.nom = res.nom;
       this.prenom = res.prenom;
@@ -51,7 +58,7 @@ export class ConcoursPage {
 
     console.log(this.nom + " " + this.nombreTicket + " " + this.cg);
     this.ref=this.firebase.addParticipation(participation);
-    //TODO mettre la ref dans le SQL light
+    this.sqlLite.setReference(this.ref);
     this.nombreTicketDejaRemis = this.nombreTicket;
   }
 

@@ -18,40 +18,40 @@ export class SQLiteService {
     constructor(private sqlite: SQLite, private toastCtrl: ToastController) {
 
     }
-/*
-    createDataBaseFile(): void {
-        this.sqlite.create({
-            name: 'data.db',
-            location: 'default'
-        })
-            .then((db: SQLiteObject) => {
-                console.log('bdd créée!!!')
-                this.db = db;
-                this.createTables();
+    
+        createDataBaseFile(): void {
+            this.sqlite.create({
+                name: 'data.db',
+                location: 'default'
             })
-            .catch(e => console.log("erreur creation bdd: " + e));
-    }
-
-    /*createDataBaseFile(): void {
-
-        this.selectData("", "theme", "*").then((data) => {
-            if (data == []) {
-                console.log("on est là")
-                this.sqlite.create({
-                    name: 'data.db',
-                    location: 'default'
+                .then((db: SQLiteObject) => {
+                    console.log('bdd créée!!!')
+                    this.db = db;
+                    this.createTables();
                 })
-                    .then((db: SQLiteObject) => {
-                        console.log('bdd créée!!!')
-                        this.db = db;
-                        this.createTables();
+                .catch(e => console.log("erreur creation bdd: " + e));
+        }
+    
+        /*createDataBaseFile(): void {
+    
+            this.selectData("", "theme", "*").then((data) => {
+                if (data == []) {
+                    console.log("on est là")
+                    this.sqlite.create({
+                        name: 'data.db',
+                        location: 'default'
                     })
-                    .catch(e => console.log("erreur creation bdd: " + e));
-            }
-            else
-                console.log("La BDD est déjà créée")
-        });
-    }*/
+                        .then((db: SQLiteObject) => {
+                            console.log('bdd créée!!!')
+                            this.db = db;
+                            this.createTables();
+                        })
+                        .catch(e => console.log("erreur creation bdd: " + e));
+                }
+                else
+                    console.log("La BDD est déjà créée")
+            });
+        }*/
 
 
     createTables(): void {
@@ -82,6 +82,12 @@ export class SQLiteService {
                 console.log('table defi created!')
             });
 
+        this.db.executeSql('CREATE TABLE IF NOT EXISTS `reference` ( `reference` varchar(500) NOT NULL UNIQUE)', [])
+            .then(() => {
+                console.log('table defi created!')
+            });
+
+
         /*insertion dans la table theme*/
         this.db.executeSql("INSERT INTO `theme` (`id`, `nom`, `progression`, `nbTicketActuel`, `nbTicketMax`) VALUES (100, 'La place des femmes dans linformatique', 0, 0, 0), (200, 'Le code / La programmation', 0, 0, 0)", [])
             .then(() => console.log('THEME insertion réussi!'))
@@ -107,7 +113,7 @@ export class SQLiteService {
 
 
     }
-                
+
     //Pour modifier le contenu de la base de données
     /*setData(trucAchanger: string, endroitOuChanger: string, table: string) {
 
@@ -120,22 +126,22 @@ export class SQLiteService {
     //Pour lire des données de la base
     selectData(fin: any, table: string, attribut: string): Promise<Array<any>> {
 
-        let res :Array<any> = [];
+        let res: Array<any> = [];
         let requete: string = "select " + attribut + " from `" + table + "`" + fin;
         console.log("Requête : ", requete);
 
         return new Promise((resolve) => {
             this.db.executeSql(requete, [])
                 .then(data => {
-                    if(data.rows){
-                        if(data.rows.length>0){
-                            for(var i=0; i<data.rows.length;i++){
+                    if (data.rows) {
+                        if (data.rows.length > 0) {
+                            for (var i = 0; i < data.rows.length; i++) {
                                 res.push(data.rows.item(i));
                                 //console.log("SelectData " + i, data.rows.item(i));
                             }
                         }
                     }
-                    
+
                     resolve(res);
                 })
                 .catch(e => {
@@ -144,7 +150,12 @@ export class SQLiteService {
         });
     }
 
-
+    
+    setReference(ref: any){
+        this.db.executeSql("INSERT INTO `reference` (`reference`) VALUES (\"" + ref + "\")", [])
+        .then(() => console.log('reference insertion réussi!'))
+        .catch(e => console.log(e));
+    }
 
 
 
