@@ -16,10 +16,6 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 })
 export class DefisPage {
 
-  listeDefis: any =
-    [{ "id": "101", "titre": "Test 1", "etat": "debloque", "theme": "100" }, { "id": "102", "titre": "Wesh lol", "etat": "bloque", "theme": "200" }];
-  listeThemes: any =
-    [{ "id": "100", "titre": "Le code / La programmation" }, { "id": "200", "titre": "Les femmes dans l'informatique" }];
   listTheme: any;
   listDefi: any;
   listProposition :any;
@@ -29,13 +25,13 @@ export class DefisPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
     sqlLite.selectData("", "theme", "*").then((themeData) => {
-      console.log("DEFI --- ThemeData.id = ", themeData);
+      console.log("DEFI --- Nom des thèmes :", themeData);
       this.listTheme = themeData;
       sqlLite.selectData("", "defi", "*").then((defidata) => {
-        console.log("DEFI --- Défi Data", defidata)
+        console.log("DEFI --- Liste des défis", defidata)
         this.listDefi = defidata;
       })
-      console.log(this.listTheme);
+      //console.log(this.listTheme);
     });
   }
 
@@ -51,7 +47,7 @@ export class DefisPage {
   getQuestion(idDefi)
   {
     this.sqlLite.selectData("where `idDefi` = " + idDefi, "question", "*").then((data) => {
-      console.log("DEFI --- Question : ", data);
+      console.log("DEFI --- Listes des questions : ", data);
       this.question = data;
       this.getNbQuestion(idDefi);
       
@@ -60,13 +56,14 @@ export class DefisPage {
 
 
   cliqueDefi(idDefi: number) {
+    console.log("DEFI --- ID du défi cliqué : ", idDefi);
     this.getQuestion(idDefi);
-    console.log("DEFI --- Nb Question : ", this.nbQuestion.NBQUESTION)
+    //console.log("DEFI --- Nb Question : ", this.nbQuestion.NBQUESTION)
     this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.question, numQuestion : 0, nbQuestion: this.nbQuestion.NBQUESTION});
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DefisPage');
+    console.log('--------------------------DefisPage');
 
   }
 

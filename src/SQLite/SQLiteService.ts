@@ -91,11 +91,11 @@ export class SQLiteService {
             //.then(() => console.log('DEFI insertion réussi!'))
             .catch(e => console.log(e));
 
-        this.db.executeSql("INSERT INTO `question` (`id`, `intitule`, `textePresentation`, `idDefi`) VALUES (151, 'Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', 'Texte de présentation au cas où', 101), (152, 'Qui a été la première personne à imaginer l’informatique ?', 'Imagination is key', 101)", [])
+        this.db.executeSql("INSERT INTO `question` (`id`, `intitule`, `textePresentation`, `idDefi`) VALUES (151, 'Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', 'Texte de présentation au cas où', 101), (152, 'Qui a été la première personne à imaginer l’informatique ?', 'Imagination is key', 101), (251, 'Quel est lintrus ?', 'Imagination is key', 201), (252, 'Quelle est le sigle pour le if ?', 'Imagination is key', 201), (253, 'Quelle ce quun IDE ?', 'Imagination is key', 201)", [])
             //.then(() => console.log('QUESTION insertion réussi!'))
             .catch(e => console.log(e));
 
-        this.db.executeSql("INSERT INTO `propositionQuiz` (`id`, `isReponse`, `nom`, `image`, `idQuestion`) VALUES (1511, 1, 'Hedy Lamarr', '--', 151), (1512, 0, 'Sean Connery', '', 151), (1513, 0, 'Steve Jobs', '', 151), (1514, 0, 'Micheal Jordan', '', 151), (1521, 1, 'Ada Lovelace', '', 152), (1522, 0, 'Bill Gates', '', 152), (1523, 0, 'Christophe Buyse', '', 152), (1524, 0, 'Youssef Serrestou', '', 152)", [])
+        this.db.executeSql("INSERT INTO `propositionQuiz` (`id`, `isReponse`, `nom`, `image`, `idQuestion`) VALUES (1511, 1, 'Hedy Lamarr', '--', 151), (1512, 0, 'Sean Connery', '', 151), (1513, 0, 'Steve Jobs', '', 151), (1514, 0, 'Micheal Jordan', '', 151), (1521, 1, 'Ada Lovelace', '', 152), (1522, 0, 'Bill Gates', '', 152), (1523, 0, 'Christophe Buyse', '', 152), (1524, 0, 'Youssef Serrestou', '', 152), (2511, 0, 'C', '--', 251), (2512, 1, 'C4', '', 251), (2513, 0, 'C#', '', 251), (2514, 0, 'C++', '', 251), (2521, 0, 'AUTRE', '--', 252), (2522, 1, 'SI', '', 252), (2523, 0, 'QUOI', '', 252), (2524, 0, 'NON', '', 252), (2531, 1, 'Logiciel pour programmer', '--', 253), (2532, 0, 'Une idee', '', 253), (2533, 0, 'Une entreprise', '', 253), (2514, 0, 'Un langage', '', 253)", [])
             //.then(() => console.log('QUIZ insertion réussi!'))
             .catch(e => console.log(e));
 
@@ -122,7 +122,7 @@ export class SQLiteService {
 
         let res :Array<any> = [];
         let requete: string = "select " + attribut + " from `" + table + "` " + fin;
-        console.log("Requête : ", requete);
+        console.log("SQLSERVICE --------- Requête : ", requete);
 
         return new Promise((resolve) => {
             this.db.executeSql(requete, [])

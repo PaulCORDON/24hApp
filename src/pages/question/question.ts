@@ -37,15 +37,15 @@ export class QuestionPage {
     this.question = navParams.get("question");
     this.numQuestion = navParams.get("numQuestion");
     this.nbQuestion = navParams.get("nbQuestion");
-    console.log("Question --- Question Recup", this.question);
-    console.log("Question --- ID Defi recup", this.idDefi);
+    console.log("QUESTION --- Question Recup", this.question);
+    console.log("QUESTION --- ID Defi recup", this.idDefi);
     
     this.getReponses();
     
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionPage');
+    console.log('---------------------------- QuestionPage');
   }
 
   getReponses()

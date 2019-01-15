@@ -30,7 +30,7 @@ export class ExplicationPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExplicationPage');
+    console.log('----------------------- ExplicationPage');
   }
 
   onClickNextQuestion()
