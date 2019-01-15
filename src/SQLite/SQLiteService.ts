@@ -18,7 +18,7 @@ export class SQLiteService {
     constructor(private sqlite: SQLite, private toastCtrl: ToastController) {
 
     }
-/*
+
     createDataBaseFile(): void {
         this.sqlite.create({
             name: 'data.db',
@@ -83,11 +83,11 @@ export class SQLiteService {
             });
 
         /*insertion dans la table theme*/
-        this.db.executeSql("INSERT INTO `theme` (`id`, `nom`, `progression`, `nbTicketActuel`, `nbTicketMax`) VALUES (100, 'La place des femmes dans linformatique', 0, 0, 0), (200, 'Le code / La programmation', 0, 0, 0)", [])
+        this.db.executeSql("INSERT INTO `theme` (`id`, `nom`, `progression`, `nbTicketActuel`, `nbTicketMax`) VALUES (100, 'La place des femmes dans linformatique', 0, 0, 0), (200, 'Le code / La programmation', 0, 0, 0), (300, 'Trouvez des geeks', 0, 0, 0), (400, 'Culture informatique', 0, 0, 0)", [])
             .then(() => console.log('THEME insertion réussi!'))
             .catch(e => console.log(e));
 
-        this.db.executeSql("INSERT INTO `defi` (`id`, `idTheme`, `titre`, `etat`, `type`) VALUES (101, 100, 'Technologie féminine', 0, 'quiz'), (102, 100, 'Send nudes', 0, 'action')", [])
+        this.db.executeSql("INSERT INTO `defi` (`id`, `idTheme`, `titre`, `etat`, `type`) VALUES (101, 100, 'Technologie féminine', 1, 'quiz'), (102, 100, 'Send nudes', 0, 'action'), (201, 200, 'Le codage pour les nuls',1, 'quiz'), (202, 200, 'Programmez un programme', 0, 'action'), (301, 300, 'Les boutons', 0, 'quiz'), (302, 300, 'Percez un bouton', 0, 'action'), (401, 400, 'Les cultes', 0, 'quiz'), (402, 400, 'La vérité', 0, 'action')", [])
             .then(() => console.log('DEFI insertion réussi!'))
             .catch(e => console.log(e));
 
@@ -121,7 +121,7 @@ export class SQLiteService {
     selectData(fin: any, table: string, attribut: string): Promise<Array<any>> {
 
         let res :Array<any> = [];
-        let requete: string = "select " + attribut + " from `" + table + "`" + fin;
+        let requete: string = "select " + attribut + " from `" + table + "` " + fin;
         console.log("Requête : ", requete);
 
         return new Promise((resolve) => {

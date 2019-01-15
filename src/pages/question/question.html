@@ -6,20 +6,34 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>question</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>question</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
 
-  <div padding class="centre">
-    <ion-label class="question bounceInLeft">Qui a inventé l'eau chaude ?</ion-label>
-  </div>
+    <div padding class="centre">
+        <ion-label class="question bounceInLeft">{{question[numQuestion].intitule}}</ion-label>
+    </div>
 
-  <ion-grid>
+    <div *ngFor="let reponse of listProposition">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-card attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                        <div class="card-title">{{reponse.nom}}</div>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+
+
+    <!--<ion-grid>
       <ion-row>    
 
           <ion-col>
@@ -53,6 +67,6 @@
           </ion-col>            
           
       </ion-row>
-  </ion-grid>
+  </ion-grid>-->
 
 </ion-content>

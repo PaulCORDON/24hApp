@@ -22,6 +22,8 @@ export class DefisPage {
     [{ "id": "100", "titre": "Le code / La programmation" }, { "id": "200", "titre": "Les femmes dans l'informatique" }];
   listTheme: any;
   listDefi: any;
+  listProposition :any;
+  question : any;
   nbTheme: any;
 
 
@@ -47,10 +49,24 @@ export class DefisPage {
 
   }
 
+  getQuestion(idDefi)
+  {
+    this.sqlLite.selectData("where `idDefi` = " + idDefi, "question", "*").then((data) => {
+      console.log("Question : ", data);
+      this.question = data;
+      
+    });
+  }
 
-  cliqueDefi(id: number) {
+  getReponses()
+  {
+    
+  }
 
-    this.navCtrl.push('QuestionPage', { idDefi: id, idQuestion: 1 });
+
+  cliqueDefi(idDefi: number) {
+    this.getQuestion(idDefi);
+    this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.question, numQuestion : 0});
   }
 
   ionViewDidLoad() {

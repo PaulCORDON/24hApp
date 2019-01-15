@@ -89,8 +89,8 @@
 
         <div *ngFor="let defi of listDefi">
 
-            <div *ngIf="theme.id == defi.theme">
-                <div *ngIf='defi.etat == "bloque"'>
+            <div *ngIf="theme.id == defi.idTheme">
+                <div *ngIf='defi.etat == 0'>
                     <ion-card class="bloque" (click)="cliqueDefi(defi.id)">
                         <ion-grid>
                             <ion-row align-items-center>
@@ -105,7 +105,7 @@
                     </ion-card>
                 </div>
 
-                <div *ngIf='defi.etat == "debloque"'>
+                <div *ngIf='defi.etat == 1'>
                     <ion-card class="debloque" (click)="cliqueDefi(defi.id)">
                         <ion-grid>
                             <ion-row align-items-center>
@@ -113,7 +113,7 @@
                                     <ion-icon class="debloque shake" name="md-trophy"></ion-icon>
                                 </ion-col>
                                 <ion-col>
-                                    /
+                                    {{defi.titre}}
                                 </ion-col>
                             </ion-row>
                         </ion-grid>
