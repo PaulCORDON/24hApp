@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { Participation } from '../../model/Participation';
+import { partition } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -16,14 +19,53 @@ export class ConcoursPage {
 
   public cg:boolean = false;
 
-  public nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
+  public nombreTicket : number = GlobalVarsProvider.instance.getNombreTicket();
+  public nombreTicketDejaRemis:number;
+  public ref;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebase : FirebaseProvider) {
     
   }
 
-  envoyer(){
-    console.log(this.nom + " " + this.prenom + " " + this.cg);
+  ionViewWillEnter(){
+    this.nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
+    //TODO récupérer la Ref du SQLlight
+    if(this.ref!=undefined) this.firebase.getParticipation(this.ref).then((res)=>{
+      this.nom = res.nom;
+      this.prenom = res.prenom;
+      this.tel= res.tel;
+      this.mail = res.mail;
+      this.nombreTicketDejaRemis = res.nbTicket;
+
+      console.log(this.nombreTicketDejaRemis +"  " + this.nombreTicket)
+    });
   }
 
+  envoyer(){
+    let participation:Participation = new Participation();
+    participation.nom = this.nom;
+    participation.prenom = this.prenom;
+    participation.mail=this.mail;
+    participation.tel=this.tel;
+    participation.nbTicket=this.nombreTicket;
+
+    console.log(this.nom + " " + this.nombreTicket + " " + this.cg);
+    this.ref=this.firebase.addParticipation(participation);
+    //TODO mettre la ref dans le SQL light
+    this.nombreTicketDejaRemis = this.nombreTicket;
+  }
+
+
+  update(nbT : number){
+    let participation:Participation = new Participation();
+    participation.nom = this.nom;
+    participation.prenom = this.prenom;
+    participation.mail=this.mail;
+    participation.tel=this.tel;
+    participation.nbTicket=nbT;
+
+    console.log(this.nom + " " + this.nombreTicket + " " + this.cg);
+    this.firebase.updateParticipation(this.ref,participation);
+    if(nbT==this.nombreTicket) this.nombreTicketDejaRemis = nbT;
+  }
 }
