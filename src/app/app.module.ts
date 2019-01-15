@@ -31,6 +31,7 @@ var config = {
 };
 
 import { ComponentsModule } from '../components/components.module';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ComponentsModule } from '../components/components.module';
     StatusBar,
     SQLite,
     SQLiteService,
+    NativeStorage,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Infos24hProvider,

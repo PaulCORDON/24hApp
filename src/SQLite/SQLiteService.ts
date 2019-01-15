@@ -82,7 +82,7 @@ export class SQLiteService {
                 console.log('table defi created!')
             });
 
-        this.db.executeSql('CREATE TABLE IF NOT EXISTS `reference` ( `reference` varchar(500) NOT NULL UNIQUE)', [])
+        this.db.executeSql('CREATE TABLE IF NOT EXISTS `reference` ( `reference` OBJECT NOT NULL UNIQUE)', [])
             .then(() => {
                 console.log('table defi created!')
             });
@@ -137,7 +137,7 @@ export class SQLiteService {
                         if (data.rows.length > 0) {
                             for (var i = 0; i < data.rows.length; i++) {
                                 res.push(data.rows.item(i));
-                                //console.log("SelectData " + i, data.rows.item(i));
+                                console.log("SelectData " + i, data.rows.item(i));
                             }
                         }
                     }
@@ -151,7 +151,9 @@ export class SQLiteService {
     }
 
     
-    setReference(ref: any){
+    setReference(ref: firebase.database.Reference){
+        console.log("dans le set ref ");
+        console.log(ref);
         this.db.executeSql("INSERT INTO `reference` (`reference`) VALUES (\"" + ref + "\")", [])
         .then(() => console.log('reference insertion réussi!'))
         .catch(e => console.log(e));
