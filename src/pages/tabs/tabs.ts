@@ -14,7 +14,7 @@ export class TabsPage {
   tab2Root = DefisPage;
   tab3Root = ConcoursPage;
 
-  public nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
+  public nombreTicket = 0;
 
   public timer;
 
@@ -22,9 +22,14 @@ export class TabsPage {
     console.log(GlobalVarsProvider.instance.getTimer());
 
     GlobalVarsProvider.events.subscribe('nombreTicketChanged',()=>{
-      this.nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
-      console.log("event nombreTicketChanged " + this.nombreTicket)
+      GlobalVarsProvider.instance.getNombreTicket().then((val)=>{
+        this.nombreTicket =val;
+        console.log("event nombreTicketChanged " + this.nombreTicket)
+      });      
     });
 
+    GlobalVarsProvider.instance.getNombreTicket().then((val) => {
+      this.nombreTicket = val;
+    })
   }
 }

@@ -19,16 +19,11 @@ export class SQLiteService {
     constructor(private sqlite: SQLite, private toastCtrl: ToastController) {
 
     }
-
-    createDataBaseFile(): void {
-        this.sqlite.create({
-            name: 'data.db',
-            location: 'default'
-        })
-            .then((db: SQLiteObject) => {
-                console.log('bdd créée!!!')
-                this.db = db;
-                this.createTables();
+    
+        createDataBaseFile(): void {
+            this.sqlite.create({
+                name: 'data.db',
+                location: 'default'
             })
             .catch(e => console.log("erreur creation bdd: " + e));
     }
@@ -163,6 +158,14 @@ export class SQLiteService {
         });
     }
 
+    
+    setReference(ref: firebase.database.Reference){
+        console.log("dans le set ref ");
+        console.log(ref);
+        this.db.executeSql("INSERT INTO `reference` (`reference`) VALUES (\"" + ref + "\")", [])
+        .then(() => console.log('reference insertion réussi!'))
+        .catch(e => console.log(e));
+    }
 
 
 
