@@ -19,11 +19,16 @@ export class SQLiteService {
     constructor(private sqlite: SQLite, private toastCtrl: ToastController) {
 
     }
-    
-        createDataBaseFile(): void {
-            this.sqlite.create({
-                name: 'data.db',
-                location: 'default'
+
+    createDataBaseFile(): void {
+        this.sqlite.create({
+            name: 'data.db',
+            location: 'default'
+        })
+            .then((db: SQLiteObject) => {
+                console.log('bdd créée!!!')
+                this.db = db;
+                this.createTables();
             })
             .catch(e => console.log("erreur creation bdd: " + e));
     }
@@ -42,7 +47,7 @@ export class SQLiteService {
     insertInTable() {
         this.db.executeSql("INSERT INTO `theme` (`nom`, `progression`, `nbTicketActuel`, `nbTicketMax`) VALUES ('La place des femmes dans linformatique', 0, 0, 0), ('Le code / La programmation', 0, 0, 0), ('Trouvez des geeks', 0, 0, 0), ('Culture informatique', 0, 0, 0)", [])
             .catch(e => console.log(e));
-            this.insertDefi();
+        this.insertDefi();
     }
 
     insertDefi() {
@@ -74,11 +79,13 @@ export class SQLiteService {
             let i = 0;
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', 'Texte de présentation au cas où', " + getIDDefi[i].id + "), ('Qui a été la première personne à imaginer l’informatique ?', 'Imagination is key', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e));
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', 'Texte de présentation au cas où', " + getIDDefi[i].id + "), ('Qui a été la première personne à imaginer l’informatique ?', 'Imagination is key', " + getIDDefi[i++].id + ")", [])
+                .catch(e => console.log(e));
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Quel est lintrus ?', 'Imagination is key', " + getIDDefi[i].id + "), ('Quelle est le sigle pour le if ?', 'Imagination is key', " + getIDDefi[i].id + "), ('Quelle ce quun IDE ?', 'Imagination is key', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e));
             /*this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES", [])
                 .catch(e => console.log(e));*/
-                this.insertReponse();
+            this.insertReponse();
         });
     }
 
@@ -97,7 +104,7 @@ export class SQLiteService {
                 .catch(e => console.log(e));
             /*this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES", [])
                 .catch(e => console.log(e));*/
-                this.insertExplication();
+            this.insertExplication();
         });
     }
 
@@ -145,7 +152,7 @@ export class SQLiteService {
                         if (data.rows.length > 0) {
                             for (var i = 0; i < data.rows.length; i++) {
                                 res.push(data.rows.item(i));
-                                console.log("SQLSERVICE --------- " + i, data.rows.item(i));
+                                //console.log("SQLSERVICE --------- " + i, data.rows.item(i));
                             }
                         }
                     }
@@ -158,13 +165,13 @@ export class SQLiteService {
         });
     }
 
-    
-    setReference(ref: firebase.database.Reference){
+
+    setReference(ref: firebase.database.Reference) {
         console.log("dans le set ref ");
         console.log(ref);
         this.db.executeSql("INSERT INTO `reference` (`reference`) VALUES (\"" + ref + "\")", [])
-        .then(() => console.log('reference insertion réussi!'))
-        .catch(e => console.log(e));
+            .then(() => console.log('reference insertion réussi!'))
+            .catch(e => console.log(e));
     }
 
 

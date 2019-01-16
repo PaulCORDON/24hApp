@@ -58,9 +58,9 @@ export class QuestionPage {
   //Méthode pour récupérer les réponses à la question
   getReponses()
   {
+    console.log("QUESTION --- Numéro de la question (brute) ", this.numQuestion);
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "reponse", "*").then((reponsesData) => {
       this.listReponses = reponsesData;
-      this.numQuestion= this.numQuestion+1;
       console.log("QUESTION --- Listes des réponses : ", this.listReponses)
       console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
     });
@@ -78,7 +78,7 @@ export class QuestionPage {
     if(isReponse == 1){
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#3E9623";
-      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.listQuestion, numQuestion : this.numQuestion, nbQuestion : this.nbQuestion});
+      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.listQuestion, numQuestion : ++this.numQuestion, nbQuestion : this.nbQuestion});
     }
     else{
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);

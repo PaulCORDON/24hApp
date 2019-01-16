@@ -25,7 +25,7 @@ export class ExplicationPage {
     this.question = navParams.get("question");
     this.numQuestion = navParams.get("numQuestion");
     this.nbQuestion = navParams.get("nbQuestion");
-    console.log("EXPLICATION --- Question Recup Explication", this.question);
+    console.log("EXPLICATION --- Récupération de la question", this.question);
 
   }
 
@@ -35,10 +35,11 @@ export class ExplicationPage {
 
   onClickNextQuestion()
   {
+    console.log("EXPLICATION --- Click");
     console.log(this.nbQuestion + " " + this.numQuestion)
-    if(this.nbQuestion+1 > this.numQuestion)
+    if(this.nbQuestion > this.numQuestion)
     {
-      this.navCtrl.push('QuestionPage', {idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion++, nbQuestion: this.nbQuestion});
+      this.navCtrl.push('QuestionPage', {idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion});
     }
     else
       this.navCtrl.push(DefisPage);
