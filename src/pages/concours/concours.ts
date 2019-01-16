@@ -8,7 +8,7 @@ import { partition } from 'rxjs/operators';
 import { SQLiteService } from '../../SQLite/SQLiteService';
 import { NativeStorage } from '@ionic-native/native-storage';
 import * as firebase from 'firebase'
-
+import { ToastController } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-concours',
@@ -20,25 +20,22 @@ export class ConcoursPage {
   public prenom: string;
   public tel: string;
   public mail: string;
-
+  public isEnable: boolean = false;
   public cg: boolean = false;
 
-  public nombreTicket: number = GlobalVarsProvider.instance.getNombreTicket();
+  public nombreTicket: number;
   public nombreTicketDejaRemis: number;
   public ref: firebase.database.Reference;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider, public sqlLite: SQLiteService, private nativeStorage: NativeStorage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider, private toastCtrl: ToastController, private nativeStorage: NativeStorage) {
 
   }
 
   ionViewWillEnter() {
-    this.nombreTicket = GlobalVarsProvider.instance.getNombreTicket();
+    GlobalVarsProvider.instance.getNombreTicket().then((val) => {
+      this.nombreTicket = val;
+    })
 
-    // this.sqlLite.selectData("", "reference", "*").then((ref) => {
-    //   console.log("dans le ionViewWillEnter ref[0] ")
-    //   console.log(ref[0].reference)
-    //   this.ref = ref[0].reference;
-    // })
     this.nativeStorage.getItem('refFirebase')
       .then(
         data => {
@@ -78,7 +75,7 @@ export class ConcoursPage {
         error => console.error('Error storing item', error)
       );
 
-    //this.sqlLite.setReference(this.ref);
+
     this.nombreTicketDejaRemis = this.nombreTicket;
   }
 
@@ -94,5 +91,49 @@ export class ConcoursPage {
     console.log(this.nom + " " + this.nombreTicket + " " + this.cg);
     this.firebaseProvider.updateParticipation(this.ref, participation);
     if (nbT == this.nombreTicket) this.nombreTicketDejaRemis = nbT;
+  }
+
+  newInput() {
+    console.log(this.nom);
+    this.isEnable = (this.nom != "" && this.prenom != "" && this.tel != "" && this.cg);
+
+  }
+
+  easterEgg() {
+    this.nativeStorage.getItem('easterEgg0')
+      .then(
+        data => {
+          let toast = this.toastCtrl.create({
+            message: 'Tu as déjà trouvé ce ticket.',
+            duration: 3000,
+            position: 'middle'
+          });
+          toast.present();
+        },
+        error => {
+          this.nativeStorage.setItem('easterEgg0', "true")
+            .then(
+              () => console.log('easterEgg0'),
+              error => console.error('Error storing item', error)
+            );
+          let toast = this.toastCtrl.create({
+            message: 'Bravo votre curiosité a été récompensée vous avez gagnez un ticket.\nIl n\'y a pas de conditions générales.',
+            duration: 3000,
+            position: 'middle'
+          });
+
+          toast.onDidDismiss(() => {
+            GlobalVarsProvider.instance.updateNombreTicket(1);
+            console.log('Dismissed toast');
+          });
+
+          toast.present();
+
+        }
+      );
+
+
+
+
   }
 }
