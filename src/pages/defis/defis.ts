@@ -22,35 +22,47 @@ export class DefisPage {
     [{ "id": "100", "titre": "Le code / La programmation" }, { "id": "200", "titre": "Les femmes dans l'informatique" }];
   listTheme: any;
   listDefi: any;
-  nbTheme: any;
+  listProposition :any;
+  question : any;
+  nbQuestion: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
-    this.getNbTheme();
     sqlLite.selectData("", "theme", "*").then((themeData) => {
-      console.log("ThemeData.id = ", themeData);
+      console.log("DEFI --- ThemeData.id = ", themeData);
       this.listTheme = themeData;
       sqlLite.selectData("", "defi", "*").then((defidata) => {
-        console.log("Défi Data", defidata)
+        console.log("DEFI --- Défi Data", defidata)
         this.listDefi = defidata;
       })
       console.log(this.listTheme);
     });
   }
 
-  getNbTheme() {
-    this.sqlLite.selectData("", "theme", "count(*)").then((data) => {
-      console.log("Nombre de thèmes : ", data);
-      this.nbTheme = data;
+  getNbQuestion(idDefi) {
+    this.sqlLite.selectData("where `idDefi` =" + idDefi, "question", "count(*) AS NBQUESTION").then((data) => {
+      console.log("DEFI --- Nombre de question dans le défi : ", data[0].NBQUESTION);
+      this.nbQuestion = data[0];
     });
 
 
   }
 
+  getQuestion(idDefi)
+  {
+    this.sqlLite.selectData("where `idDefi` = " + idDefi, "question", "*").then((data) => {
+      console.log("DEFI --- Question : ", data);
+      this.question = data;
+      this.getNbQuestion(idDefi);
+      
+    });
+  }
 
-  cliqueDefi(id: number) {
 
-    this.navCtrl.push('QuestionPage', { idDefi: id, idQuestion: 1 });
+  cliqueDefi(idDefi: number) {
+    this.getQuestion(idDefi);
+    console.log("DEFI --- Nb Question : ", this.nbQuestion.NBQUESTION)
+    this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.question, numQuestion : 0, nbQuestion: this.nbQuestion.NBQUESTION});
   }
 
   ionViewDidLoad() {

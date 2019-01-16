@@ -15,9 +15,13 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
   templateUrl: 'question.html',
 })
 export class QuestionPage {
-  idDefi:number;
-  idQuestion:number;
-  bonneReponse:number;
+  idDefi:any;
+  question:any;
+  bonneReponse:any;
+  listProposition:any;
+  numQuestion:number;
+  nbQuestion:number
+
   flash = [
     { opacity:1},
     { opacity:0},
@@ -29,12 +33,14 @@ export class QuestionPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
-    /*this.idDefi = navParams.get("idDefi");
-    this.idQuestion = navParams.get("idQuestion");
-
-    sqlLite.selectData(this.idDefi,"question","*");*/
-
-    this.bonneReponse = 2;
+    this.idDefi = navParams.get("idDefi");
+    this.question = navParams.get("question");
+    this.numQuestion = navParams.get("numQuestion");
+    this.nbQuestion = navParams.get("nbQuestion");
+    console.log("Question --- Question Recup", this.question);
+    console.log("Question --- ID Defi recup", this.idDefi);
+    
+    this.getReponses();
     
   }
 
@@ -42,16 +48,28 @@ export class QuestionPage {
     console.log('ionViewDidLoad QuestionPage');
   }
 
-  cliqueReponse(numQuestion:number){
+  getReponses()
+  {
+    this.sqlLite.selectData("where `idQuestion` = " + this.question[this.numQuestion].id, "propositionQuiz", "*").then((data) => {
+      this.listProposition = data;
+    });
+  }
 
-    if(numQuestion == this.bonneReponse){
-      //.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
-      document.getElementById("reponse"+numQuestion).style.backgroundColor = "#3E9623";
+  
+
+  cliqueReponse(isReponse:number, id:any){
+
+    console.log("QUESTION --- num Reponse", isReponse);
+    if(isReponse == 1){
+      //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
+      document.getElementById(id).style.backgroundColor = "#3E9623";
+      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.question, numQuestion : this.numQuestion+1, nbQuestion : this.nbQuestion});
+
     
     }
     else{
-     // document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
-      document.getElementById("reponse"+numQuestion).style.backgroundColor = "#FD5757";
+      //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
+      document.getElementById(id).style.backgroundColor = "#FD5757";
     }
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DefisPage } from '../defis/defis';
 
 /**
  * Generated class for the ExplicationPage page.
@@ -14,12 +15,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'explication.html',
 })
 export class ExplicationPage {
+  idDefi:any;
+  question:any;
+  numQuestion:number;
+  nbQuestion:number
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.idDefi = navParams.get("idDefi");
+    this.question = navParams.get("question");
+    this.numQuestion = navParams.get("numQuestion");
+    this.nbQuestion = navParams.get("nbQuestion");
+    console.log("EXPLICATION --- Question Recup Explication", this.question);
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExplicationPage');
+  }
+
+  onClickNextQuestion()
+  {
+    console.log(this.nbQuestion + " " + this.numQuestion)
+    if(this.nbQuestion > this.numQuestion)
+    {
+      this.navCtrl.push('QuestionPage', {idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion++, nbQuestion: this.nbQuestion});
+    }
+    else
+      this.navCtrl.push(DefisPage);
+      
   }
 
 }
