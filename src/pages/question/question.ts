@@ -45,12 +45,12 @@ export class QuestionPage {
   cliqueReponse(numQuestion:number){
 
     if(numQuestion == this.bonneReponse){
-      document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
+      //.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById("reponse"+numQuestion).style.backgroundColor = "#3E9623";
     
     }
     else{
-      document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
+     // document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById("reponse"+numQuestion).style.backgroundColor = "#FD5757";
     }
   }

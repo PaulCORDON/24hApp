@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SQLite, SQLiteObject } from "@ionic-native/sqlite";
@@ -8,21 +8,31 @@ import *as firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 import { TimerComponent } from '../components/timer/timer';
+import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = SplashscreenPage;
-  showTimer = false;
+  showTimer:boolean;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService) {
+  public static event:Events;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService, event:Events) {
     platform.ready().then(() => {
       sqliteService.createDataBaseFile();
       statusBar.styleDefault();
       splashScreen.hide();
+
+      MyApp.event = event;
+      event.subscribe('timerVisibilityChanged', () => {
+        this.showTimer = GlobalVarsProvider.instance.getTimerVisibility();
+      });
+      this.showTimer = GlobalVarsProvider.instance.getTimerVisibility();
+      
       setTimeout(()=>{
-        this.showTimer = true;
+        GlobalVarsProvider.instance.setTimerVisibility(true);
       },4000)
     });
 

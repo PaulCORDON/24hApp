@@ -83,5 +83,6 @@
     <allow-navigation href="http://192.168.1.42:8100" sessionid="303ba620" />
     <plugin name="cordova-plugin-firebase" spec="2.0.5" />
     <allow-navigation href="http://192.168.43.201:8100" sessionid="3e116da4" />
+    <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
     <engine name="android" spec="7.1.4" />
 </widget>
