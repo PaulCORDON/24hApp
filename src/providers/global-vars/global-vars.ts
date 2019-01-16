@@ -26,6 +26,7 @@ export class GlobalVarsProvider {
 
   setTimerVisibility(show: boolean): boolean {
     this.showTimer = show;
+    console.log("setTimerVisibility " + show);
     MyApp.event.publish('timerVisibilityChanged');
     return this.showTimer;
   }
