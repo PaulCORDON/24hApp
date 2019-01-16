@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Participation } from '../../model/Participation';
 import * as firebase from 'firebase'
+import { NativeStorage } from '@ionic-native/native-storage';
 
 /*
   Generated class for the FirebaseProvider provider.
@@ -12,7 +13,9 @@ import * as firebase from 'firebase'
 @Injectable()
 export class FirebaseProvider {
 
-  constructor() {
+  ref:firebase.database.Reference;
+
+  constructor(protected nativeStorage:NativeStorage) {
     console.log('Hello FirebaseProvider Provider');
   }
 
@@ -26,11 +29,13 @@ export class FirebaseProvider {
       tel : participation.tel,
       nbTicket : participation.nbTicket
     });
+    console.log("addParticipation : " + ref);
 
     return ref;
   }
 
   getParticipation(ref : firebase.database.Reference):Promise<Participation> {
+    console.log("getParticipation : " + ref);
     return new Promise<Participation>((resolve, reject) => {      
       ref.on('value', res => {
         let participation = new Participation();
@@ -45,6 +50,7 @@ export class FirebaseProvider {
   }
 
   updateParticipation(ref : firebase.database.Reference,participation : Participation) {     
+    console.log("updateParticipation : " + ref);
     ref.set({
       nom : participation.nom,
       prenom : participation.prenom,
@@ -55,5 +61,4 @@ export class FirebaseProvider {
   }
 
 
-  //TODO faire des fonctions qui interagissent avec notre table
 }
