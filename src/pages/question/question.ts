@@ -16,19 +16,19 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 })
 export class QuestionPage {
 
-  idDefi:any; //ID du défi sur lequel le joueur a tapé
-  numQuestion:number; // Numéro de la question
-  nbQuestion:number; // Nombre de questions dans le défi
+  idDefi: any; //ID du défi sur lequel le joueur a tapé
+  numQuestion: number; // Numéro de la question
+  nbQuestion: number; // Nombre de questions dans le défi
 
   //Liste des composants
-  listQuestion:any;
-  listReponses:any;
+  listQuestion: any;
+  listReponses: any;
 
   //Animations
   flash = [
-    { opacity:1},
-    { opacity:0},
-    { opacity:1}
+    { opacity: 1 },
+    { opacity: 0 },
+    { opacity: 1 }
   ];
 
   flashTiming = {
@@ -46,9 +46,9 @@ export class QuestionPage {
     console.log("QUESTION --- Récupération de l'ID du défi", this.idDefi);
 
     this.getReponses();
-    
+
   }
-  
+
 
   ionViewDidLoad() {
     console.log('---------------------------- QuestionPage');
@@ -56,8 +56,7 @@ export class QuestionPage {
 
 
   //Méthode pour récupérer les réponses à la question
-  getReponses()
-  {
+  getReponses() {
     console.log("QUESTION --- Numéro de la question (brute) ", this.numQuestion);
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "reponse", "*").then((reponsesData) => {
       this.listReponses = reponsesData;
@@ -66,21 +65,31 @@ export class QuestionPage {
     });
   }
 
-  
 
-  
 
-  cliqueReponse(isReponse:number, id:any){
+
+
+  cliqueReponse(isReponse: number, id: any) {
 
     console.log("QUESTION --- Clic")
     console.log("QUESTION --- isReponse : ", isReponse);
+    console.log("QUESTION --- Numero question : " + this.numQuestion + " ------ Nombre de question : " + this.nbQuestion);
 
-    if(isReponse == 1){
+    if (isReponse == 1) {
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#3E9623";
-      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.listQuestion, numQuestion : ++this.numQuestion, nbQuestion : this.nbQuestion});
+      if (this.numQuestion < this.nbQuestion-1)
+      {
+        this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion });
+        console.log("QUESTION --- Continuation des questions")
+      }
+      else
+      {
+        this.navCtrl.push('ExplicationPage');
+        console.log("QUESTION --- Dernière question")
+      }
     }
-    else{
+    else {
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#FD5757";
     }

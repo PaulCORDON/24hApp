@@ -36,7 +36,7 @@ export class ExplicationPage {
   onClickNextQuestion()
   {
     console.log("EXPLICATION --- Click");
-    console.log(this.nbQuestion + " " + this.numQuestion)
+    console.log(this.nbQuestion + " > " + this.numQuestion)
     if(this.nbQuestion > this.numQuestion)
     {
       this.navCtrl.push('QuestionPage', {idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion});
