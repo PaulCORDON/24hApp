@@ -42,7 +42,11 @@ export class ExplicationPage {
       this.navCtrl.push('QuestionPage', {idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion});
     }
     else
+    {
+
       this.navCtrl.push(DefisPage);
+    }
+      
       
   }
 

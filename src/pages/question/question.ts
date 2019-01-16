@@ -80,13 +80,16 @@ export class QuestionPage {
       document.getElementById(id).style.backgroundColor = "#3E9623";
       if (this.numQuestion < this.nbQuestion-1)
       {
-        this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion });
         console.log("QUESTION --- Continuation des questions")
+        this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion });
       }
       else
       {
+        console.log("QUESTION --- C'était la dernière question");
+        this.sqlLite.setData("defi", "etat", 2, "where `id` = " + this.idDefi);
+        this.sqlLite.setData("defi", "etat", 1, "where `id` = " + (++this.idDefi));
+        //this.sqlLite.setData("theme", "nbTicketActuel", 1, "where `id` = " + (++this.idDefi));
         this.navCtrl.push('ExplicationPage');
-        console.log("QUESTION --- Dernière question")
       }
     }
     else {
