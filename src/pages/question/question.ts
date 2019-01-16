@@ -15,13 +15,16 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
   templateUrl: 'question.html',
 })
 export class QuestionPage {
-  idDefi:any;
-  question:any;
-  bonneReponse:any;
-  listProposition:any;
-  numQuestion:number;
-  nbQuestion:number
 
+  idDefi:any; //ID du défi sur lequel le joueur a tapé
+  numQuestion:number; // Numéro de la question
+  nbQuestion:number; // Nombre de questions dans le défi
+
+  //Liste des composants
+  listQuestion:any;
+  listReponses:any;
+
+  //Animations
   flash = [
     { opacity:1},
     { opacity:0},
@@ -33,39 +36,49 @@ export class QuestionPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
+    //Récupération des valeurs de la page précédente
     this.idDefi = navParams.get("idDefi");
-    this.question = navParams.get("question");
+    this.listQuestion = navParams.get("question");
     this.numQuestion = navParams.get("numQuestion");
     this.nbQuestion = navParams.get("nbQuestion");
-    console.log("Question --- Question Recup", this.question);
-    console.log("Question --- ID Defi recup", this.idDefi);
-    
+
+    console.log("QUESTION --- Récupération de la liste des questions", this.listQuestion);
+    console.log("QUESTION --- Récupération de l'ID du défi", this.idDefi);
+
     this.getReponses();
     
   }
+  
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionPage');
+    console.log('---------------------------- QuestionPage');
   }
 
+
+  //Méthode pour récupérer les réponses à la question
   getReponses()
   {
-    this.sqlLite.selectData("where `idQuestion` = " + this.question[this.numQuestion].id, "propositionQuiz", "*").then((data) => {
-      this.listProposition = data;
+    this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "reponse", "*").then((reponsesData) => {
+      this.listReponses = reponsesData;
+      this.numQuestion= this.numQuestion+1;
+      console.log("QUESTION --- Listes des réponses : ", this.listReponses)
+      console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
     });
   }
 
   
 
+  
+
   cliqueReponse(isReponse:number, id:any){
 
-    console.log("QUESTION --- num Reponse", isReponse);
+    console.log("QUESTION --- Clic")
+    console.log("QUESTION --- isReponse : ", isReponse);
+
     if(isReponse == 1){
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#3E9623";
-      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.question, numQuestion : this.numQuestion+1, nbQuestion : this.nbQuestion});
-
-    
+      this.navCtrl.push('ExplicationPage', {idDefi: this.idDefi, question: this.listQuestion, numQuestion : this.numQuestion, nbQuestion : this.nbQuestion});
     }
     else{
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);

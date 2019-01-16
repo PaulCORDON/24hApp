@@ -30,13 +30,13 @@ export class ExplicationPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExplicationPage');
+    console.log('----------------------- ExplicationPage');
   }
 
   onClickNextQuestion()
   {
     console.log(this.nbQuestion + " " + this.numQuestion)
-    if(this.nbQuestion > this.numQuestion)
+    if(this.nbQuestion+1 > this.numQuestion)
     {
       this.navCtrl.push('QuestionPage', {idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion++, nbQuestion: this.nbQuestion});
     }
