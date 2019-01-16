@@ -27,13 +27,10 @@ export class MyApp {
 
       MyApp.event = event;
       event.subscribe('timerVisibilityChanged', () => {
+        console.log("event timerVisibilityChanged")
         this.showTimer = GlobalVarsProvider.instance.getTimerVisibility();
       });
       this.showTimer = GlobalVarsProvider.instance.getTimerVisibility();
-      
-      setTimeout(()=>{
-        GlobalVarsProvider.instance.setTimerVisibility(true);
-      },4000)
     });
 
     var config = {
