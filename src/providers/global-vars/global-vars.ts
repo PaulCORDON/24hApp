@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Events } from 'ionic-angular';
+import { MyApp } from '../../app/app.component';
 
 @Injectable()
 export class GlobalVarsProvider {
@@ -10,9 +11,20 @@ export class GlobalVarsProvider {
 
   private nombreTicket:number = 0;
   private timer:string;
+  private showTimer:boolean = false;
 
   private constructor() {
     this.countdown();
+  }
+
+  getTimerVisibility():boolean{
+    return this.showTimer;
+  }
+
+  setTimerVisibility(show:boolean):boolean{
+    this.showTimer = show;
+    MyApp.event.publish('timerVisibilityChanged');
+    return this.showTimer;
   }
 
   private async countdown(){
