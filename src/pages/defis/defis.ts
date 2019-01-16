@@ -16,51 +16,63 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 })
 export class DefisPage {
 
+  //Liste des différents composants de la BDD
   listTheme: any;
   listDefi: any;
-  listProposition :any;
-  question : any;
+  listProposition: any;
+  listQuestion: any;
+
+  //Nombre de questions dans un défi
   nbQuestion: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
-    sqlLite.selectData("", "theme", "*").then((themeData) => {
-      console.log("DEFI --- Nom des thèmes :", themeData);
+    this.GetAllData(); //Récupération des thèmes et des défis
+  }
+
+  //Méthode pour récupérer la liste des thèmes
+  GetAllData() {
+    this.sqlLite.selectData("", "theme", "*").then((themeData) => {
       this.listTheme = themeData;
-      sqlLite.selectData("", "defi", "*").then((defidata) => {
-        console.log("DEFI --- Liste des défis", defidata)
-        this.listDefi = defidata;
-      })
-      //console.log(this.listTheme);
+      console.log("DEFI --- Liste des thèmes :", this.listTheme);
+      this.getDefis(); //Accès à la liste des défis
     });
   }
 
-  getNbQuestion(idDefi) {
-    this.sqlLite.selectData("where `idDefi` =" + idDefi, "question", "count(*) AS NBQUESTION").then((data) => {
-      console.log("DEFI --- Nombre de question dans le défi : ", data[0].NBQUESTION);
-      this.nbQuestion = data[0];
-    });
-
-
+  //Méthode récupérant la liste des défis
+  getDefis() {
+    this.sqlLite.selectData("", "defi", "*").then((defiData) => {
+      this.listDefi = defiData;
+      console.log("DEFI --- Liste des défis", this.listDefi)
+    })
   }
-
-  getQuestion(idDefi)
-  {
-    this.sqlLite.selectData("where `idDefi` = " + idDefi, "question", "*").then((data) => {
-      console.log("DEFI --- Listes des questions : ", data);
-      this.question = data;
-      this.getNbQuestion(idDefi);
-      
-    });
-  }
-
 
   cliqueDefi(idDefi: number) {
+    console.log("DEFI --- Clic");
     console.log("DEFI --- ID du défi cliqué : ", idDefi);
     this.getQuestion(idDefi);
-    //console.log("DEFI --- Nb Question : ", this.nbQuestion.NBQUESTION)
-    this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.question, numQuestion : 0, nbQuestion: this.nbQuestion.NBQUESTION});
   }
+
+  //Méthode pour récupérer la liste des questions
+  getQuestion(idDefi) {
+    this.sqlLite.selectData("where `idDefi` = " + idDefi, "question", "*").then((questionData) => {
+      this.listQuestion = questionData;
+      console.log("DEFI --- Listes des questions : ", this.listQuestion);
+      this.getNbQuestion(idDefi);
+    });
+  }
+
+  //Méthode récupérant le nombre de questions d'un défi
+  getNbQuestion(idDefi) {
+    this.sqlLite.selectData("where `idDefi` =" + idDefi, "question", "count(*) AS NBQUESTION").then((nbQuestionData) => {
+      console.log("DEFI --- Nombre de question dans le défi : ", nbQuestionData[0].NBQUESTION);
+      this.nbQuestion = nbQuestionData[0].NBQUESTION;
+      this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.listQuestion, numQuestion: 0, nbQuestion: this.nbQuestion});
+    });
+  }
+
+
+
 
   ionViewDidLoad() {
     console.log('--------------------------DefisPage');
