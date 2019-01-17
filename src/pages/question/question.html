@@ -39,7 +39,7 @@
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <div *ngFor="let reponse of listProposition; let i= index">
+                    <div *ngFor="let reponse of listReponses; let i= index">
                         <div *ngIf="i==0 || i==1">
                             <ion-card class="reponse" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
                                 <div class="bounce">{{reponse.nom}}</div>
