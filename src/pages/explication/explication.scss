@@ -1,9 +1,10 @@
 page-explication {
     .ticket{
-      width: 56px;
-      display: block;
-      margin: auto;    
-   
+      position: absolute;
+      margin-top: 50vh;
+      margin-left:auto;
+      width: 56px; 
+      z-index: 2;
     }
     
     .fond{
