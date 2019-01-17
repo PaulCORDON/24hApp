@@ -74,6 +74,17 @@
 
 }
 
+
+.barre{
+    background-color: #E7600E;
+    content: '';
+    display: block;
+    margin: 10px auto;
+    width: 60px;
+    height: 4px;
+    margin-block-end: 0;
+}
+
 .timerZone{
     position: absolute;
     width: 100%;

@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
 import { TimerComponent } from '../components/timer/timer';
 import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
+import { QuestionPage } from '../pages/question/question';
 
 @Component({
   templateUrl: 'app.html'

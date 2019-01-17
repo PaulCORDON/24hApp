@@ -32,6 +32,7 @@ var config = {
 
 import { ComponentsModule } from '../components/components.module';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { QuestionPage } from '../pages/question/question';
 import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
 
 
@@ -43,7 +44,8 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
-    SlideTutoPage
+    SlideTutoPage,
+    QuestionPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
-    SlideTutoPage
+    SlideTutoPage,
+    QuestionPage
   ],
   providers: [
     StatusBar,
