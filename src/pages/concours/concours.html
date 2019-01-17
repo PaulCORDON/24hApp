@@ -70,7 +70,7 @@
   <div *ngIf="ref == undefined" style="margin-bottom:40px;">
     <ion-row class="conditionsRow">
       <ion-col col-1 align-self-center>
-        <ion-checkbox [(ngModel)]="cg" color="primary" checked="false"></ion-checkbox>
+        <ion-checkbox (ionChange)="newInput()" [(ngModel)]="cg" color="primary" checked="false"></ion-checkbox>
       </ion-col>
       <ion-col>
         <div class="conditions">J'ai lu et j'accepte les <div class="link" (click)="easterEgg()" ><span>conditions générales</span></div> de participation au concours et certifie
