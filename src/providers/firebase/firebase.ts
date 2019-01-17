@@ -59,6 +59,4 @@ export class FirebaseProvider {
       nbTicket : participation.nbTicket
     });
   }
-
-
 }

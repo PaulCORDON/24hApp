@@ -34,6 +34,7 @@ import { ComponentsModule } from '../components/components.module';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { QuestionPage } from '../pages/question/question';
 import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
+import { Network } from '@ionic-native/network';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
   ],
   providers: [
     StatusBar,
+    Network,
     SQLite,
     SQLiteService,
     NativeStorage,
