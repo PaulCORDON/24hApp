@@ -3,7 +3,7 @@
     <name>Code 24H</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ensim 5A IPS Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://172.20.10.5:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

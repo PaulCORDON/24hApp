@@ -34,6 +34,7 @@ import { ComponentsModule } from '../components/components.module';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { QuestionPage } from '../pages/question/question';
 import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
+import { QuestionPageModule } from '../pages/question/question.module';
 import { Network } from '@ionic-native/network';
 
 
@@ -45,8 +46,7 @@ import { Network } from '@ionic-native/network';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
-    SlideTutoPage,
-    QuestionPage
+    SlideTutoPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,8 @@ import { Network } from '@ionic-native/network';
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ComponentsModule
+    ComponentsModule,
+    QuestionPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
