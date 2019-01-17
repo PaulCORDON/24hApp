@@ -1,0 +1,25 @@
+<ion-content padding>
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button (click)="suivant()" ion-button color="primary">Passer</button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <img src="assets/img/slide4.png" class="slide-image"/>
+      <h2 class="slide-title">Prêt à relever le défi ?</h2>
+      <button  (click)="suivant()" ion-button large clear icon-end color="primary">
+        C'est parti !
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

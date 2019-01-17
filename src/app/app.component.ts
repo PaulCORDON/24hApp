@@ -22,19 +22,17 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService, event:Events) {
     platform.ready().then(() => {
-      sqliteService.createDataBaseFile();
+
+      //sqliteService.createDataBaseFile();
       statusBar.styleDefault();
       splashScreen.hide();
 
       MyApp.event = event;
       event.subscribe('timerVisibilityChanged', () => {
+        console.log("event timerVisibilityChanged")
         this.showTimer = GlobalVarsProvider.instance.getTimerVisibility();
       });
       this.showTimer = GlobalVarsProvider.instance.getTimerVisibility();
-      
-      setTimeout(()=>{
-        GlobalVarsProvider.instance.setTimerVisibility(true);
-      },4000)
     });
 
     var config = {

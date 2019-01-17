@@ -33,6 +33,7 @@ var config = {
 import { ComponentsModule } from '../components/components.module';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { QuestionPage } from '../pages/question/question';
+import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { QuestionPage } from '../pages/question/question';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
+    SlideTutoPage
     QuestionPage
   ],
   imports: [
@@ -61,6 +63,7 @@ import { QuestionPage } from '../pages/question/question';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
+    SlideTutoPage
     QuestionPage
   ],
   providers: [

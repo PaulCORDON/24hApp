@@ -16,6 +16,7 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="false" />
     <preference name="SplashScreenDelay" value="0" />
+    <preference name="Orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -85,6 +86,7 @@
     <allow-navigation href="http://192.168.43.201:8100" sessionid="3e116da4" />
     <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
     <allow-navigation href="http://172.20.10.10:8100" sessionid="a4aad3b3" />
+    <allow-navigation href="http://172.20.10.5:8100" sessionid="869c3a9f" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <engine name="android" spec="~7.1.4" />
+    <engine name="android" spec="7.1.4" />
 </widget>
