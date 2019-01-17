@@ -3,7 +3,7 @@
     <name>Code 24H</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ensim 5A IPS Team</author>
-    <content original-src="index.html" src="http://192.168.1.42:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -86,5 +86,6 @@
     <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
     <allow-navigation href="http://172.20.10.10:8100" sessionid="a4aad3b3" />
     <allow-navigation href="http://172.20.10.5:8100" sessionid="869c3a9f" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
     <engine name="android" spec="7.1.4" />
 </widget>

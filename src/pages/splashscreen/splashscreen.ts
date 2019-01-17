@@ -5,6 +5,7 @@ import { TabsPage } from '../tabs/tabs';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { SlideTutoPage } from '../slide-tuto/slide-tuto';
 import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
+import { SQLiteService } from '../../SQLite/SQLiteService';
 
 /**
  * Generated class for the SplashscreenPage page.
@@ -20,7 +21,8 @@ import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 })
 export class SplashscreenPage {
   splash = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public nativeStorage: NativeStorage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public nativeStorage: NativeStorage, sqliteService : SQLiteService) {
+    sqliteService.createDataBaseFile();
   }
 
   ionViewDidLoad() {
