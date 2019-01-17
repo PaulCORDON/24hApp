@@ -88,5 +88,6 @@
     <allow-navigation href="http://172.20.10.10:8100" sessionid="a4aad3b3" />
     <allow-navigation href="http://172.20.10.5:8100" sessionid="869c3a9f" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
+    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <engine name="android" spec="~7.1.4" />
 </widget>

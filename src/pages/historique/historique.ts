@@ -64,9 +64,9 @@ export class HistoriquePage {
       "Anectode3": "", "nbParticipants": "132"
     },
     {
-      "annee": "2019", "dates": "19-20 janvier 2019", "Lieu": "CCI", "nbSujet": "1", "titreSujet1": "Les sujets seront dévoilés le jour J !", "demandeurSujet1": "", "titreSujet2": "", "demandeurSujet2": "Coach AAC", "titreSujet3": "", "demandeurSujet3": "ST Microelectronics", "titreSujet4": "", "demandeurSujet4": "Sopra Steria", "titreSujet5": "", "demandeurSujet5": "",
-      "Anectode1": "Des ateliers lego wedo & scratch sont mis en place.",
-      "Anectode2": "",
+      "annee": "2019", "dates": "19-20 janvier 2019", "Lieu": "Campus La Californie", "nbSujet": "1", "titreSujet1": "Les sujets seront dévoilés le jour J !", "demandeurSujet1": "", "titreSujet2": "", "demandeurSujet2": "Coach AAC", "titreSujet3": "", "demandeurSujet3": "ST Microelectronics", "titreSujet4": "", "demandeurSujet4": "Sopra Steria", "titreSujet5": "", "demandeurSujet5": "",
+      "Anectode1": "En raison d'une manifestation prévue place de la république le samedi 19 janvier, le lieu des 24 heures du code a été modifié. L'évènement prend donc place au campus 'La Californie' au Mans.",
+      "Anectode2": "Des ateliers lego wedo & scratch sont mis en place.",
       "Anectode3": "", "nbParticipants": "167"
     }]
 

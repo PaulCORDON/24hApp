@@ -35,6 +35,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { QuestionPage } from '../pages/question/question';
 import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
 import { QuestionPageModule } from '../pages/question/question.module';
+import { Network } from '@ionic-native/network';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { QuestionPageModule } from '../pages/question/question.module';
   ],
   providers: [
     StatusBar,
+    Network,
     SQLite,
     SQLiteService,
     NativeStorage,
