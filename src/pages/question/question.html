@@ -10,7 +10,7 @@
 </ion-header>
 
 
-<ion-content class="fond">
+<ion-content class="fond" style="margin-top:-5px">
 
     <!-- <div padding class="centre">
         <ion-label class="question bounceInLeft">{{question[numQuestion].intitule}}</ion-label>
@@ -41,18 +41,34 @@
                 <ion-col>
                     <div *ngFor="let reponse of listReponses; let i= index">
                         <div *ngIf="i==0 || i==1">
-                            <ion-card class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
-                                <div class="bounce">{{reponse.nom}}</div>
-                            </ion-card>
+                            <div *ngIf="reponse.image==''">
+                                <ion-card class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                                    <div class="bounce">{{reponse.nom}}</div>
+                                </ion-card>
+                            </div>
+                            <div *ngIf="reponse.image!=''">
+                                <ion-card class="reponse" attr.id="{{reponse.id}}" style="background-image:url('../assets/imgs/{{reponse.image}}')"
+                                    (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                                    <div class="bounce">{{reponse.nom}}</div>
+                                </ion-card>
+                            </div>
                         </div>
                     </div>
                 </ion-col>
                 <ion-col>
                     <div *ngFor="let reponse of listReponses; let i= index">
                         <div *ngIf="i==2 || i==3">
-                            <ion-card class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
-                                <div class="bounce">{{reponse.nom}}</div>
-                            </ion-card>
+                            <div *ngIf="reponse.image==''">
+                                <ion-card class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                                    <div class="bounce">{{reponse.nom}}</div>
+                                </ion-card>
+                            </div>
+                            <div *ngIf="reponse.image!=''">
+                                <ion-card class="reponse" attr.id="{{reponse.id}}" style="background-image:url('../assets/imgs/{{reponse.image}}')"
+                                    (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                                    <div class="bounce">{{reponse.nom}}</div>
+                                </ion-card>
+                            </div>
                         </div>
                     </div>
                 </ion-col>
