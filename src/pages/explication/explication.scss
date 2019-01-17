@@ -11,7 +11,7 @@ page-explication {
 
 
     .cardQuestion{
-        height: 60%;
+        height: auto;
         width: auto;
         //position: relative;
         text-align: center;
@@ -19,7 +19,7 @@ page-explication {
         //background: rgba(#0BA3CC, 0.6);
         background: linear-gradient(to top, #E7600E 0%, #0BA3CC 15%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
         color: white;
-        padding: auto;
+        padding: 10px;
         margin-top: 10px;
         margin-left: 5px;
         margin-right: 5px;
