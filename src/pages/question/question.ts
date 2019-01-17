@@ -73,7 +73,7 @@ export class QuestionPage {
   {
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "explication", "*").then((explicationData) => {
       this.explication = explicationData[0];
-      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: false, explication:this.explication });
+      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: false, explication:this.explication });
       console.log("EXPLICATION --- Explication : ", this.explication);
     });
   }
