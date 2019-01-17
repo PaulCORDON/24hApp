@@ -67,7 +67,7 @@ export class DefisPage {
     this.sqlLite.selectData("where `idDefi` =" + idDefi, "question", "count(*) AS NBQUESTION").then((nbQuestionData) => {
       console.log("DEFI --- Nombre de question dans le défi : ", nbQuestionData[0].NBQUESTION);
       this.nbQuestion = nbQuestionData[0].NBQUESTION;
-      this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.listQuestion, numQuestion: 0, nbQuestion: this.nbQuestion});
+      this.navCtrl.push('QuestionPage', {idDefi: idDefi, question: this.listQuestion, numQuestion: 0, nbQuestion: this.nbQuestion, listDefi: this.listDefi});
     });
   }
 
