@@ -17,10 +17,11 @@
           <button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
           <br>
           <button  style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>
-          <!-- paulo met ton bouton ici -->
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
+
+  <img *ngIf="this.newTicket"  class="ticket" src="assets/imgs/ticket.png">
 
 </ion-content>
