@@ -32,6 +32,7 @@ var config = {
 
 import { ComponentsModule } from '../components/components.module';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { QuestionPage } from '../pages/question/question';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HistoriquePage,
     TabsPage,
     SplashscreenPage,
-    ConcoursPage
+    ConcoursPage,
+    QuestionPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HistoriquePage,
     TabsPage,
     SplashscreenPage,
-    ConcoursPage
+    ConcoursPage,
+    QuestionPage
   ],
   providers: [
     StatusBar,

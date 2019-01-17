@@ -20,7 +20,7 @@ export class QuestionPage {
   bonneReponse:any;
   listProposition:any;
   numQuestion:number;
-  nbQuestion:number
+  nbQuestion:number;
 
   flash = [
     { opacity:1},

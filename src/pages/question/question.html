@@ -6,16 +6,13 @@
 -->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>Question {{numQuestion}}</ion-title>
-    </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content class="fond">
 
-    <div padding class="centre">
+    <!-- <div padding class="centre">
         <ion-label class="question bounceInLeft">{{question[numQuestion].intitule}}</ion-label>
     </div>
 
@@ -30,7 +27,42 @@
             </ion-row>
         </ion-grid>
 
+    </div> -->
+
+
+
+    <ion-card class="cardQuestion">
+        <ion-label class="question bounceInLeft">{{question[numQuestion].intitule}}</ion-label>
+    </ion-card>
+
+    <div class="grid">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div *ngFor="let reponse of listProposition; let i= index">
+                        <div *ngIf="i==0 || i==1">
+                            <ion-card class="reponse" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                                <div class="bounce">{{reponse.nom}}</div>
+                            </ion-card>
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div *ngFor="let reponse of test; let i= index">
+                        <div *ngIf="i==2 || i==3">
+                            <ion-card class="reponse" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                                <div class="bounce">{{reponse.nom}}</div>
+                            </ion-card>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </div>
+
+
+
+
 
 
     <!--<ion-grid>
