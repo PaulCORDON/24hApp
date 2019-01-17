@@ -63,11 +63,12 @@ export class ExplicationPage {
 
         toast.onDidDismiss(() => {
           GlobalVarsProvider.instance.updateNombreTicket(1);
-          this.navCtrl.push(DefisPage);
+          
           console.log('Dismissed toast');
         });
 
         toast.present();
+        this.navCtrl.push(DefisPage);
       }
       else
         this.navCtrl.push(DefisPage);
