@@ -65,7 +65,7 @@ export class QuestionPage {
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "reponse", "*").then((reponsesData) => {
       this.listReponses = reponsesData;
       console.log("QUESTION --- Listes des réponses : ", this.listReponses)
-      console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
+      console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion+1 + "/" + this.nbQuestion);
     });
   }
 
@@ -96,7 +96,7 @@ export class QuestionPage {
     console.log("QUESTION --- Numero question : " + this.numQuestion + " ------ Nombre de question : " + this.nbQuestion);
 
     if (isReponse == 1) {
-      //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
+      //document.getElementById(id).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#3E9623";
       if (this.numQuestion < this.nbQuestion - 1) {
         this.getExplication();
@@ -125,7 +125,7 @@ export class QuestionPage {
       }
     }
     else {
-      //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
+      //document.getElementById(id).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#FD5757";
     }
   }

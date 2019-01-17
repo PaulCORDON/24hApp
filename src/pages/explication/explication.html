@@ -1,14 +1,25 @@
-
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Explication</ion-title>
-  </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  {{explication.titre}}
-<button ion-button (tap)= "onClickNextQuestion()">Next Question</button>
+<ion-content class="fond" style="margin-top:-5px">
+
+  <ion-card class="cardQuestion">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label class="explication bounceInLeft">{{explication.titre}}</ion-label>
+          <br>
+          <ion-label class="explication bounceInLeft">{{explication.texte}}</ion-label>
+          <br>
+          <button style="border-radius: 10px" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
+          <br>
+          <!-- paulo met ton bouton ici -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
 </ion-content>

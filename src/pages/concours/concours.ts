@@ -9,6 +9,8 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 import { NativeStorage } from '@ionic-native/native-storage';
 import * as firebase from 'firebase'
 import { ToastController } from 'ionic-angular';
+import { Network } from '@ionic-native/network';
+
 @IonicPage()
 @Component({
   selector: 'page-concours',
@@ -27,8 +29,17 @@ export class ConcoursPage {
   public nombreTicketDejaRemis: number;
   public ref: firebase.database.Reference;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider, private toastCtrl: ToastController, private nativeStorage: NativeStorage) {
+  public connect:boolean;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider, private toastCtrl: ToastController, private nativeStorage: NativeStorage, protected network: Network) {
+    this.connect = (network.type!="none");
+    network.onConnect().subscribe(() => {
+      this.connect = true;
+      this.ionViewWillEnter();
+    });
+    network.onDisconnect().subscribe(() => {
+      this.connect = false;
+    });
   }
 
   ionViewWillEnter() {

@@ -4,7 +4,7 @@ import { QuestionPage } from './question';
 
 @NgModule({
   declarations: [
-    QuestionPage,
+    QuestionPage
   ],
   imports: [
     IonicPageModule.forChild(QuestionPage),

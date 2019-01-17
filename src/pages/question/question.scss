@@ -1,18 +1,19 @@
 page-question {
 
   .fond{
-    background: linear-gradient(to bottom, white 0%,white 30%,white 45%,white 45%,white 45%,grey 65%,grey 100%); /* W3C */
+    background: linear-gradient(#D3D3D3 100%); /* W3C */
+    padding: 0;
   }
 
 
   .cardQuestion{
     height: 45%;
-    width: 100%;
+    width: auto;
     position: relative;
     text-align: center;
     border-radius: 15px;
     //background: rgba(#0BA3CC, 0.6);
-    background: linear-gradient(to top, #E7600E 0%, #0BA3CC 30%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
+    background: linear-gradient(to top, #E7600E 0%, #0BA3CC 15%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
     color: white;
     padding: auto;
     margin-top: 10px;

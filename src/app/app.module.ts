@@ -14,11 +14,16 @@ import { Infos24hProvider } from '../providers/infos24h/infos24h';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteService } from '../SQLite/SQLiteService';
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { ComponentsModule } from '../components/components.module';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { QuestionPage } from '../pages/question/question';
+import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
+import { Network } from '@ionic-native/network';
+import { QuestionPageModule } from '../pages/question/question.module';
 
 
 var config = {
@@ -30,12 +35,6 @@ var config = {
   messagingSenderId: "957300827901"
 };
 
-import { ComponentsModule } from '../components/components.module';
-import { NativeStorage } from '@ionic-native/native-storage';
-import { QuestionPage } from '../pages/question/question';
-import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -44,8 +43,7 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
-    SlideTutoPage,
-    QuestionPage
+    SlideTutoPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +51,8 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ComponentsModule
+    ComponentsModule,
+    QuestionPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,6 +67,7 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
   ],
   providers: [
     StatusBar,
+    Network,
     SQLite,
     SQLiteService,
     NativeStorage,
