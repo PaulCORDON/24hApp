@@ -44,7 +44,7 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
-    SlideTutoPage
+    SlideTutoPage,
     QuestionPage
   ],
   imports: [
@@ -63,7 +63,7 @@ import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
-    SlideTutoPage
+    SlideTutoPage,
     QuestionPage
   ],
   providers: [
