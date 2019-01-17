@@ -78,7 +78,7 @@ export class SQLiteService {
         this.selectData("", "defi", "*").then((getIDDefi) => {
             let i = 0;
             //Défi sur les femmes dans l'info
-            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', '', " + getIDDefi[i].id + "), ('Qui a été la première personne à imaginer linformatique ?', '', " + getIDDefi[i].id + "), ('Qui a conçu le premier ordinateur au monde ?', '', " + getIDDefi[i].id + "), ('Le cobol est un langage de programmation créé en 1959. Il est encore utilisé aujourd’hui, surtout dans le domaine des banques. Qui est linventeur de ce langage de programmation ?', '', " + getIDDefi[i].id + "), ('Qui a conçu les logiciels de guidage du vaisseau de la mission lunaire Apollo ?', '', " + getIDDefi[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', '', " + getIDDefi[i].id + "), ('Qui a été la première personne à imaginer linformatique ?', '', " + getIDDefi[i].id + "), ('Qui a conçu le premier ordinateur au monde ?', '', " + getIDDefi[i].id + "), ('Le cobol est un langage de programmation créé en 1959. Il est encore utilisé aujourdhui, surtout dans le domaine des banques. Qui est linventeur de ce langage de programmation ?', '', " + getIDDefi[i].id + "), ('Qui a conçu les logiciels de guidage du vaisseau de la mission lunaire Apollo ?', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Défi Prendre en photo une informaticienne
             /*this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Votre mission est de scanner le QR Code de 3 informaticiennes. GO!', '', " + getIDDefi[i++].id + ")", [])
@@ -146,21 +146,25 @@ export class SQLiteService {
     }
 
     insertExplication() {
-        /*this.selectData("", "question", "*").then((getIDQuestion) => {
-        
-                    this.selectData("", "theme", "*").then((getIDTheme) => {
-                        let question=0;
-                        let theme=0;
-                        this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Hedy Lamarr créatice de la wifi', 'image', 'Cette femme est responsable de la création de l''informatique', 'bouton', 'en savoir plus', "+ getIDQuestion[question].id +", 0)", [])
-                            .catch(e => console.log(e + " " + i));
-                        this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Ada Lovelace a imaginé linformatique', 'image', 'Une femme a imaginer linformatique', 'bouton', 'En savoir plus', "+ getIDQuestion[question].id +", 0)", [])
-                            .catch(e => console.log(e + " " + i));
-                        this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Les femmes sont informaticiennes', 'image', 'Nous pouvons voir que les femmes sont informaticiennes', 'bouton', 'En savoir plus', 0, "+ getIDTheme[theme].id +")", [])
-                            .catch(e => console.log(e + " " + i));
-                        /*this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ", [])
-                            .catch(e => console.log(e + " " + i));
-                    });
-                })*/
+        this.selectData("", "question", "*").then((getIDQuestion) => {
+
+            this.selectData("", "theme", "*").then((getIDTheme) => {
+                let question = 0;
+                let theme = 0;
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Hedy Lamarr - Créatice de la wifi', 'image', 'Hedy Lamarr est surtout connue pour sa carrière à Hollywood, mais lactrice était aussi une inventrice de talent dont les idées sont encore utilisées aujourdhui. En 1941, Hedy Lamarr propose un système secret de communication. Utilisable sur les torpilles radio-guidées, il permet au système de radio-transmission de changer régulièrement de fréquence, rendant presque impossible la détection de la torpille. Ce principe est toujours utilisé dans les technologies daujourdhui comme le positionnement par satellites avec les GPS, les liaisons chiffrées militaires, dans la technique du WIFI ou avec les smartphones.', 'https://fr.wikipedia.org/wiki/Hedy_Lamarr', 'en savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Ada Lovelace a imaginé linformatique', 'image', 'Une femme a imaginer linformatique', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Les femmes sont informaticiennes3', 'image', 'Nous pouvons voir que les femmes sont informaticiennes', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Les femmes sont informaticiennes4', 'image', 'Nous pouvons voir que les femmes sont informaticiennes', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Les femmes sont informaticiennes5', 'image', 'Nous pouvons voir que les femmes sont informaticiennes', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                /*this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ", [])
+                    .catch(e => console.log(e + " " + i));*/
+            });
+        })
     }
 
 
@@ -190,7 +194,7 @@ export class SQLiteService {
                         if (data.rows.length > 0) {
                             for (var i = 0; i < data.rows.length; i++) {
                                 res.push(data.rows.item(i));
-                                console.log("SQLSERVICE --------- " + i, data.rows.item(i));
+                                //console.log("SQLSERVICE --------- " + i, data.rows.item(i));
                             }
                         }
                     }

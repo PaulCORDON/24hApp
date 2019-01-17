@@ -26,6 +26,7 @@ export class ExplicationPage {
   listDefi: any;
   listReponses: any;
   toast: boolean;
+  explication:any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public sqlLite: SQLiteService) {
     this.idDefi = navParams.get("idDefi");
@@ -35,6 +36,7 @@ export class ExplicationPage {
     this.listDefi = navParams.get("listDefi");
     this.listReponses = navParams.get("listReponses");
     this.toast = navParams.get("toast");
+    this.explication = navParams.get("explication");
     console.log("EXPLICATION --- Toast :", this.toast);
     console.log("EXPLICATION --- Récupération de la question", this.question);
 
@@ -43,6 +45,7 @@ export class ExplicationPage {
   ionViewDidLoad() {
     console.log('----------------------- ExplicationPage');
   }
+
 
   onClickNextQuestion() {
     console.log("EXPLICATION --- Click");
