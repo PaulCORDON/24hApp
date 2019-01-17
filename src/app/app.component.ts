@@ -21,7 +21,8 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService, event:Events) {
     platform.ready().then(() => {
-      sqliteService.createDataBaseFile();
+
+      //sqliteService.createDataBaseFile();
       statusBar.styleDefault();
       splashScreen.hide();
 
