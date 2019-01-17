@@ -25,6 +25,7 @@ export class QuestionPage {
   listQuestion: any;
   listReponses: any;
   listDefi: any;
+  explication:any;
 
   //Animations
   flash = [
@@ -68,7 +69,23 @@ export class QuestionPage {
     });
   }
 
+  getExplication()
+  {
+    this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "explication", "*").then((explicationData) => {
+      this.explication = explicationData[0];
+      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: false, explication:this.explication });
+      console.log("EXPLICATION --- Explication : ", this.explication);
+    });
+  }
 
+  getExplicationFin()
+  {
+    this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "explication", "*").then((explicationData) => {
+      this.explication = explicationData[0];
+      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: this.numQuestion, nbQuestion: --this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: true, explication:this.explication });
+      console.log("EXPLICATION --- Explication : ", this.explication);
+    });
+  }
 
 
 
@@ -82,8 +99,9 @@ export class QuestionPage {
       //document.getElementById("reponse"+numQuestion).animate(this.flash,this.flashTiming);
       document.getElementById(id).style.backgroundColor = "#3E9623";
       if (this.numQuestion < this.nbQuestion - 1) {
+        this.getExplication();
         console.log("QUESTION --- Continuation des questions")
-        this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: false });
+        
       }
       else {
         console.log("QUESTION --- C'était la dernière question");
@@ -102,8 +120,8 @@ export class QuestionPage {
           console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
         });
 
+        this.getExplicationFin();
         
-        this.navCtrl.push('ExplicationPage', { toast : true });
       }
     }
     else {
