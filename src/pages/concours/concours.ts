@@ -21,7 +21,7 @@ export class ConcoursPage {
   public nom: string;
   public prenom: string;
   public tel: string;
-  public mail: string;
+  public mail: string = "";
   public isEnable: boolean = false;
   public cg: boolean = false;
 
@@ -106,7 +106,7 @@ export class ConcoursPage {
 
   newInput() {
     console.log(this.nom);
-    this.isEnable = (this.nom != "" && this.prenom != "" && this.tel != "" && this.cg);
+    this.isEnable = (this.nom != "" && this.nom != undefined && this.prenom != "" && this.prenom != undefined && this.tel != "" && this.tel != undefined&& this.cg);
 
   }
 

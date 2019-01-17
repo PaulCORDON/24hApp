@@ -26,7 +26,8 @@ export class ExplicationPage {
   listDefi: any;
   listReponses: any;
   toast: boolean;
-  explication:any
+  explication: any;
+  isNextQuestion: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public sqlLite: SQLiteService) {
     this.idDefi = navParams.get("idDefi");
@@ -44,36 +45,35 @@ export class ExplicationPage {
 
   ionViewDidLoad() {
     console.log('----------------------- ExplicationPage');
+    this.isNextQuestion = (this.nbQuestion > this.numQuestion);
   }
 
+  onClickTerminer() {
+    console.log("QUESTION --- C'était la dernière question");
+        
+
+        this.sqlLite.selectData("where `id` = " + this.idDefi, "defi", "etat").then((defiListe) => {
+          if (defiListe[0].etat != 2) {
+            console.log("QUESTION --- Etat du défi : " + JSON.stringify(defiListe[0]));
+            GlobalVarsProvider.instance.updateNombreTicket(1);
+
+            this.sqlLite.setData("defi", "etat", 2, "where `id` = " + this.idDefi);
+            this.sqlLite.setData("theme", "nbTicketActuel", 1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
+            
+            this.sqlLite.setData("defi", "etat", 1, "where `id` = " + (++this.idDefi));
+          }
+          
+          console.log("QUESTION --- Listes des réponses : ", this.listReponses)
+          console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
+        });
+      this.navCtrl.push(DefisPage);
+  }
 
   onClickNextQuestion() {
     console.log("EXPLICATION --- Click");
     console.log(this.nbQuestion + " > " + this.numQuestion)
-    if (this.nbQuestion > this.numQuestion) {
-      this.navCtrl.push('QuestionPage', { idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi });
-    }
-    else {
-      if (this.toast == true) {
-        let toast = this.toastCtrl.create({
-          message: 'Vous avez répondu à toutes les questions. Félicitations, un tocket a été ajouté à votre compte utilisateur',
-          duration: 3000,
-          position: 'middle'
-        });
 
-        toast.onDidDismiss(() => {
-          GlobalVarsProvider.instance.updateNombreTicket(1);
-          this.navCtrl.push(DefisPage);
-          console.log('Dismissed toast');
-        });
-
-        toast.present();
-      }
-      else
-        this.navCtrl.push(DefisPage);
-    }
-    console.log("QUESTION --- Listes des réponses : ", this.listReponses)
-    console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
-
+    this.navCtrl.push('QuestionPage', { idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi });
   }
+
 }

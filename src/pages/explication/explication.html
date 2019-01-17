@@ -10,5 +10,7 @@
 
 <ion-content padding>
   {{explication.titre}}
-<button ion-button (tap)= "onClickNextQuestion()">Next Question</button>
+<button *ngIf="isNextQuestion" ion-button (tap)= "onClickNextQuestion()">Question suivante</button>
+<button *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>
+
 </ion-content>

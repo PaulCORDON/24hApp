@@ -198,7 +198,7 @@ export class SQLiteService {
                             }
                         }
                     }
-
+                    console.log("selectData res : " + JSON.stringify(res))
                     resolve(res);
                 })
                 .catch(e => {

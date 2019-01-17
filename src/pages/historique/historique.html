@@ -83,9 +83,9 @@
             <ion-icon name="people"></ion-icon>&nbsp;{{a.nbParticipants}}&nbsp;participants
             <div class="barre"></div>
           </div>
-          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode1)"> {{a.Anectode1}}</div>
-          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode2)"> {{a.Anectode2}}</div>
-          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode3)"> {{a.Anectode3}}</div>
+          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode1)"> <p text-align="justify">{{a.Anectode1}}</p></div>
+          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode2)"> <p text-align="justify">{{a.Anectode2}}</p></div>
+          <div padding class="content" *ngIf="0 != ''.localeCompare(a.Anectode3)"> <p text-align="justify">{{a.Anectode3}}</p></div>
         </div>
       </div>
     </div>

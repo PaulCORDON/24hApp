@@ -104,21 +104,7 @@ export class QuestionPage {
         
       }
       else {
-        console.log("QUESTION --- C'était la dernière question");
         
-
-        this.sqlLite.selectData("where `id` = " + this.idDefi, "defi", "etat").then((etatDefi) => {
-          if (etatDefi[0] != 2) {
-            console.log("QUESTION --- Etat du défi : " + etatDefi[0]);
-            this.sqlLite.setData("defi", "etat", 2, "where `id` = " + this.idDefi);
-            this.sqlLite.setData("theme", "nbTicketActuel", 1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
-            //GlobalVarsProvider.instance.updateNombreTicket(1);
-            this.sqlLite.setData("defi", "etat", 1, "where `id` = " + (++this.idDefi));
-          }
-          
-          console.log("QUESTION --- Listes des réponses : ", this.listReponses)
-          console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion + "/" + this.nbQuestion);
-        });
 
         this.getExplicationFin();
         
