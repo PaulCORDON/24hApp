@@ -19,7 +19,7 @@
 .tabs {
 
 .tabbar {
-    background: linear-gradient(to bottom, #E7600E 0%, #0BA3CC 30%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
+    background: linear-gradient(to bottom, #0BA3CC 0%, #0BA3CC 30%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
 
    // background-color: #0BA3CC;
     //opacity: 0.1;
@@ -101,8 +101,12 @@
     bottom: 66px;
     z-index: 1;
     background-color: orangered;
-    opacity: 0.8;
+    //opacity: 0.8;
     color: white;
     padding-bottom: 5px;
     padding-top: 5px;
+}
+
+ion-content{
+    padding-bottom: 10px;
 }

@@ -120,6 +120,7 @@ export class ConcoursPage {
 
           toast.onDidDismiss(() => {
             GlobalVarsProvider.instance.updateNombreTicket(1);
+            this.nombreTicket ++;
             console.log('Dismissed toast');
           });
 

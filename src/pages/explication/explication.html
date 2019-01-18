@@ -5,14 +5,28 @@
   <ion-card class="cardQuestion">
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <ion-label class="ensavoirplus bounceInLeft">EN SAVOIR PLUS</ion-label>
-          <br>
-          <ion-label class="explication bounceInLeft">{{explication.titre}}</ion-label>
+        <ion-col class="textalign">
           <br>
           <br>
-          <ion-label class="explication bounceInLeft">{{explication.texte}}</ion-label>
+          <ion-label class="ensavoirplus bounceInLeft">{{explication?.titre}}</ion-label>
           <br>
+  
+         <ion-row>
+           <ion-col col-3></ion-col>
+           <ion-col><img class="img bounceInLeft" src="assets/imgs/{{explication.image}}"></ion-col>
+           <ion-col col-3></ion-col>
+         </ion-row>
+          
+  
+  
+              
+     
+          
+          <br>
+          <!--<button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
+          <br>
+          <button  style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>-->
+
         </ion-col>
       </ion-row>
     </ion-grid>

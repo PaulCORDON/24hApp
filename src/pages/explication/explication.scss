@@ -41,12 +41,19 @@ page-explication {
         align-items: center!important;
       }
 
+      .img{
+        width : 100%;
+        text-align: center;
+      }
+
+
+
 
     .cardQuestion{
         height: auto;
         width: auto;
         //position: relative;
-        text-align: center;
+        //text-align: center;
         border-radius: 5px;
         //background: rgba(#0BA3CC, 0.6);
         background: linear-gradient(#D3D3D3 100%); /* W3C */
@@ -68,10 +75,15 @@ page-explication {
         white-space: normal;
     }
 
+    .textalign
+    {
+      text-align: center;
+    }
+
     .ensavoirplus{
       margin:auto;
         text-align: center;
-        font-size:30px;
+        font-size:28px;
         white-space: normal;
     }
 
