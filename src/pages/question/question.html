@@ -2,6 +2,9 @@
 
 <ion-content class="fond" style="margin-top:-5px">
     <ion-card class="cardQuestion">
+            <div *ngIf="listQuestion[numQuestion].textePresentation == 'question1'"><img src="assets/imgs/algoNulsQ1.png" /></div>
+            <div *ngIf="listQuestion[numQuestion].textePresentation == 'question2'"><img src="assets/imgs/algoNulsQ2.png" /></div>
+            <div *ngIf="listQuestion[numQuestion].textePresentation == 'question3'"><img src="assets/imgs/algoNulsQ3.png" /></div>
         <ion-label class="question bounceInLeft">{{listQuestion[numQuestion].intitule}}</ion-label>
     </ion-card>
 
