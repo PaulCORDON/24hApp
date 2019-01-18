@@ -49,6 +49,8 @@ export class ExplicationPage {
   }
 
   onClickTerminer() {
+
+    GlobalVarsProvider.instance.setTimerVisibility(true);
     this.navCtrl.popToRoot();
   }
 

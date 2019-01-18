@@ -7,7 +7,6 @@
       <ion-row>
         <ion-col class="textalign">
           <br>
-          <br>
           <ion-label class="ensavoirplus bounceInLeft">{{explication?.titre}}</ion-label>
           <br>
   
@@ -18,7 +17,9 @@
          </ion-row>
           
   
-  
+         <br>
+         <ion-label class="explication bounceInLeft">{{explication?.texte}}</ion-label>
+         <br>
               
      
           
@@ -30,12 +31,12 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-fab right top>
+        <ion-fab right bottom>
           <button color="secondary" *ngIf="isNextQuestion" ion-fab (tap)="onClickNextQuestion()">
             <ion-icon name="ios-arrow-forward"></ion-icon>
           </button>
         </ion-fab>
-        <ion-fab right top>
+        <ion-fab right bottom>
           <button color="secondary" *ngIf="!isNextQuestion" ion-fab (tap)="onClickTerminer()">
             <ion-icon name="ios-arrow-forward"></ion-icon>
           </button>

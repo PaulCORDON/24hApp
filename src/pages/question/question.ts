@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SQLiteService } from '../../SQLite/SQLiteService';
+import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 
 @IonicPage()
 @Component({
@@ -28,6 +29,7 @@ export class QuestionPage {
     this.listDefi = navParams.get("listDefi");
 
     this.getReponses();
+    GlobalVarsProvider.instance.setTimerVisibility(false);
   }
 
   //Méthode pour récupérer les réponses à la question
