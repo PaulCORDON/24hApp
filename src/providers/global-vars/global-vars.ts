@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { Events } from 'ionic-angular';
 import { MyApp } from '../../app/app.component';
-import { NativeStorage } from '@ionic-native/native-storage';
 
 @Injectable()
 export class GlobalVarsProvider {
@@ -26,7 +26,6 @@ export class GlobalVarsProvider {
 
   setTimerVisibility(show: boolean): boolean {
     this.showTimer = show;
-    console.log("setTimerVisibility " + show);
     MyApp.event.publish('timerVisibilityChanged');
     return this.showTimer;
   }
@@ -85,17 +84,13 @@ export class GlobalVarsProvider {
             GlobalVarsProvider.events.publish('nombreTicketChanged');
           },
           error => console.error('Error storing item', error)
-
         );
-    });    
+    });
     this.nombreTicket += n;
     return this.nombreTicket;
-
   }
 
   public getTimer(): string {
-
     return this.timer;
   }
-
 }

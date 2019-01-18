@@ -1,14 +1,7 @@
-import { Component, keyframes } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SQLiteService } from '../../SQLite/SQLiteService';
 import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
-
-/**
- * Generated class for the QuestionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -25,8 +18,7 @@ export class QuestionPage {
   listQuestion: any;
   listReponses: any;
   listDefi: any;
-  explication:any;
-
+  explication: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
     //Récupération des valeurs de la page précédente
@@ -36,68 +28,40 @@ export class QuestionPage {
     this.nbQuestion = navParams.get("nbQuestion");
     this.listDefi = navParams.get("listDefi");
 
-    console.log("QUESTION --- Récupération de la liste des questions", this.listQuestion);
-    console.log("QUESTION --- Récupération de l'ID du défi", this.idDefi);
-
     this.getReponses();
-
+    GlobalVarsProvider.instance.setTimerVisibility(false);
   }
-
-
-  ionViewDidLoad() {
-    console.log('---------------------------- QuestionPage');
-  }
-
 
   //Méthode pour récupérer les réponses à la question
   getReponses() {
-    console.log("QUESTION --- Numéro de la question (brute) ", this.numQuestion);
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "reponse", "*").then((reponsesData) => {
       this.listReponses = reponsesData;
-      console.log("QUESTION --- Listes des réponses : ", this.listReponses)
-      console.log("QUESTION --- Numéro de la question (affichage) : ", this.numQuestion+1 + "/" + this.nbQuestion);
     });
   }
 
-  getExplication()
-  {
+  getExplication() {
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "explication", "*").then((explicationData) => {
       this.explication = explicationData[0];
-      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: false, explication:this.explication });
-      console.log("EXPLICATION --- Explication : ", this.explication);
+      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi, listReponses: this.listReponses, toast: false, explication: this.explication });
     });
   }
 
-  getExplicationFin()
-  {
+  getExplicationFin() {
     this.sqlLite.selectData("where `idQuestion` = " + this.listQuestion[this.numQuestion].id, "explication", "*").then((explicationData) => {
       this.explication = explicationData[0];
-      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: this.numQuestion, nbQuestion: --this.nbQuestion, listDefi: this.listDefi, listReponses : this.listReponses, toast: true, explication:this.explication });
-      console.log("EXPLICATION --- Explication : ", this.explication);
+      this.navCtrl.push('ExplicationPage', { idDefi: this.idDefi, question: this.listQuestion, numQuestion: this.numQuestion, nbQuestion: --this.nbQuestion, listDefi: this.listDefi, listReponses: this.listReponses, toast: true, explication: this.explication });
     });
   }
-
-
 
   cliqueReponse(isReponse: number, id: any) {
-
-    console.log("QUESTION --- Clic")
-    console.log("QUESTION --- isReponse : ", isReponse);
-    console.log("QUESTION --- Numero question : " + this.numQuestion + " ------ Nombre de question : " + this.nbQuestion);
-
     if (isReponse == 1) {
       document.getElementById(id).classList.add('flash');
       document.getElementById(id).style.backgroundColor = "#3E9623";
       if (this.numQuestion < this.nbQuestion - 1) {
         this.getExplication();
-        console.log("QUESTION --- Continuation des questions")
-        
       }
       else {
-        
-
         this.getExplicationFin();
-        
       }
     }
     else {
@@ -105,5 +69,4 @@ export class QuestionPage {
       document.getElementById(id).style.backgroundColor = "#FD5757";
     }
   }
-
 }

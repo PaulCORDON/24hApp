@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
-import { SQLite } from '@ionic-native/sqlite';
-import { FirebaseProvider } from '../../providers/firebase/firebase';
-import { Participation } from '../../model/Participation';
-import { partition } from 'rxjs/operators';
-import { SQLiteService } from '../../SQLite/SQLiteService';
 import { NativeStorage } from '@ionic-native/native-storage';
-import * as firebase from 'firebase'
-import { ToastController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
+import * as firebase from 'firebase';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Participation } from '../../model/Participation';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 
 @IonicPage()
 @Component({
@@ -29,10 +25,10 @@ export class ConcoursPage {
   public nombreTicketDejaRemis: number;
   public ref: firebase.database.Reference;
 
-  public connect:boolean;
+  public connect: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider, private toastCtrl: ToastController, private nativeStorage: NativeStorage, protected network: Network) {
-    this.connect = (network.type!="none");
+    this.connect = (network.type != "none");
     network.onConnect().subscribe(() => {
       this.connect = true;
       this.ionViewWillEnter();
@@ -50,17 +46,13 @@ export class ConcoursPage {
     this.nativeStorage.getItem('refFirebase')
       .then(
         data => {
-          console.log("data getItem : " + data);
           this.ref = firebase.database().refFromURL(data);
-          console.log("ref getItem : " + this.ref)
-
           if (this.ref != undefined) this.firebaseProvider.getParticipation(this.ref).then((res) => {
             this.nom = res.nom;
             this.prenom = res.prenom;
             this.tel = res.tel;
             this.mail = res.mail;
             this.nombreTicketDejaRemis = res.nbTicket;
-            console.log("getParticipation : " + this.nombreTicketDejaRemis + "  " + this.nombreTicket)
           })
             .catch(() => console.log("getParticipation error"));
         },
@@ -76,9 +68,7 @@ export class ConcoursPage {
     participation.tel = this.tel;
     participation.nbTicket = this.nombreTicket;
 
-    console.log(this.nom + " " + this.nombreTicket + " " + this.cg);
     this.ref = this.firebaseProvider.addParticipation(participation);
-    console.log("envoyer ref : " + this.ref);
 
     this.nativeStorage.setItem('refFirebase', this.ref.toJSON())
       .then(
@@ -86,10 +76,8 @@ export class ConcoursPage {
         error => console.error('Error storing item', error)
       );
 
-
     this.nombreTicketDejaRemis = this.nombreTicket;
   }
-
 
   update(nbT: number) {
     let participation: Participation = new Participation();
@@ -99,15 +87,12 @@ export class ConcoursPage {
     participation.tel = this.tel;
     participation.nbTicket = nbT;
 
-    console.log(this.nom + " " + this.nombreTicket + " " + this.cg);
     this.firebaseProvider.updateParticipation(this.ref, participation);
     if (nbT == this.nombreTicket) this.nombreTicketDejaRemis = nbT;
   }
 
   newInput() {
-    console.log(this.nom);
-    this.isEnable = (this.nom != "" && this.nom != undefined && this.prenom != "" && this.prenom != undefined && this.tel != "" && this.tel != undefined&& this.cg);
-
+    this.isEnable = (this.nom != "" && this.nom != undefined && this.prenom != "" && this.prenom != undefined && this.tel != "" && this.tel != undefined && this.cg);
   }
 
   easterEgg() {
@@ -135,16 +120,12 @@ export class ConcoursPage {
 
           toast.onDidDismiss(() => {
             GlobalVarsProvider.instance.updateNombreTicket(1);
+            this.nombreTicket ++;
             console.log('Dismissed toast');
           });
 
           toast.present();
-
         }
       );
-
-
-
-
   }
 }

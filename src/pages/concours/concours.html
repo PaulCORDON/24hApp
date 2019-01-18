@@ -1,7 +1,4 @@
-<ion-header>
-
-</ion-header>
-
+<ion-header></ion-header>
 
 <ion-content *ngIf="connect" padding style="margin-top: 20px;">
 
@@ -10,8 +7,7 @@
   </ion-row>
   <div *ngIf="ref == undefined">
     <ion-row>
-      <div class="modalites">Vos tickets gagnés lors des défis vous permettent de participer à notre concours. Plus
-        vous avez de tickets plus vous
+      <div class="modalites">Vos tickets gagnés lors des défis vous permettent de participer à notre concours. Plus vous avez de tickets plus vous
         avez de chance de gagner. Bonne chance !!! </div>
     </ion-row>
   </div>
@@ -28,8 +24,7 @@
         <div class="modalites">Vous n'avez pas de nouveaux tickets pour augmenter vos chances de gagner. </div>
       </div>
       <div *ngIf="(nombreTicket-nombreTicketDejaRemis) > 0">
-        <div class="modalites">Vous pouvez ajouter {{nombreTicket-nombreTicketDejaRemis}} tickets à votre
-          participation. </div>
+        <div class="modalites">Vous pouvez ajouter {{nombreTicket-nombreTicketDejaRemis}} tickets à votre participation. </div>
         <ion-row justify-content-center>
           <button ion-button (click)="update(nombreTicket)">ajouter les tickets restants</button>
         </ion-row>
@@ -66,7 +61,6 @@
       <button ion-button [disabled]="!isEnable" (click)="update(nombreTicketDejaRemis)">modifier mes coordonnées</button>
     </ion-row>
     <div class="barre"></div>
-
   </div>
 
   <div *ngIf="ref == undefined" style="margin-bottom:40px;">

@@ -1,29 +1,24 @@
 import { Component } from '@angular/core';
-import { Platform, Events } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SQLite, SQLiteObject } from "@ionic-native/sqlite";
-import {SQLiteService} from "../SQLite/SQLiteService"
-import *as firebase from 'firebase';
-import { TabsPage } from '../pages/tabs/tabs';
+import { StatusBar } from '@ionic-native/status-bar';
+import * as firebase from 'firebase';
+import { Events, Platform } from 'ionic-angular';
+import { SQLiteService } from "../SQLite/SQLiteService";
 import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
-import { TimerComponent } from '../components/timer/timer';
 import { GlobalVarsProvider } from '../providers/global-vars/global-vars';
-import { QuestionPage } from '../pages/question/question';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = SplashscreenPage;
-  showTimer:boolean;
+  rootPage: any = SplashscreenPage;
+  showTimer: boolean;
 
-  public static event:Events;
+  public static event: Events;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService : SQLiteService, event:Events) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService: SQLiteService, event: Events) {
     platform.ready().then(() => {
 
-      //sqliteService.createDataBaseFile();
       statusBar.styleDefault();
       splashScreen.hide();
 
@@ -44,6 +39,5 @@ export class MyApp {
       messagingSenderId: "957300827901"
     };
     firebase.initializeApp(config);
-  } 
-
+  }
 }

@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { TabsPage } from '../tabs/tabs';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
-/**
- * Generated class for the SlideTutoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -18,13 +12,13 @@ import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 export class SlideTutoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private nativeStorage: NativeStorage) {
-   
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SlideTutoPage');
     GlobalVarsProvider.instance.setTimerVisibility(false);
   }
+
   slides = [
     {
       title: "Bienvenue sur l'application\ndes 24H du code",
@@ -46,8 +40,7 @@ export class SlideTutoPage {
   suivant() {
     this.nativeStorage.setItem('premiereOuvertureDeLappli', "true")
       .then(
-        () =>{
-          console.log('premiereOuvertureDeLappli');
+        () => {
           GlobalVarsProvider.instance.setTimerVisibility(true);
           this.navCtrl.setRoot(TabsPage);
         },

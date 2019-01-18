@@ -1,18 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HistoriquePage } from '../historique/historique';
-import { TabsPage } from '../tabs/tabs';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { SlideTutoPage } from '../slide-tuto/slide-tuto';
-import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SQLiteService } from '../../SQLite/SQLiteService';
-
-/**
- * Generated class for the SplashscreenPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
+import { SlideTutoPage } from '../slide-tuto/slide-tuto';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -21,12 +13,11 @@ import { SQLiteService } from '../../SQLite/SQLiteService';
 })
 export class SplashscreenPage {
   splash = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public nativeStorage: NativeStorage, sqliteService : SQLiteService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public nativeStorage: NativeStorage, sqliteService: SQLiteService) {
     sqliteService.createDataBaseFile();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SplashscreenPage');
     setTimeout(() => {
       this.splash = false;
       this.nativeStorage.getItem('premiereOuvertureDeLappli')
@@ -39,9 +30,6 @@ export class SplashscreenPage {
             this.navCtrl.setRoot(SlideTutoPage);
           }
         );
-
     }, 4000);
-
   }
-
 }
