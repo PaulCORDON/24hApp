@@ -15,19 +15,17 @@
           <br>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-fab right>
-          <button color="secondary" *ngIf="isNextQuestion" ion-fab (tap)="onClickNextQuestion()">
-            <ion-icon name="ios-arrow-forward"></ion-icon>
-          </button>
-        </ion-fab>
-        <ion-fab right>
-          <button color="secondary" *ngIf="!isNextQuestion" ion-fab (tap)="onClickTerminer()">
-            <ion-icon name="ios-arrow-forward"></ion-icon>
-          </button>
-        </ion-fab>
-      </ion-row>
     </ion-grid>
   </ion-card>
+  <ion-fab right bottom>
+    <button color="secondary" *ngIf="isNextQuestion" ion-fab (tap)="onClickNextQuestion()">
+      <ion-icon name="ios-arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab right bottom>
+    <button color="secondary" *ngIf="!isNextQuestion" ion-fab (tap)="onClickTerminer()">
+      <ion-icon name="ios-arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
   <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
 </ion-content>
