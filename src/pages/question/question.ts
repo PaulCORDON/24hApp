@@ -27,16 +27,6 @@ export class QuestionPage {
   listDefi: any;
   explication:any;
 
-  //Animations
-  flash = [
-    { opacity: 1 },
-    { opacity: 0 },
-    { opacity: 1 }
-  ];
-
-  flashTiming = {
-    duration: 500
-  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
     //Récupération des valeurs de la page précédente
@@ -96,7 +86,7 @@ export class QuestionPage {
     console.log("QUESTION --- Numero question : " + this.numQuestion + " ------ Nombre de question : " + this.nbQuestion);
 
     if (isReponse == 1) {
-      //document.getElementById(id).animate(this.flash,this.flashTiming);
+      document.getElementById(id).classList.add('flash');
       document.getElementById(id).style.backgroundColor = "#3E9623";
       if (this.numQuestion < this.nbQuestion - 1) {
         this.getExplication();
@@ -111,7 +101,7 @@ export class QuestionPage {
       }
     }
     else {
-      //document.getElementById(id).animate(this.flash,this.flashTiming);
+      document.getElementById(id).classList.add('flash');
       document.getElementById(id).style.backgroundColor = "#FD5757";
     }
   }

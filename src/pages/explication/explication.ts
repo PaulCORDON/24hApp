@@ -29,6 +29,7 @@ export class ExplicationPage {
   explication: any;
   isNextQuestion: boolean;
   newTicket : boolean = false;
+  image : string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public sqlLite: SQLiteService) {
     this.idDefi = navParams.get("idDefi");
@@ -41,6 +42,8 @@ export class ExplicationPage {
     this.explication = navParams.get("explication");
     console.log("EXPLICATION --- Toast :", this.toast);
     console.log("EXPLICATION --- Récupération de la question", this.question);
+    //console.log("EXPLICATION --- Image", this.explication.image);
+
 
   }
 
@@ -74,7 +77,7 @@ export class ExplicationPage {
   onClickNextQuestion() {
     console.log("EXPLICATION --- Click");
     console.log(this.nbQuestion + " > " + this.numQuestion)
-    this.navCtrl.push('QuestionPage', { idDefi: this.idDefi, question: this.question, numQuestion: this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi });
+    this.navCtrl.push('QuestionPage', { idDefi: this.idDefi, question: this.question, numQuestion: ++this.numQuestion, nbQuestion: this.nbQuestion, listDefi: this.listDefi });
   }
 
 }
