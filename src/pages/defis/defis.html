@@ -4,10 +4,10 @@
     <div *ngFor="let theme of listTheme">
         <ion-grid>
             <ion-row class="bleu">
-                <ion-col>
+                <ion-col col-10>
                     <ion-label class="titre-defi">{{theme.nom}}</ion-label>
                 </ion-col>
-                <ion-col>
+                <ion-col col-2>
                     <ion-label class="ticket">{{theme.nbTicketActuel}}/{{theme.nbTicketMax}}</ion-label>
                 </ion-col>
             </ion-row>
