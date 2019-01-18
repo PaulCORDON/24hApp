@@ -1,30 +1,27 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-
-
-import { TabsPage } from '../pages/tabs/tabs';
-import { ConcoursPage } from '../pages/concours/concours';
-import { StatusBar } from '@ionic-native/status-bar';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { Network } from '@ionic-native/network';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SQLite } from '@ionic-native/sqlite';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SQLiteService } from '../SQLite/SQLiteService';
+import { ComponentsModule } from '../components/components.module';
+import { ConcoursPage } from '../pages/concours/concours';
 import { DefisPage } from '../pages/defis/defis';
 import { HistoriquePage } from '../pages/historique/historique';
-import { Infos24hProvider } from '../providers/infos24h/infos24h';
-import { SQLite } from '@ionic-native/sqlite';
-import { SQLiteService } from '../SQLite/SQLiteService';
-import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { FirebaseProvider } from '../providers/firebase/firebase';
-import { ComponentsModule } from '../components/components.module';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { QuestionPage } from '../pages/question/question';
-import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
-import { Network } from '@ionic-native/network';
 import { QuestionPageModule } from '../pages/question/question.module';
-
+import { SlideTutoPage } from '../pages/slide-tuto/slide-tuto';
+import { SplashscreenPage } from '../pages/splashscreen/splashscreen';
+import { TabsPage } from '../pages/tabs/tabs';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { Infos24hProvider } from '../providers/infos24h/infos24h';
+import { MyApp } from './app.component';
 
 var config = {
   apiKey: "AIzaSyAUX6GiF2zOiHCseXho3qUWUHNb5V3aj7k",

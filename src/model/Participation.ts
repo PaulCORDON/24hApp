@@ -3,5 +3,5 @@ export class Participation {
     prenom: string;
     tel: string;
     mail: string;
-    nbTicket : number;
+    nbTicket: number;
 }

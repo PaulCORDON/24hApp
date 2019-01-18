@@ -10,4 +10,4 @@ import { SlideTutoPage } from './slide-tuto';
     IonicPageModule.forChild(SlideTutoPage),
   ],
 })
-export class SlideTutoPageModule {}
+export class SlideTutoPageModule { }
