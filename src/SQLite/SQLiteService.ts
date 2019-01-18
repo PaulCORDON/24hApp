@@ -118,7 +118,7 @@ export class SQLiteService {
             //Réponses Thème 1 - Quiz 1
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Hedy Lamarr', '', " + getIDQuestion[i].id + "), (0, 'Sean Connery', '', " + getIDQuestion[i].id + "), (0, 'Steve Jobs', '', " + getIDQuestion[i].id + "), (0, 'Micheal Jordan', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'MiCode', '', " + getIDQuestion[i].id + "), (0, 'Bill Gates', '', " + getIDQuestion[i].id + "), (1, 'Ada Lovelace', 'ada.jpg', " + getIDQuestion[i].id + "), (0, 'René Descartes', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'MiCode', '', " + getIDQuestion[i].id + "), (0, 'Bill Gates', '', " + getIDQuestion[i].id + "), (1, 'Ada Lovelace', '', " + getIDQuestion[i].id + "), (0, 'René Descartes', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Larry Tesler', '', " + getIDQuestion[i].id + "), (1, 'Jean Bartik', '', " + getIDQuestion[i].id + "), (0, 'Douglas Engelbart', '', " + getIDQuestion[i].id + "), (0, 'James Gosling', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
