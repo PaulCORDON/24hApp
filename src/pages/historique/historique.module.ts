@@ -10,4 +10,4 @@ import { HistoriquePage } from './historique';
     IonicPageModule.forChild(HistoriquePage),
   ],
 })
-export class HistoriquePageModule {}
+export class HistoriquePageModule { }

@@ -10,4 +10,4 @@ import { SplashscreenPage } from './splashscreen';
     IonicPageModule.forChild(SplashscreenPage),
   ],
 })
-export class SplashscreenPageModule {}
+export class SplashscreenPageModule { }

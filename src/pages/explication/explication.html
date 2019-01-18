@@ -1,8 +1,4 @@
-<ion-header>
-
-
-</ion-header>
-
+<ion-header></ion-header>
 
 <ion-content class="fond" style="margin-top:-5px">
   <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
@@ -27,8 +23,6 @@
      
           
           <br>
-          <ion-label class="explication bounceInLeft">{{explication?.texte}}</ion-label>
-          <br>
           <!--<button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
           <br>
           <button  style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>-->
@@ -49,9 +43,5 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-
-
-
   <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
-
 </ion-content>
