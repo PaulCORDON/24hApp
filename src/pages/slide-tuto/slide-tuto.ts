@@ -28,18 +28,18 @@ export class SlideTutoPage {
   slides = [
     {
       title: "Bienvenue sur l'application\ndes 24H du code",
-      description: "En <b>relevant les défis</b> proposés par cette application vous pourrez participer à un concours pour tenter de gagner UN GROS CADEAU.",
-      image: "assets/img/slide1.png",
+      description: "En <b>relevant les défis</b> proposés par cette application vous pourrez participer à un concours pour tenter de gagner une surprise.",
+      image: "assets/imgs/slide1.png",
     },
     {
       title: "Comment relever les défis ?",
-      description: "Rien de plus<b> simple</b> il suffit de cliquer sur les défis disponibles. Une fois le défi terminé vous gagnerez un ticket pour participer au concours",
-      image: "assets/img/slide2.png",
+      description: "Rien de plus<b> simple</b>, il suffit de cliquer sur les défis disponibles. Une fois chaque défi terminé vous gagnez un ticket pour participer au concours",
+      image: "assets/imgs/slide2.png",
     },
     {
       title: "Comment participer au concours ?",
       description: "Il vous suffira de selectionner <b>l'onglet concours</b>, de remplir les informations demandées et d'envoyer votre participation.",
-      image: "assets/img/slide3.png",
+      image: "assets/imgs/slide3.png",
     }
   ];
 
