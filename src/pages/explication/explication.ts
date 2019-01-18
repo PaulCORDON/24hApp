@@ -40,23 +40,24 @@ export class ExplicationPage {
         if (defiListe[0].etat != 2) {
           this.newTicket = true;
           GlobalVarsProvider.instance.updateNombreTicket(1);
-          this.sqlLite.setData("defi", "etat", 2, "where `id` = " + this.idDefi);
-          //this.setTicketTheme();
-          this.sqlLite.setData("theme", "nbTicketActuel", 1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
-          this.sqlLite.setData("defi", "etat", 1, "where `id` = " + (++this.idDefi));
+          
+          this.setTicketTheme();
+          //this.sqlLite.setData("theme", "nbTicketActuel", 1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
+          
         }
       });
     }
   }
 
-  /*setTicketTheme()
+  setTicketTheme()
   {
-    this.sqlLite.selectData("where `id` = " + this.idDefi, "defi", "idTheme").then((idTheme) => {
-      this.sqlLite.selectData("where `id` = " + idTheme[0], "theme", "nbTicketActuel").then((nbTicket) => {
-        this.sqlLite.setData("theme", "nbTicketActuel", nbTicket[0]+1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
+      this.sqlLite.selectData("where `id` = " + (this.listDefi[this.idDefi - 1].idTheme), "theme", "*").then((nbTicket) => {
+        console.log("EXPLICATION --- nbTicket dans setTicketTheme :", nbTicket[0].nbTicketActuel)
+        this.sqlLite.setData("theme", "nbTicketActuel", nbTicket[0].nbTicketActuel+1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
+        this.sqlLite.setData("defi", "etat", 2, "where `id` = " + this.idDefi);
+        this.sqlLite.setData("defi", "etat", 1, "where `id` = " + (++this.idDefi));
       });
-    });
-  }*/
+  }
 
   onClickTerminer() {
 
