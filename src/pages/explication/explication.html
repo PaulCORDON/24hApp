@@ -10,17 +10,34 @@
     <ion-grid>
       <ion-row>
         <ion-col>
+            <ion-label class="explication bounceInLeft">EN SAVOIR PLUS</ion-label>
+            <br>
           <ion-label class="explication bounceInLeft">{{explication.titre}}</ion-label>
           <br>
           <ion-label class="explication bounceInLeft">{{explication.texte}}</ion-label>
           <br>
-          <button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
+          <!--<button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
           <br>
-          <button  style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>
+          <button  style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>-->
+          
         </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-fab right>
+              <button color="secondary" *ngIf="isNextQuestion" ion-fab (tap)="onClickNextQuestion()"> 
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+              </button>
+            </ion-fab>
+            <ion-fab right>
+                <button color="secondary" *ngIf="!isNextQuestion" ion-fab (tap)= "onClickTerminer()"> 
+                  <ion-icon name="ios-arrow-forward"></ion-icon>
+                </button>
+              </ion-fab>
       </ion-row>
     </ion-grid>
   </ion-card>
+
+  
 
   <img *ngIf="this.newTicket"  class="ticket" src="assets/imgs/ticket.png">
 

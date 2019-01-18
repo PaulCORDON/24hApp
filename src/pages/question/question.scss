@@ -7,15 +7,15 @@ page-question {
 
 
   .cardQuestion{
-    height: 45%;
+    height: 40%;
     width: auto;
     position: relative;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 5px;
     //background: rgba(#0BA3CC, 0.6);
-    background: linear-gradient(to top, #E7600E 0%, #0BA3CC 15%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
+    background: linear-gradient(to top, #0BA3CC 0%, #0BA3CC 15%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
     color: white;
-    padding: auto;
+    padding: 5%;
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -27,7 +27,7 @@ page-question {
 
 
   .reponse{
-    border-radius: 15px;
+    border-radius: 5px;
     height: 100%;
     font-size: 20px;
     text-align: center;
