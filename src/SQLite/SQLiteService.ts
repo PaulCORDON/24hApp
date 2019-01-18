@@ -125,7 +125,15 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'SWITCH', '', " + getIDQuestion[i].id + "), (0, 'SI', '', " + getIDQuestion[i].id + "), (0, 'TANT QUE', '', " + getIDQuestion[i].id + "), (1, 'POURQUOI PAS', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            //Réponses Quiz 3
+            // Réponses Quiz 3
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Il ne fait rien de spécial', '--', " + getIDQuestion[i].id + "), (1, 'Il échange les valeurs de a et b', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de a et c', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de b et c', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'ce nombre est positif', '--', " + getIDQuestion[i].id + "), (0, 'ce nombre est négatif', '', " + getIDQuestion[i].id + "), (0, 'ce nombre est égal à 0', '', " + getIDQuestion[i].id + "), (0, 'ce n''est pas un nombre', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '0', '--', " + getIDQuestion[i].id + "), (0, '4', '', " + getIDQuestion[i].id + "), (1, '6', '', " + getIDQuestion[i].id + "), (0, '7', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+
+            //Réponses Quiz 4
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Petit', '', " + getIDQuestion[i].id + "), (0, 'Asocial', '', " + getIDQuestion[i].id + "), (0, 'Avec des lunettes', '', " + getIDQuestion[i].id + "), (1, 'Normal', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Seul', '', " + getIDQuestion[i].id + "), (1, 'En équipe', '', " + getIDQuestion[i].id + "), (0, 'A deux', '', " + getIDQuestion[i].id + "), (0, 'Il ne travaille pas', '', " + getIDQuestion[i++].id + ")", [])
@@ -133,7 +141,7 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Cela dépend de son domaine de compétence', '', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (0, 'Vous envoyer dans la matrice', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            //Réponses Quiz 4
+            //Réponses Quiz 5
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1 jour', '', " + getIDQuestion[i].id + "), (0, '1 heure', '', " + getIDQuestion[i].id + "), (0, '1 seconde', '', " + getIDQuestion[i].id + "), (1, '1 nano-seconde', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '20 000 GB', '', " + getIDQuestion[i].id + "), (0, '200 000 GB', '', " + getIDQuestion[i].id + "), (1, '2 000 000 GB', '', " + getIDQuestion[i].id + "), (0, '20 000 000 GB', '', " + getIDQuestion[i++].id + ")", [])
@@ -174,7 +182,7 @@ export class SQLiteService {
                     .catch(e => console.log(e));
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('POURQUOI PAS nexiste pas dans le jargon informatique.\nSI, TANT QUE et SWITCH sont des conditions qui permettent aux programmes dexécuter des tâches en fonction de certains paramètres.\nExemple : SI le temps est nuageux, alors jemmène un parapluie. TANT QUE le temps est nuageux, je garde mon parapluie avec moi.\nCet exemple peut être traduit sur des fonctions informatiques.', 'algo.jpg', 'Et pourquoi pas ?', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
-                
+
                 //Explication des questions du quiz 3
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Il échange les valeurs de a et b.\nCe programme est un programme simple pour échanger la valeur de deux variables. On remarque que l''échange nécessite une troisième variable de stockage, qui permet au programme de garder en mémoire la valeur d’une des deux variables échangées.', 'ada.jpg', 'Echange de valeurs', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
