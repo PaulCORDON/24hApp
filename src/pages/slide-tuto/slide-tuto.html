@@ -1,7 +1,8 @@
-<ion-content fullscreen padding style="background-color:#D3D3D3;">
+<ion-content fullscreen padding style="background-color:white; color: black;">
+    <img style="position: absolute; top:1%; left:1%; width:50%;" src="assets/imgs/ensim.png">
   <ion-slides pager>
     <ion-slide *ngFor="let slide of slides">
-      <button style="position: absolute; top:1%; right:1%;" (click)="suivant()" ion-button color="primary">Passer</button>
+      
       <img [src]="slide.image" class="slide-image" />
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
@@ -9,7 +10,7 @@
     <ion-slide>
       <img src="assets/imgs/slide4.png" class="slide-image" />
       <h2 class="slide-title">Prêt à relever le défi ?</h2>
-      <button (click)="suivant()" ion-button large clear icon-end color="primary">
+      <button (click)="suivant()" ion-button large clear icon-end>
         C'est parti !
         <ion-icon name="arrow-forward"></ion-icon>
       </button>

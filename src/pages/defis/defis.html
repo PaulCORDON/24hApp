@@ -1,14 +1,24 @@
 <ion-header></ion-header>
 
 <ion-content padding>
+    <div style="text-align : center">
+        <img style="width:50%;" src="assets/imgs/logo24_bleu.png">
+    </div>
+
+    <br>
+    <br>
+
     <div *ngFor="let theme of listTheme">
         <ion-grid>
             <ion-row class="bleu">
-                <ion-col col-10>
+                <ion-col col-9>
                     <ion-label class="titre-defi">{{theme.nom}}</ion-label>
                 </ion-col>
                 <ion-col col-2>
                     <ion-label class="ticket">{{theme.nbTicketActuel}}/{{theme.nbTicketMax}}</ion-label>
+                </ion-col>
+                <ion-col class="flex" col-1>
+                    <img class="imgticket" src="assets/imgs/ticket.png">
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -20,8 +30,8 @@
                         <ion-col class="trophee">
                             <ion-icon class="bloque" name="md-trophy"></ion-icon>
                         </ion-col>
-                        <ion-col>
-                            ???
+                        <ion-col class="defititre">
+                            ?????????
                         </ion-col>
                     </ion-row>
                 </ion-grid>
@@ -33,7 +43,7 @@
                         <ion-col class="trophee">
                             <ion-icon class="debloque shake" name="md-trophy"></ion-icon>
                         </ion-col>
-                        <ion-col>
+                        <ion-col class="defititre">
                             {{defi.titre}}
                         </ion-col>
                     </ion-row>
@@ -46,7 +56,7 @@
                         <ion-col class="trophee">
                             <ion-icon class="fini" name="md-trophy"></ion-icon>
                         </ion-col>
-                        <ion-col>
+                        <ion-col class="defititre">
                             {{defi.titre}}
                         </ion-col>
                     </ion-row>

@@ -19,6 +19,18 @@ page-defis {
         font-size:30px;
     }
 
+    .imgticket{
+        width:100%;
+        
+    }
+
+    .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align:left;
+    }
+
     .card-ios{
         width: calc(100% - 13px);
         margin-left: 20px;
@@ -44,7 +56,10 @@ page-defis {
     ion-label.titre-defi{
         font-size: 18px;
         color:white;
-        flex-flow: column;
+        text-align: left;
+        //flex-flow: column;
+        font-weight: bold;
+        margin-left: 10px;
         
     }
     .label-ios{
@@ -59,7 +74,12 @@ page-defis {
 
     .col{
         text-align: center;
-        vertical-align: middle;
+        //vertical-align: middle;
+    }
+
+    .defititre
+    {
+        text-align: left;
     }
 
     .bleu{

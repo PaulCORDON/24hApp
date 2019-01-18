@@ -11,7 +11,11 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class SlideTutoPage {
 
+ 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private nativeStorage: NativeStorage) {
+
+    
 
   }
 
