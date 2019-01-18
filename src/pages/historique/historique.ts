@@ -1,15 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
-
-
-
-/**
- * Generated class for the HistoriquePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -80,11 +70,7 @@ export class HistoriquePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HistoriquePage');
     this.currentTab = "sujets";
     this.annee = "2019";
   }
-
-
-
 }

@@ -10,4 +10,4 @@ import { QuestionPage } from './question';
     IonicPageModule.forChild(QuestionPage),
   ],
 })
-export class QuestionPageModule {}
+export class QuestionPageModule { }

@@ -10,4 +10,4 @@ import { DefisPage } from './defis';
     IonicPageModule.forChild(DefisPage),
   ],
 })
-export class DefisPageModule {}
+export class DefisPageModule { }
