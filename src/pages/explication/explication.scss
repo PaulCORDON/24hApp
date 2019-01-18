@@ -9,8 +9,8 @@ page-explication {
       animation: anim ease-in 1;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
-      -webkit-animation-duration: 2000ms;
-      animation-duration: 2000ms;
+      -webkit-animation-duration: 1300ms;
+      animation-duration: 1300ms;
       -webkit-animation-delay: 300ms;
       animation-delay: 300ms;
     }
@@ -26,8 +26,12 @@ page-explication {
        opacity: 1;
      }
 
+     99%{
+       opacity: 1;
+     }
+    
      100% {
-       -webkit-transform: translate3d(700px,+1600px,0);
+       -webkit-transform: translate3d(+50vw,+60vh,0);
        opacity:0;
      }
      }
