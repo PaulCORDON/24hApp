@@ -27,6 +27,10 @@ export class DefisPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sqlLite: SQLiteService) {
+    
+  }
+
+  ionViewWillEnter(){
     this.GetAllData(); //Récupération des thèmes et des défis
   }
 

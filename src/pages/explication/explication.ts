@@ -71,7 +71,7 @@ export class ExplicationPage {
 
   onClickTerminer() {
     console.log("QUESTION --- C'était la dernière question");
-    this.navCtrl.push(DefisPage);
+    this.navCtrl.popToRoot();
   }
 
   onClickNextQuestion() {
