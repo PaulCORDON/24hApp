@@ -78,19 +78,19 @@ export class SQLiteService {
         this.selectData("", "defi", "*").then((getIDDefi) => {
             let i = 0;
             //Défi sur les femmes dans l'info
-            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', '', " + getIDDefi[i].id + "), ('Qui a été la première personne à imaginer linformatique ?', '', " + getIDDefi[i].id + "), ('Qui a conçu le premier ordinateur au monde ?', '', " + getIDDefi[i].id + "), ('Le cobol est un langage de programmation créé en 1959. Il est encore utilisé aujourdhui, surtout dans le domaine des banques. Qui est l''inventeur de ce langage de programmation ?', '', " + getIDDefi[i].id + "), ('Qui a conçu les logiciels de guidage du vaisseau de la mission lunaire Apollo ?', '', " + getIDDefi[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', '', " + getIDDefi[i].id + "), ('Quelle a été la première personne à imaginer que l''on pourrait programmer les ordinateurs avec un langage ?', '', " + getIDDefi[i].id + "), ('Qui a conçu le premier ordinateur au monde ?', '', " + getIDDefi[i].id + "), ('Le cobol est un langage de programmation créé en 1959. Il est encore utilisé aujourdhui, surtout dans le domaine des banques. Qui est l''inventeur de ce langage de programmation ?', '', " + getIDDefi[i].id + "), ('Qui a conçu les logiciels de guidage du vaisseau de la mission lunaire Apollo ?', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Défi Prendre en photo une informaticienne
             /*this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Votre mission est de scanner le QR Code de 3 informaticiennes. GO!', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));*/
             //Défi le codage pour les nuls
-            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Quel est l''intrus ?', '', " + getIDDefi[i].id + "), ('Quel est le premier langage de programmation ?', '', " + getIDDefi[i].id + "), ('Trouvez un intru parmi ces conditions arithmétiques :', '', " + getIDDefi[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Quel est l''intrus ?', '', " + getIDDefi[i].id + "), ('Quel langage de programmation a été inventé le premier?', '', " + getIDDefi[i].id + "), ('Trouvez un intru parmi ces conditions algorithmique :', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Défi Préjugés
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Un informaticien est souvent :', '', " + getIDDefi[i].id + "), ('Un informaticien travaille le plus souvent :', '', " + getIDDefi[i].id + "), ('Un informaticien peut :', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Defi Les chiffres en info
-            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('À votre avis, combien faudrait il de temps pour hacker le mot de passe 12345 ?', '', " + getIDDefi[i].id + "), ('Quelle quantité de données est produite par l''humanité chaque seconde ?', '', " + getIDDefi[i].id + "), ('À votre avis, combien d''emplois en informatique étaient vacants à la fin de l''année 2018 ?', '', " + getIDDefi[i].id + "), ('L''ordinateur le plus puissant au monde (conçu par IBM) peut effectuver 200 millions de milliards de calculs par seconde. Quel est son prix ?', '', " + getIDDefi[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('À votre avis, combien faudrait il de temps à un ordinateur pour hacker le mot de passe 12345 ?', '', " + getIDDefi[i].id + "), ('Quelle quantité de données est produite par l''humanité chaque seconde ?', '', " + getIDDefi[i].id + "), ('À votre avis, combien d''emplois en informatique étaient vacants à la fin de l''année 2018 en France?', '', " + getIDDefi[i].id + "), ('L''ordinateur le plus puissant au monde (conçu par IBM) peut effectuer 200 millions de milliards de calculs par seconde. Quel est son prix ?', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e));
 
             /*this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES", [])
@@ -103,7 +103,7 @@ export class SQLiteService {
         this.selectData("", "question", "*").then((getIDQuestion) => {
             let i = 0;
             //Réponses Quiz 1
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Hedy Lamarr', '--', " + getIDQuestion[i].id + "), (0, 'Sean Connery', '', " + getIDQuestion[i].id + "), (0, 'Steve Jobs', '', " + getIDQuestion[i].id + "), (0, 'Micheal Jordan', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Hedy Lamarr', '--', " + getIDQuestion[i].id + "), (0, 'Sean Connery', '', " + getIDQuestion[i].id + "), (0, 'Steve Jobs', '', " + getIDQuestion[i].id + "), (0, 'Michael Jordan', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'MiCode', '', " + getIDQuestion[i].id + "), (0, 'Bill Gates', '', " + getIDQuestion[i].id + "), (1, 'Ada Lovelace', '', " + getIDQuestion[i].id + "), (0, 'René Descartes', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
@@ -119,7 +119,7 @@ export class SQLiteService {
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Swift', '--', " + getIDQuestion[i].id + "), (1, 'A0-System', '', " + getIDQuestion[i].id + "), (0, 'HTML', '', " + getIDQuestion[i].id + "), (0, 'Python', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'SWITCH', '--', " + getIDQuestion[i].id + "), (0, 'SI', '', " + getIDQuestion[i].id + "), (0, 'TANT QUE', '', " + getIDQuestion[i].id + "), (1, 'POURQUOI PAS', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Selon le cas', '--', " + getIDQuestion[i].id + "), (0, 'Si... Alors...', '', " + getIDQuestion[i].id + "), (0, 'Tant que', '', " + getIDQuestion[i].id + "), (1, 'Pourquoi pas', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
             //Réponses Quiz 3
@@ -127,7 +127,7 @@ export class SQLiteService {
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Seul', '--', " + getIDQuestion[i].id + "), (1, 'En équipe', '', " + getIDQuestion[i].id + "), (0, 'A deux', '', " + getIDQuestion[i].id + "), (0, 'Il ne travaille pas', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Cela dépend de son domaine de compétence', '--', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (0, 'Vous envoyer dans la matrice', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Vous envoyer dans la matrice', '--', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (1, 'Cela dépend de son domaine de compétence', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
             //Réponses Quiz 4
