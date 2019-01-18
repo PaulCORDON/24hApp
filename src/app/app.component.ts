@@ -19,7 +19,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, sqliteService: SQLiteService, event: Events) {
     platform.ready().then(() => {
 
-      statusBar.styleDefault();
+      statusBar.hide();
       splashScreen.hide();
 
       MyApp.event = event;
@@ -39,5 +39,6 @@ export class MyApp {
       messagingSenderId: "957300827901"
     };
     firebase.initializeApp(config);
+    //this.statusBar.hide();
   }
 }

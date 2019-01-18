@@ -6,14 +6,17 @@ page-concours {
 
     .titre{
         width: 100%;
-        font-size: 16pt;
+        font-size: 30px;;
         text-align: center;
+        color:white;
     }
 
     .modalites{
         width: 100%;
         text-align: center;
         margin-top: 10px;
+        color:white;
+        font-size:17px;
     }
 
     .conditions{
@@ -25,5 +28,31 @@ page-concours {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    .col
+    {
+        text-align: center;
+    }
+
+    .nbTickets
+    {
+        background-color: #E7600E;
+        border-radius : 10px;
+    }
+
+.card-background-page
+{
+    
+
+    ion-card {
+        border-radius: 4px;
+        background: rgba(232, 230, 230, 0.9px);
+    }
+    ion-item {
+        position: relative;
+        background: rgba(232, 230, 230, 0.2px);
+    }
+}
+    
 
 }
