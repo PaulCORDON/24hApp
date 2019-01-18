@@ -51,8 +51,8 @@ export class ExplicationPage {
 
   /*setTicketTheme()
   {
-    this.sqlLite.selectData("where `id` = " + this.idDefi, "defi", "idTheme").then((idTeheme) => {
-      this.sqlLite.selectData("where `id` = " + idTeheme[0], "theme", "nbTicketActuel").then((nbTicket) => {
+    this.sqlLite.selectData("where `id` = " + this.idDefi, "defi", "idTheme").then((idTheme) => {
+      this.sqlLite.selectData("where `id` = " + idTheme[0], "theme", "nbTicketActuel").then((nbTicket) => {
         this.sqlLite.setData("theme", "nbTicketActuel", nbTicket[0]+1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
       });
     });

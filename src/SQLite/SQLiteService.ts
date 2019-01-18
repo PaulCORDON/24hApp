@@ -53,18 +53,26 @@ export class SQLiteService {
     insertDefi() {
         this.selectData("", "theme", "*").then((getIDTheme) => {
             let i = 0;
+
+            //Défis du thème 1
             this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Technologie féminine', 1, 'quiz')", [])
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Send nudes', 0, 'action')", [])
                 .catch(e => console.log(e + " " + i));*/
+
+            //Défis du thème 2
             this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i].id + ", 'Le codage pour les nuls', 0, 'quiz'),  (" + getIDTheme[i++].id + ", 'L''algorithmique pour les nuls', 0, 'quiz')", [])
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Programmez un programme', 0, 'action')", [])
                 .catch(e => console.log(e + " " + i));*/
+
+            //Défis du thème 3
             this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Préjugés', 0, 'quiz')", [])
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Percez un bouton', 0, 'action')", [])
                 .catch(e => console.log(e + " " + i));*/
+
+            //Défis du thème 4
             this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i].id + ", 'L''informatique pour les nuls', 0, 'quiz')", [])
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'La vérité', 0, 'action')", [])
@@ -80,9 +88,11 @@ export class SQLiteService {
             //Défi sur les femmes dans l'info
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Laquelle de ces personnes est considérée comme la pionnière de la technologie Wifi ?', '', " + getIDDefi[i].id + "), ('Quelle a été la première personne à imaginer que l''on pourrait programmer les ordinateurs avec un langage ?', '', " + getIDDefi[i].id + "), ('Qui a conçu le premier ordinateur au monde ?', '', " + getIDDefi[i].id + "), ('Le cobol est un langage de programmation créé en 1959. Il est encore utilisé aujourdhui, surtout dans le domaine des banques. Qui est l''inventeur de ce langage de programmation ?', '', " + getIDDefi[i].id + "), ('Qui a conçu les logiciels de guidage du vaisseau de la mission lunaire Apollo ?', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
+
             //Défi Prendre en photo une informaticienne
             /*this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Votre mission est de scanner le QR Code de 3 informaticiennes. GO!', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));*/
+
             //Défi le codage pour les nuls
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Quel est l''intrus ?', '', " + getIDDefi[i].id + "), ('Quel langage de programmation a été inventé le premier?', '', " + getIDDefi[i].id + "), ('Trouvez un intru parmi ces conditions algorithmique :', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
@@ -105,7 +115,7 @@ export class SQLiteService {
     insertReponse() {
         this.selectData("", "question", "*").then((getIDQuestion) => {
             let i = 0;
-            //Réponses Quiz 1
+            //Réponses Thème 1 - Quiz 1
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Hedy Lamarr', '', " + getIDQuestion[i].id + "), (0, 'Sean Connery', '', " + getIDQuestion[i].id + "), (0, 'Steve Jobs', '', " + getIDQuestion[i].id + "), (0, 'Micheal Jordan', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'MiCode', '', " + getIDQuestion[i].id + "), (0, 'Bill Gates', '', " + getIDQuestion[i].id + "), (1, 'Ada Lovelace', '', " + getIDQuestion[i].id + "), (0, 'René Descartes', '', " + getIDQuestion[i++].id + ")", [])
@@ -117,7 +127,7 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'David Clark', '', " + getIDQuestion[i].id + "), (0, 'Tim Paterson', '', " + getIDQuestion[i].id + "), (1, 'Margaret Hamilton', '', " + getIDQuestion[i].id + "), (0, 'Pierre Curie', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            // Réponses Quiz 2
+            // Réponses Thème 2 - Quiz 2
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'C', '', " + getIDQuestion[i].id + "), (1, 'C4', '', " + getIDQuestion[i].id + "), (0, 'C#', '', " + getIDQuestion[i].id + "), (0, 'C++', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Swift', '', " + getIDQuestion[i].id + "), (1, 'A0-System', '', " + getIDQuestion[i].id + "), (0, 'HTML', '', " + getIDQuestion[i].id + "), (0, 'Python', '', " + getIDQuestion[i++].id + ")", [])
@@ -125,7 +135,15 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'SWITCH', '', " + getIDQuestion[i].id + "), (0, 'SI', '', " + getIDQuestion[i].id + "), (0, 'TANT QUE', '', " + getIDQuestion[i].id + "), (1, 'POURQUOI PAS', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            //Réponses Quiz 3
+            // Réponses Thème 2 - Quiz 3
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Il ne fait rien de spécial', '--', " + getIDQuestion[i].id + "), (1, 'Il échange les valeurs de a et b', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de a et c', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de b et c', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'ce nombre est positif', '--', " + getIDQuestion[i].id + "), (0, 'ce nombre est négatif', '', " + getIDQuestion[i].id + "), (0, 'ce nombre est égal à 0', '', " + getIDQuestion[i].id + "), (0, 'ce n''est pas un nombre', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '0', '--', " + getIDQuestion[i].id + "), (0, '4', '', " + getIDQuestion[i].id + "), (1, '6', '', " + getIDQuestion[i].id + "), (0, '7', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+
+            //Réponses Thème 3 - Quiz 4
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Petit', '', " + getIDQuestion[i].id + "), (0, 'Asocial', '', " + getIDQuestion[i].id + "), (0, 'Avec des lunettes', '', " + getIDQuestion[i].id + "), (1, 'Normal', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Seul', '', " + getIDQuestion[i].id + "), (1, 'En équipe', '', " + getIDQuestion[i].id + "), (0, 'A deux', '', " + getIDQuestion[i].id + "), (0, 'Il ne travaille pas', '', " + getIDQuestion[i++].id + ")", [])
@@ -133,7 +151,7 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Cela dépend de son domaine de compétence', '', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (0, 'Vous envoyer dans la matrice', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            //Réponses Quiz 4
+            //Réponses Thème 4 - Quiz 5
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1 jour', '', " + getIDQuestion[i].id + "), (0, '1 heure', '', " + getIDQuestion[i].id + "), (0, '1 seconde', '', " + getIDQuestion[i].id + "), (1, '1 nano-seconde', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '20 000 GB', '', " + getIDQuestion[i].id + "), (0, '200 000 GB', '', " + getIDQuestion[i].id + "), (1, '2 000 000 GB', '', " + getIDQuestion[i].id + "), (0, '20 000 000 GB', '', " + getIDQuestion[i++].id + ")", [])
@@ -174,7 +192,7 @@ export class SQLiteService {
                     .catch(e => console.log(e));
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('POURQUOI PAS nexiste pas dans le jargon informatique.\nSI, TANT QUE et SWITCH sont des conditions qui permettent aux programmes dexécuter des tâches en fonction de certains paramètres.\nExemple : SI le temps est nuageux, alors jemmène un parapluie. TANT QUE le temps est nuageux, je garde mon parapluie avec moi.\nCet exemple peut être traduit sur des fonctions informatiques.', 'algo.jpg', 'Et pourquoi pas ?', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
-                
+
                 //Explication des questions du quiz 3
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Il échange les valeurs de a et b.\nCe programme est un programme simple pour échanger la valeur de deux variables. On remarque que l''échange nécessite une troisième variable de stockage, qui permet au programme de garder en mémoire la valeur d’une des deux variables échangées.', 'ada.jpg', 'Echange de valeurs', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
