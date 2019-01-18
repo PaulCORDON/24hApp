@@ -41,12 +41,22 @@ export class ExplicationPage {
           this.newTicket = true;
           GlobalVarsProvider.instance.updateNombreTicket(1);
           this.sqlLite.setData("defi", "etat", 2, "where `id` = " + this.idDefi);
+          //this.setTicketTheme();
           this.sqlLite.setData("theme", "nbTicketActuel", 1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
           this.sqlLite.setData("defi", "etat", 1, "where `id` = " + (++this.idDefi));
         }
       });
     }
   }
+
+  /*setTicketTheme()
+  {
+    this.sqlLite.selectData("where `id` = " + this.idDefi, "defi", "idTheme").then((idTeheme) => {
+      this.sqlLite.selectData("where `id` = " + idTeheme[0], "theme", "nbTicketActuel").then((nbTicket) => {
+        this.sqlLite.setData("theme", "nbTicketActuel", nbTicket[0]+1, "where `id` = " + (this.listDefi[this.idDefi - 1].idTheme));
+      });
+    });
+  }*/
 
   onClickTerminer() {
 
