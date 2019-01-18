@@ -87,7 +87,7 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Quel est l''intrus ?', '', " + getIDDefi[i].id + "), ('Quel langage de programmation a été inventé le premier?', '', " + getIDDefi[i].id + "), ('Trouvez un intru parmi ces conditions algorithmique :', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Défi l'algorithme pour les nuls
-            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('DÉBUT\na = 1\nb = 2\nc = 3\n\nc = a\na = b\nb = cF\nIN\nQue fait ce programme ?', '', " + getIDDefi[i].id + "), ('nombre = -2\n\nDÉBUT\nSI nombre < 0 ALORS\n\tÉCRIRE ce nombre est positif\nSI nombre > 0 ALORS\n\tÉCRIRE ce nombre est négatif\nSI nombre = 0 ALORS\n\tÉCRIRE ce nombre est égal à 0\nSINON\n\tÉCRIRE ce n''est pas un nombre\nFIN\n\nQue va écrire le programme ?', '', " + getIDDefi[i].id + "), ('heure = 0\ninformaticien = fatigué\n\nDÉBUT\nTANT QUE heure < 24\n\tSI informaticien = fatigué ALORS\n\t\tBOIRE café\n\t\tinformaticien = en pleine forme\n\tSINON\n\t\theure = heure + 4\n\t\tinformaticien = fatigué\nFIN\n\n Combien de vafé aura bu l''informaticien à la fin du programme ?', '', " + getIDDefi[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('DÉBUT<br>a = 1<br>b = 2<br>c = 3<br><br>c = a<br>a = b<br>b = c<br>FIN<br>Que fait ce programme ?', '', " + getIDDefi[i].id + "), ('nombre = -2<br><br>DÉBUT<br>SI nombre < 0 ALORS<br>    ÉCRIRE ce nombre est positif<br>SI nombre > 0 ALORS<br>    ÉCRIRE ce nombre est négatif<br>SI nombre = 0 ALORS<br>    ÉCRIRE ce nombre est égal à 0<br>SINON<br>    ÉCRIRE ce n''est pas un nombre<br>FIN<br><br>Que va écrire le programme ?', '', " + getIDDefi[i].id + "), ('heure = 0\ninformaticien = fatigué\n\nDÉBUT\nTANT QUE heure < 24\n\tSI informaticien = fatigué ALORS\n\t\tBOIRE café\n\t\tinformaticien = en pleine forme\n\tSINON\n\t\theure = heure + 4\n\t\tinformaticien = fatigué\nFIN\n\n Combien de vafé aura bu l''informaticien à la fin du programme ?', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Défi Préjugés
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Un informaticien est souvent :', '', " + getIDDefi[i].id + "), ('Un informaticien travaille le plus souvent :', '', " + getIDDefi[i].id + "), ('Un informaticien peut :', '', " + getIDDefi[i++].id + ")", [])
@@ -106,9 +106,9 @@ export class SQLiteService {
         this.selectData("", "question", "*").then((getIDQuestion) => {
             let i = 0;
             //Réponses Quiz 1
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Hedy Lamarr', '--', " + getIDQuestion[i].id + "), (0, 'Sean Connery', '', " + getIDQuestion[i].id + "), (0, 'Steve Jobs', '', " + getIDQuestion[i].id + "), (0, 'Michael Jordan', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Hedy Lamarr', '', " + getIDQuestion[i].id + "), (0, 'Sean Connery', '', " + getIDQuestion[i].id + "), (0, 'Steve Jobs', '', " + getIDQuestion[i].id + "), (0, 'Micheal Jordan', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'MiCode', '', " + getIDQuestion[i].id + "), (0, 'Bill Gates', '', " + getIDQuestion[i].id + "), (1, 'Ada Lovelace', '', " + getIDQuestion[i].id + "), (0, 'René Descartes', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'MiCode', '', " + getIDQuestion[i].id + "), (0, 'Bill Gates', '', " + getIDQuestion[i].id + "), (1, 'Ada Lovelace', 'ada.jpg', " + getIDQuestion[i].id + "), (0, 'René Descartes', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Larry Tesler', '', " + getIDQuestion[i].id + "), (1, 'Jean Bartik', '', " + getIDQuestion[i].id + "), (0, 'Douglas Engelbart', '', " + getIDQuestion[i].id + "), (0, 'James Gosling', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
@@ -118,37 +118,29 @@ export class SQLiteService {
                 .catch(e => console.log(e + " " + i));
 
             // Réponses Quiz 2
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'C', '--', " + getIDQuestion[i].id + "), (1, 'C4', '', " + getIDQuestion[i].id + "), (0, 'C#', '', " + getIDQuestion[i].id + "), (0, 'C++', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'C', '', " + getIDQuestion[i].id + "), (1, 'C4', '', " + getIDQuestion[i].id + "), (0, 'C#', '', " + getIDQuestion[i].id + "), (0, 'C++', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Swift', '--', " + getIDQuestion[i].id + "), (1, 'A0-System', '', " + getIDQuestion[i].id + "), (0, 'HTML', '', " + getIDQuestion[i].id + "), (0, 'Python', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Swift', '', " + getIDQuestion[i].id + "), (1, 'A0-System', '', " + getIDQuestion[i].id + "), (0, 'HTML', '', " + getIDQuestion[i].id + "), (0, 'Python', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Selon le cas', '--', " + getIDQuestion[i].id + "), (0, 'Si... Alors...', '', " + getIDQuestion[i].id + "), (0, 'Tant que', '', " + getIDQuestion[i].id + "), (1, 'Pourquoi pas', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'SWITCH', '', " + getIDQuestion[i].id + "), (0, 'SI', '', " + getIDQuestion[i].id + "), (0, 'TANT QUE', '', " + getIDQuestion[i].id + "), (1, 'POURQUOI PAS', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-             // Réponses Quiz 3
-             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Il ne fait rien de spécial', '--', " + getIDQuestion[i].id + "), (1, 'Il échange les valeurs de a et b', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de a et c', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de b et c', '', " + getIDQuestion[i++].id + ")", [])
-             .catch(e => console.log(e + " " + i));
-             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'ce nombre est positif', '--', " + getIDQuestion[i].id + "), (0, 'ce nombre est négatif', '', " + getIDQuestion[i].id + "), (0, 'ce nombre est égal à 0', '', " + getIDQuestion[i].id + "), (0, 'ce n''est pas un nombre', '', " + getIDQuestion[i++].id + ")", [])
-                 .catch(e => console.log(e + " " + i));
-             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '0', '--', " + getIDQuestion[i].id + "), (0, '4', '', " + getIDQuestion[i].id + "), (1, '6', '', " + getIDQuestion[i].id + "), (0, '7', '', " + getIDQuestion[i++].id + ")", [])
-                 .catch(e => console.log(e + " " + i));
+            //Réponses Quiz 3
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Petit', '', " + getIDQuestion[i].id + "), (0, 'Asocial', '', " + getIDQuestion[i].id + "), (0, 'Avec des lunettes', '', " + getIDQuestion[i].id + "), (1, 'Normal', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Seul', '', " + getIDQuestion[i].id + "), (1, 'En équipe', '', " + getIDQuestion[i].id + "), (0, 'A deux', '', " + getIDQuestion[i].id + "), (0, 'Il ne travaille pas', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'Cela dépend de son domaine de compétence', '', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (0, 'Vous envoyer dans la matrice', '', " + getIDQuestion[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
 
             //Réponses Quiz 4
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Petit', '--', " + getIDQuestion[i].id + "), (0, 'Asocial', '', " + getIDQuestion[i].id + "), (0, 'Avec des lunettes', '', " + getIDQuestion[i].id + "), (1, 'Normal', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1 jour', '', " + getIDQuestion[i].id + "), (0, '1 heure', '', " + getIDQuestion[i].id + "), (0, '1 seconde', '', " + getIDQuestion[i].id + "), (1, '1 nano-seconde', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Seul', '--', " + getIDQuestion[i].id + "), (1, 'En équipe', '', " + getIDQuestion[i].id + "), (0, 'A deux', '', " + getIDQuestion[i].id + "), (0, 'Il ne travaille pas', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '20 000 GB', '', " + getIDQuestion[i].id + "), (0, '200 000 GB', '', " + getIDQuestion[i].id + "), (1, '2 000 000 GB', '', " + getIDQuestion[i].id + "), (0, '20 000 000 GB', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Vous envoyer dans la matrice', '--', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (1, 'Cela dépend de son domaine de compétence', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1', '', " + getIDQuestion[i].id + "), (0, '1 000', '', " + getIDQuestion[i].id + "), (0, '7 000', '', " + getIDQuestion[i].id + "), (1, '13 000', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
-
-            //Réponses Quiz 5
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1 jour', '--', " + getIDQuestion[i].id + "), (0, '1 heure', '', " + getIDQuestion[i].id + "), (0, '1 seconde', '', " + getIDQuestion[i].id + "), (1, '1 nano-seconde', '', " + getIDQuestion[i++].id + ")", [])
-                .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '20 000 GB', '--', " + getIDQuestion[i].id + "), (0, '200 000 GB', '', " + getIDQuestion[i].id + "), (1, '2 000 000 GB', '', " + getIDQuestion[i].id + "), (0, '20 000 000 GB', '', " + getIDQuestion[i++].id + ")", [])
-                .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1', '--', " + getIDQuestion[i].id + "), (0, '1 000', '', " + getIDQuestion[i].id + "), (0, '7 000', '', " + getIDQuestion[i].id + "), (1, '13 000', '', " + getIDQuestion[i++].id + ")", [])
-                .catch(e => console.log(e + " " + i));
-            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '24 000 000€', '--', " + getIDQuestion[i].id + "), (1, '240 000 000€', '', " + getIDQuestion[i].id + "), (0, '2 400 000 000€', '', " + getIDQuestion[i].id + "), (0, '24 000 000 000€', '', " + getIDQuestion[i++].id + ")", [])
+            this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '24 000 000€', '', " + getIDQuestion[i].id + "), (1, '240 000 000€', '', " + getIDQuestion[i].id + "), (0, '2 400 000 000€', '', " + getIDQuestion[i].id + "), (0, '24 000 000 000€', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES", [])
                 .catch(e => console.log(e + " " + i));*/
