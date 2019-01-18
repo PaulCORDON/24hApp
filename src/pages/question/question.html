@@ -9,18 +9,24 @@
         <ion-grid>
             <ion-row>
                 <ion-col *ngFor="let reponse of listReponses; let i= index">
-                    <ion-card *ngIf="(i==0 || i==1) && reponse.image==''" class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                    <ion-card *ngIf="(i==0 || i==1) && reponse.image==''" class="reponse" attr.id="{{reponse.id}}"
+                        (click)="cliqueReponse(reponse.isReponse,reponse.id)">
                         <div class="bounce">{{reponse.nom}}</div>
                     </ion-card>
-                    <ion-card *ngIf="(i==0 || i==1) && reponse.image!=''" class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                    <ion-card *ngIf="(i==0 || i==1) && reponse.image!=''" class="reponse" attr.id="{{reponse.id}}"
+                        (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                        <img src="assets/imgs/{{reponse.image}}" />
                         <div class="bounce">{{reponse.nom}}</div>
                     </ion-card>
                 </ion-col>
                 <ion-col *ngFor="let reponse of listReponses; let i= index">
-                    <ion-card *ngIf="(i==2 || i==3) && reponse.image==''" class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                    <ion-card *ngIf="(i==2 || i==3) && reponse.image==''" class="reponse" attr.id="{{reponse.id}}"
+                        (click)="cliqueReponse(reponse.isReponse,reponse.id)">
                         <div class="bounce">{{reponse.nom}}</div>
                     </ion-card>
-                    <ion-card *ngIf="(i==2 || i==3) && reponse.image!=''" class="reponse" attr.id="{{reponse.id}}" (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                    <ion-card *ngIf="(i==2 || i==3) && reponse.image!=''" class="reponse" attr.id="{{reponse.id}}"
+                        (click)="cliqueReponse(reponse.isReponse,reponse.id)">
+                        <img src="assets/imgs/{{reponse.image}}" />
                         <div class="bounce">{{reponse.nom}}</div>
                     </ion-card>
                 </ion-col>
