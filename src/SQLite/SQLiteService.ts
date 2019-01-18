@@ -57,7 +57,7 @@ export class SQLiteService {
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Send nudes', 0, 'action')", [])
                 .catch(e => console.log(e + " " + i));*/
-            this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Le codage pour les nuls', 0, 'quiz')", [])
+            this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i].id + ", 'Le codage pour les nuls', 0, 'quiz'),  (" + getIDTheme[i++].id + ", 'L'algorithmique pour les nuls', 0, 'quiz')", [])
                 .catch(e => console.log(e + " " + i));
             /*this.db.executeSql("INSERT INTO `defi` (`idTheme`, `titre`, `etat`, `type`) VALUES (" + getIDTheme[i++].id + ", 'Programmez un programme', 0, 'action')", [])
                 .catch(e => console.log(e + " " + i));*/
@@ -85,6 +85,9 @@ export class SQLiteService {
                 .catch(e => console.log(e + " " + i));*/
             //Défi le codage pour les nuls
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Quel est l''intrus ?', '', " + getIDDefi[i].id + "), ('Quel langage de programmation a été inventé le premier?', '', " + getIDDefi[i].id + "), ('Trouvez un intru parmi ces conditions algorithmique :', '', " + getIDDefi[i++].id + ")", [])
+                .catch(e => console.log(e + " " + i));
+            //Défi l'algorithme pour les nuls
+            this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('DÉBUT\na = 1\nb = 2\nc = 3\n\nc = a\na = b\nb = c\nFIN\nQue fait ce programme ?', '', " + getIDDefi[i].id + "), ('nombre = -2\n\nDÉBUT\nSI nombre < 0 ALORS\n\tÉCRIRE ce nombre est positif\nSI nombre > 0 ALORS\n\tÉCRIRE ce nombre est négatif\nSI nombre = 0 ALORS\n\tÉCRIRE ce nombre est égal à 0\nSINON\n\tÉCRIRE ce n''est pas un nombre\nFIN\n\nQue va écrire le programme ?', '', " + getIDDefi[i].id + "), ('heure = 0\ninformaticien = fatigué\n\nDÉBUT\nTANT QUE heure < 24\n\tSI informaticien = fatigué ALORS\n\t\tBOIRE café\n\t\tinformaticien = en pleine forme\n\tSINON\n\t\theure = heure + 4\n\t\tinformaticien = fatigué\nFIN\n\n Combien de vafé aura bu l''informaticien à la fin du programme ?', '', " + getIDDefi[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             //Défi Préjugés
             this.db.executeSql("INSERT INTO `question` (`intitule`, `textePresentation`, `idDefi`) VALUES ('Un informaticien est souvent :', '', " + getIDDefi[i].id + "), ('Un informaticien travaille le plus souvent :', '', " + getIDDefi[i].id + "), ('Un informaticien peut :', '', " + getIDDefi[i++].id + ")", [])
@@ -122,7 +125,15 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Selon le cas', '--', " + getIDQuestion[i].id + "), (0, 'Si... Alors...', '', " + getIDQuestion[i].id + "), (0, 'Tant que', '', " + getIDQuestion[i].id + "), (1, 'Pourquoi pas', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            //Réponses Quiz 3
+             // Réponses Quiz 3
+             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Il ne fait rien de spécial', '--', " + getIDQuestion[i].id + "), (1, 'Il échange les valeurs de a et b', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de a et c', '', " + getIDQuestion[i].id + "), (0, 'Il échange les valeurs de b et c', '', " + getIDQuestion[i++].id + ")", [])
+             .catch(e => console.log(e + " " + i));
+             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (1, 'ce nombre est positif', '--', " + getIDQuestion[i].id + "), (0, 'ce nombre est négatif', '', " + getIDQuestion[i].id + "), (0, 'ce nombre est égal à 0', '', " + getIDQuestion[i].id + "), (0, 'ce n''est pas un nombre', '', " + getIDQuestion[i++].id + ")", [])
+                 .catch(e => console.log(e + " " + i));
+             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '0', '--', " + getIDQuestion[i].id + "), (0, '4', '', " + getIDQuestion[i].id + "), (1, '6', '', " + getIDQuestion[i].id + "), (0, '7', '', " + getIDQuestion[i++].id + ")", [])
+                 .catch(e => console.log(e + " " + i));
+
+            //Réponses Quiz 4
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Petit', '--', " + getIDQuestion[i].id + "), (0, 'Asocial', '', " + getIDQuestion[i].id + "), (0, 'Avec des lunettes', '', " + getIDQuestion[i].id + "), (1, 'Normal', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Seul', '--', " + getIDQuestion[i].id + "), (1, 'En équipe', '', " + getIDQuestion[i].id + "), (0, 'A deux', '', " + getIDQuestion[i].id + "), (0, 'Il ne travaille pas', '', " + getIDQuestion[i++].id + ")", [])
@@ -130,7 +141,7 @@ export class SQLiteService {
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, 'Vous envoyer dans la matrice', '--', " + getIDQuestion[i].id + "), (0, 'Hacker un site en quelques minutes', '', " + getIDQuestion[i].id + "), (0, 'Réparer une imprimante défaillante', '', " + getIDQuestion[i].id + "), (1, 'Cela dépend de son domaine de compétence', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
 
-            //Réponses Quiz 4
+            //Réponses Quiz 5
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '1 jour', '--', " + getIDQuestion[i].id + "), (0, '1 heure', '', " + getIDQuestion[i].id + "), (0, '1 seconde', '', " + getIDQuestion[i].id + "), (1, '1 nano-seconde', '', " + getIDQuestion[i++].id + ")", [])
                 .catch(e => console.log(e + " " + i));
             this.db.executeSql("INSERT INTO `reponse` (`isReponse`, `nom`, `image`, `idQuestion`) VALUES (0, '20 000 GB', '--', " + getIDQuestion[i].id + "), (0, '200 000 GB', '', " + getIDQuestion[i].id + "), (1, '2 000 000 GB', '', " + getIDQuestion[i].id + "), (0, '20 000 000 GB', '', " + getIDQuestion[i++].id + ")", [])
@@ -171,17 +182,25 @@ export class SQLiteService {
                     .catch(e => console.log(e));
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('POURQUOI PAS nexiste pas dans le jargon informatique.\nSI, TANT QUE et SWITCH sont des conditions qui permettent aux programmes dexécuter des tâches en fonction de certains paramètres.\nExemple : SI le temps est nuageux, alors jemmène un parapluie. TANT QUE le temps est nuageux, je garde mon parapluie avec moi.\nCet exemple peut être traduit sur des fonctions informatiques.', 'algo.jpg', 'Et pourquoi pas ?', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
-
+                
                 //Explication des questions du quiz 3
-                this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Un informaticien est une personne normale. Nous pouvons voir dans certaines séries ou certains films des stéréotypes d''informaticiens tels que les lunettes rondes, des boutons, un gamer hardcore, des cheveux longs, des personnes asociables.\nVenez nous rencontrer, nous casserons tous vos préjugés.', 'incroyable.jpeg', 'Des êtres incroyables', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Il échange les valeurs de a et b.\nCe programme est un programme simple pour échanger la valeur de deux variables. On remarque que l''échange nécessite une troisième variable de stockage, qui permet au programme de garder en mémoire la valeur d’une des deux variables échangées.', 'image', '', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Le programme va écrire : ce nombre est positif.\nEn effet, ce code contient une erreur, “positif” et “négatif” sont inversés. Un programme informatique n''est pas infaillible et surtout un codeur fait souvent des erreurs d''inattention. L''ordinateur ne peut pas reconnaître ces erreurs. C''est pour ça que c''est important de bien lire un code et de le tester fréquemment.', 'image', '', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+                this.db.executeSql("INSERT INTO `explication` (`titre`, `image`, `texte`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('L''informaticien aura bu 6 cafés.\nEffectivement on remarque que le programme fait boire un café à l''informaticien toutes les 4 heures. Si l''on divise donc 24 par 4 on trouve 6 cafés.', 'image', '', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                    .catch(e => console.log(e));
+
+                //Explication des questions du quiz 4  
+                this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Un informaticien est une personne normale. Nous pouvons voir dans certaines séries ou certains films des stéréotypes d''informaticiens tels que les lunettes rondes, des boutons, un gamer hardcore, des cheveux longs, des personnes asociables.\nVenez nous rencontrer, nous casserons tous vos préjugés.', 'image', 'Des êtres incroyables', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Le travail d''informaticien est avant tout un travail d''équipe. Pour développer une application quelconque, il faut plusieurs compétences qui sont toutes complémentaires et qu''on retrouve chez chaque informaticien spécialisé : un lead programmer, un designer UX, un Data Analyst, un graphiste, ect', 'equipe.jpg', 'Un esprit d''équipe redoutable', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Comme vu lors de la question précédente, il existe toute sorte de spécilité dans le métier d''informaticien. Il peut également être polyvalent et peut réaliser plusieurs missions dans le cadre du développement d''une application, comme par exemple coder et faire le graphisme.', 'multi.jpg', 'Un individu pluri-disciplinaire', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
 
-                //Explication des questions du quiz 4
-                this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Et oui ! Avec les technologies d''aujourd''hui, il est très facile de pirater un mot de passe du type 12345. Les systèmes dexploitation tels que Kali Linux disposent doutils pour pouvoir hacker un mot de passe de nombreuses façons. Jetez-y un coup d''oeil, mais, pas de bêtises ;)', 'mister.jpg', 'Mister Robot dans la vraie vie', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
+                //Explication des questions du quiz 5
+                this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Et oui ! Avec les technologies d''aujourd''hui, il est très facile de pirater un mot de passe du type 12345. Les systèmes dexploitation tels que Kali Linux disposent doutils pour pouvoir hacker un mot de passe de nombreuses façons. Jetez-y un coup d''oeil, mais, pas de bêtises ;)', 'image', 'Mister Robot dans la vraie vie', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
                 this.db.executeSql("INSERT INTO `explication` (`texte`, `image`, `titre`, `titreBouton`, `texteBouton`, `idQuestion`, `idTheme`) VALUES ('Ce nombre gigantesque s''explique facilement. Chaque secondes, des milions d''internautes mettent en ligne sur les réseaux sociaux des photos, vidéos, documents, etc.', 'poids.jpg', 'L''informatique pèse de plus en plus', 'bouton', 'En savoir plus', " + getIDQuestion[question++].id + ", 0)", [])
                     .catch(e => console.log(e));
