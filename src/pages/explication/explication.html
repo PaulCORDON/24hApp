@@ -5,7 +5,6 @@
 
 
 <ion-content class="fond" style="margin-top:-5px">
-  <img *ngIf="this.newTicket"  class="ticket" src="assets/imgs/ticket.png">
   <ion-card class="cardQuestion">
     <ion-grid>
       <ion-row>
@@ -14,14 +13,17 @@
           <br>
           <ion-label class="explication bounceInLeft">{{explication.texte}}</ion-label>
           <br>
-          <button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question suivante</button>
+          <button style="border-radius: 10px" *ngIf="isNextQuestion" ion-button (tap)="onClickNextQuestion()">Question
+            suivante</button>
           <br>
-          <button  style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)= "onClickTerminer()">Terminer</button>
+          <button style="border-radius: 10px" *ngIf="!isNextQuestion" ion-button (tap)="onClickTerminer()">Terminer</button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
 
-  <img *ngIf="this.newTicket"  class="ticket" src="assets/imgs/ticket.png">
+
+  <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
+
 
 </ion-content>
