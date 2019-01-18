@@ -45,7 +45,7 @@ export class SQLiteService {
     }
 
     insertInTable() {
-        this.db.executeSql("INSERT INTO `theme` (`nom`, `progression`, `nbTicketActuel`, `nbTicketMax`) VALUES ('Les femmes et l''informatique', 0, 0, 1), ('Le code / La programmation', 0, 0, 1), ('Trouvez des geeks', 0, 0, 1), ('Culture informatique', 0, 0, 1)", [])
+        this.db.executeSql("INSERT INTO `theme` (`nom`, `progression`, `nbTicketActuel`, `nbTicketMax`) VALUES ('Les femmes et l''informatique', 0, 0, 1), ('Le code / La programmation', 0, 0, 2), ('Trouvez des geeks', 0, 0, 1), ('Culture informatique', 0, 0, 1)", [])
             .catch(e => console.log(e));
         this.insertDefi();
     }
