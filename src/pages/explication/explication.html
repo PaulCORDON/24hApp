@@ -1,18 +1,18 @@
 <ion-header></ion-header>
 
-<ion-content class="fond" style="margin-top:-5px">
+<ion-content class="fond" style="margin-top:0px">
   <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
-  <ion-card class="cardQuestion">
+  <div class="cardQuestion">
     <ion-grid>
       <ion-row>
         <ion-col class="textalign">
           <br>
-          <ion-label class="ensavoirplus bounceInLeft">{{explication?.titre}}</ion-label>
+          <ion-title class="ensavoirplus bounceInLeft">{{explication?.titre}}</ion-title>
           <br>
   
          <ion-row>
            <ion-col col-3></ion-col>
-           <ion-col><img class="img bounceInLeft" src="assets/imgs/{{explication.image}}"></ion-col>
+           <ion-col><img class="img bounceInLeft" src="assets/imgs/{{explication?.image}}"></ion-col>
            <ion-col col-3></ion-col>
          </ion-row>
           
@@ -31,16 +31,19 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-card>
+    
+  </div>
+
   <ion-fab right bottom>
-    <button color="secondary" *ngIf="isNextQuestion" ion-fab (tap)="onClickNextQuestion()">
-      <ion-icon name="ios-arrow-forward"></ion-icon>
-    </button>
-  </ion-fab>
-  <ion-fab right bottom>
-    <button color="secondary" *ngIf="!isNextQuestion" ion-fab (tap)="onClickTerminer()">
-      <ion-icon name="ios-arrow-forward"></ion-icon>
-    </button>
-  </ion-fab>
-  <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
+      <button color="secondary" *ngIf="isNextQuestion" ion-fab (tap)="onClickNextQuestion()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-fab>
+    <ion-fab right bottom>
+      <button color="secondary" *ngIf="!isNextQuestion" ion-fab (tap)="onClickTerminer()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-fab>
+    <img *ngIf="this.newTicket" class="ticket" src="assets/imgs/ticket.png">
+  
 </ion-content>

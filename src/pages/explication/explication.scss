@@ -39,7 +39,7 @@ page-explication {
     
     .fond{
         background: linear-gradient(#0BA3CC 100%); /* W3C */
-        padding: 0;
+        padding: 0px;
         display: flex!important;
         align-content: center!important;
         align-items: center!important;
@@ -57,16 +57,17 @@ page-explication {
         height: auto;
         width: auto;
         //position: relative;
-        //text-align: center;
-        border-radius: 5px;
+        text-align: center;
+        border-radius: 0px;
         //background: rgba(#0BA3CC, 0.6);
         background: linear-gradient(#D3D3D3 100%); /* W3C */
         color: black;
         padding: 10px;
-        margin-top: 10px;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom:0px;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        min-height: 100%;
         display: flex!important;
         align-content: center!important;
         align-items: center!important;
@@ -74,7 +75,7 @@ page-explication {
 
       .explication {
         margin:auto;
-        text-align: center;
+        text-align: justify;
         font-size:18px;
         white-space: normal;
     }

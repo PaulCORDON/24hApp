@@ -19,7 +19,7 @@
 .tabs {
 
 .tabbar {
-    background: linear-gradient(to bottom, #0BA3CC 0%, #0BA3CC 30%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
+    background: linear-gradient(to bottom, #E7600E 0%, #0BA3CC 30%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 50%,#0BA3CC 100%); /* W3C */
 
    // background-color: #0BA3CC;
     //opacity: 0.1;
@@ -28,7 +28,7 @@
     //quand l'onglet est sélectionné
     a.tab-button[aria-selected=true]{
         //opacity: 1;
-        margin-top: 0px;
+        margin-top: 13px;
 		color: color($colors,light);
 		.tab-button-icon {
             //opacity: 1;
@@ -39,7 +39,7 @@
     a.tab-button[aria-selected=false]{
        // opacity: 1;
         //color: color($colors,danger);
-        margin-top: 0px;
+        margin-top: 13px;
 		.tab-button-icon {
             //opacity: 1;
 			//color: color($colors,danger);
@@ -66,7 +66,7 @@
         background-color: #E7600E;
         content: '';
         display: block;
-        margin: 0px auto;
+        margin: 10px auto;
         width: 60px;
         height: 4px;
         margin-block-end: 0;
@@ -105,8 +105,4 @@
     color: white;
     padding-bottom: 5px;
     padding-top: 5px;
-}
-
-ion-content{
-    padding-bottom: 10px;
 }
