@@ -22,6 +22,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { Infos24hProvider } from '../providers/infos24h/infos24h';
 import { MyApp } from './app.component';
+import { PortesOuvertesPage } from '../pages/portes-ouvertes/portes-ouvertes';
 
 var config = {
   apiKey: "AIzaSyAUX6GiF2zOiHCseXho3qUWUHNb5V3aj7k",
@@ -40,6 +41,7 @@ var config = {
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
+    PortesOuvertesPage,
     SlideTutoPage
   ],
   imports: [
@@ -59,6 +61,7 @@ var config = {
     TabsPage,
     SplashscreenPage,
     ConcoursPage,
+    PortesOuvertesPage,
     SlideTutoPage,
     QuestionPage
   ],
